@@ -1,0 +1,112 @@
+name: example
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  example:
+    prefix_prefix: example
+    prefix_reference: http://example.org/example/
+  brick:
+    prefix_prefix: brick
+    prefix_reference: https://brickschema.org/schema/Brick#
+  csvw:
+    prefix_prefix: csvw
+    prefix_reference: http://www.w3.org/ns/csvw#
+  dc:
+    prefix_prefix: dc
+    prefix_reference: http://purl.org/dc/elements/1.1/
+  dcat:
+    prefix_prefix: dcat
+    prefix_reference: http://www.w3.org/ns/dcat#
+  dcmitype:
+    prefix_prefix: dcmitype
+    prefix_reference: http://purl.org/dc/dcmitype/
+  dcterms:
+    prefix_prefix: dcterms
+    prefix_reference: http://purl.org/dc/terms/
+  dcam:
+    prefix_prefix: dcam
+    prefix_reference: http://purl.org/dc/dcam/
+  doap:
+    prefix_prefix: doap
+    prefix_reference: http://usefulinc.com/ns/doap#
+  foaf:
+    prefix_prefix: foaf
+    prefix_reference: http://xmlns.com/foaf/0.1/
+  geo:
+    prefix_prefix: geo
+    prefix_reference: http://www.opengis.net/ont/geosparql#
+  odrl:
+    prefix_prefix: odrl
+    prefix_reference: http://www.w3.org/ns/odrl/2/
+  org:
+    prefix_prefix: org
+    prefix_reference: http://www.w3.org/ns/org#
+  prof:
+    prefix_prefix: prof
+    prefix_reference: http://www.w3.org/ns/dx/prof/
+  prov:
+    prefix_prefix: prov
+    prefix_reference: http://www.w3.org/ns/prov#
+  qb:
+    prefix_prefix: qb
+    prefix_reference: http://purl.org/linked-data/cube#
+  sh:
+    prefix_prefix: sh
+    prefix_reference: http://www.w3.org/ns/shacl#
+  skos:
+    prefix_prefix: skos
+    prefix_reference: http://www.w3.org/2004/02/skos/core#
+  sosa:
+    prefix_prefix: sosa
+    prefix_reference: http://www.w3.org/ns/sosa/
+  ssn:
+    prefix_prefix: ssn
+    prefix_reference: http://www.w3.org/ns/ssn/
+  time:
+    prefix_prefix: time
+    prefix_reference: http://www.w3.org/2006/time#
+  vann:
+    prefix_prefix: vann
+    prefix_reference: http://purl.org/vocab/vann/
+  void:
+    prefix_prefix: void
+    prefix_reference: http://rdfs.org/ns/void#
+  wgs:
+    prefix_prefix: wgs
+    prefix_reference: https://www.w3.org/2003/01/geo/wgs84_pos#
+  owl:
+    prefix_prefix: owl
+    prefix_reference: http://www.w3.org/2002/07/owl#
+  rdf:
+    prefix_prefix: rdf
+    prefix_reference: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs:
+    prefix_prefix: rdfs
+    prefix_reference: http://www.w3.org/2000/01/rdf-schema#
+  xsd:
+    prefix_prefix: xsd
+    prefix_reference: http://www.w3.org/2001/XMLSchema#
+  xml:
+    prefix_prefix: xml
+    prefix_reference: http://www.w3.org/XML/1998/namespace
+default_prefix: example
+default_range: string
+slots:
+  rightsOverrideExpiration:
+    name: rightsOverrideExpiration
+    comments:
+    - "Date when a rights override expires.  After this date, the base rights\n  \
+      \        rights statement will be in effect.  Recommended best practice is to\
+      \ use an encoding scheme,\n          such as the W3CDTF profile of ISO 8601."
+    slot_uri: <http://pcdm.org/rights#rightsOverrideExpiration>
+  rightsOverride:
+    name: rightsOverride
+    comments:
+    - "Links to a rights statement that overrides the base rights statement\n    \
+      \      attached to a resource.  This could be an embargo, temporary license,\
+      \ statutory\n          restriction."
+    slot_uri: <http://pcdm.org/rights#rightsOverride>
