@@ -96,19 +96,17 @@ prefixes:
 default_prefix: example
 default_range: string
 classes:
+  PreservationFile:
+    name: PreservationFile
+    comments:
+    - "Best quality representation of the Object appropriate for long-term\n     \
+      \   preservation."
+    class_uri: <http://pcdm.org/use#PreservationFile>
   OriginalFile:
     name: OriginalFile
     comments:
     - The original creation format of a file.
     class_uri: <http://pcdm.org/use#OriginalFile>
-  ServiceFile:
-    name: ServiceFile
-    comments:
-    - "A medium quality representation of the Object appropriate for serving to\n\
-      \        users.  Similar to a FADGI \"derivative file\" but can also be used\
-      \ for born-digital content,\n        and is not necessarily derived from another\
-      \ file."
-    class_uri: <http://pcdm.org/use#ServiceFile>
   Transcript:
     name: Transcript
     comments:
@@ -124,27 +122,29 @@ classes:
       \   preservation."
     - 'Note: This class has been deprecated in favor of PreservationFile.'
     class_uri: <http://pcdm.org/use#PreservationMasterFile>
-  ThumbnailImage:
-    name: ThumbnailImage
-    comments:
-    - "A low resolution image representation of the Object appropriate for using\n\
-      \        as an icon."
-    class_uri: <http://pcdm.org/use#ThumbnailImage>
-  PreservationFile:
-    name: PreservationFile
-    comments:
-    - "Best quality representation of the Object appropriate for long-term\n     \
-      \   preservation."
-    class_uri: <http://pcdm.org/use#PreservationFile>
-  IntermediateFile:
-    name: IntermediateFile
-    comments:
-    - "High quality representation of the Object, appropriate for generating\n   \
-      \     derivatives or other additional processing."
-    class_uri: <http://pcdm.org/use#IntermediateFile>
   ExtractedText:
     name: ExtractedText
     comments:
     - "A textual representation of the Object appropriate for fulltext indexing,\n\
       \        such as a plaintext version of a document, or OCR text."
     class_uri: <http://pcdm.org/use#ExtractedText>
+  IntermediateFile:
+    name: IntermediateFile
+    comments:
+    - "High quality representation of the Object, appropriate for generating\n   \
+      \     derivatives or other additional processing."
+    class_uri: <http://pcdm.org/use#IntermediateFile>
+  ServiceFile:
+    name: ServiceFile
+    comments:
+    - "A medium quality representation of the Object appropriate for serving to\n\
+      \        users.  Similar to a FADGI \"derivative file\" but can also be used\
+      \ for born-digital content,\n        and is not necessarily derived from another\
+      \ file."
+    class_uri: <http://pcdm.org/use#ServiceFile>
+  ThumbnailImage:
+    name: ThumbnailImage
+    comments:
+    - "A low resolution image representation of the Object appropriate for using\n\
+      \        as an icon."
+    class_uri: <http://pcdm.org/use#ThumbnailImage>

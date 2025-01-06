@@ -114,43 +114,6 @@ prefixes:
 default_prefix: example
 default_range: string
 classes:
-  Spreadsheet:
-    name: Spreadsheet
-    exact_mappings:
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Spreadsheet
-    - http://reference.data.gov.uk/technical-registry/Spreadsheet
-    - http://www.udfr.org/onto#SpreadsheetGenre
-    is_a: Document
-    class_uri: pcdmfmt:Spreadsheet
-  Dataset:
-    name: Dataset
-    exact_mappings:
-    - http://reference.data.gov.uk/technical-registry/Dataset
-    - http://www.udfr.org/onto#DatasetGenre
-    - http://id.loc.gov/vocabulary/resourceTypes/Dat
-    - http://purl.org/dc/dcmitype/Dataset
-    is_a: Document
-    class_uri: pcdmfmt:Dataset
-  Model:
-    name: Model
-    exact_mappings:
-    - http://www.udfr.org/onto#ModelGenre
-    - http://vocab.getty.edu/aat/300047753
-    is_a: Document
-    class_uri: pcdmfmt:Model
-  HTML:
-    name: HTML
-    exact_mappings:
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#HTMLDocument
-    - http://vocab.getty.edu/aat/300266021
-    is_a: Markup
-    class_uri: pcdmfmt:HTML
-  SourceCode:
-    name: SourceCode
-    exact_mappings:
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#SourceCode
-    is_a: StructuredText
-    class_uri: pcdmfmt:SourceCode
   Database:
     name: Database
     exact_mappings:
@@ -159,16 +122,19 @@ classes:
     - http://www.udfr.org/onto#DatabaseGenre
     is_a: Document
     class_uri: pcdmfmt:Database
-  Audio:
-    name: Audio
+  Font:
+    name: Font
     exact_mappings:
-    - http://www.udfr.org/onto#SoundGenre
-    - http://reference.data.gov.uk/technical-registry/Audio
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Audio
-    - http://id.loc.gov/vocabulary/resourceTypes/Aud
-    - http://purl.org/dc/dcmitype/Sound
-    is_a: Media
-    class_uri: pcdmfmt:Audio
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Font
+    is_a: Document
+    class_uri: pcdmfmt:Font
+  Model:
+    name: Model
+    exact_mappings:
+    - http://www.udfr.org/onto#ModelGenre
+    - http://vocab.getty.edu/aat/300047753
+    is_a: Document
+    class_uri: pcdmfmt:Model
   Software:
     name: Software
     exact_mappings:
@@ -177,19 +143,106 @@ classes:
     - http://purl.org/dc/dcmitype/Software
     is_a: Document
     class_uri: pcdmfmt:Software
-  Media:
-    name: Media
+  Executable:
+    name: Executable
     exact_mappings:
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Media
-    - http://id.loc.gov/vocabulary/resourceTypes/Mul
-    is_a: Document
-    class_uri: pcdmfmt:Media
-  Font:
-    name: Font
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Executable
+    - http://www.udfr.org/onto#ExecutableGenre
+    is_a: Software
+    class_uri: pcdmfmt:Executable
+  FileHash:
+    name: FileHash
     exact_mappings:
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Font
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileHash
     is_a: Document
-    class_uri: pcdmfmt:Font
+    class_uri: pcdmfmt:FileHash
+  Email:
+    name: Email
+    exact_mappings:
+    - http://vocab.getty.edu/aat/300149026
+    - http://reference.data.gov.uk/technical-registry/Email
+    - http://www.udfr.org/onto#EmailGenre
+    is_a: Document
+    class_uri: pcdmfmt:Email
+  VectorImage:
+    name: VectorImage
+    exact_mappings:
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#VectorImage
+    - http://reference.data.gov.uk/technical-registry/VectorImage
+    is_a: Image
+    class_uri: pcdmfmt:VectorImage
+  GIS:
+    name: GIS
+    exact_mappings:
+    - http://reference.data.gov.uk/technical-registry/GIS
+    is_a: Dataset
+    class_uri: pcdmfmt:GIS
+  Spreadsheet:
+    name: Spreadsheet
+    exact_mappings:
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Spreadsheet
+    - http://reference.data.gov.uk/technical-registry/Spreadsheet
+    - http://www.udfr.org/onto#SpreadsheetGenre
+    is_a: Document
+    class_uri: pcdmfmt:Spreadsheet
+  RasterImage:
+    name: RasterImage
+    exact_mappings:
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RasterImage
+    - http://reference.data.gov.uk/technical-registry/RasterImage
+    is_a: Image
+    class_uri: pcdmfmt:RasterImage
+  Presentation:
+    name: Presentation
+    exact_mappings:
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Presentation
+    - http://reference.data.gov.uk/technical-registry/Presentation
+    - http://www.udfr.org/onto#PresentationGenre
+    is_a: Document
+    class_uri: pcdmfmt:Presentation
+  UnstructuredText:
+    name: UnstructuredText
+    exact_mappings:
+    - http://reference.data.gov.uk/technical-registry/UnstructuredText
+    close_mappings:
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#PlainTextDocument
+    is_a: Text
+    class_uri: pcdmfmt:UnstructuredText
+  Document:
+    name: Document
+    exact_mappings:
+    - http://vocab.getty.edu/aat/300026031
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Document
+    - http://www.udfr.org/onto#DocumentGenre
+    class_uri: pcdmfmt:Document
+  HTML:
+    name: HTML
+    exact_mappings:
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#HTMLDocument
+    - http://vocab.getty.edu/aat/300266021
+    is_a: Markup
+    class_uri: pcdmfmt:HTML
+  Text:
+    name: Text
+    exact_mappings:
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#TextDocument
+    - http://www.udfr.org/onto#TextGenre
+    - http://purl.org/dc/dcmitype/Text
+    - http://id.loc.gov/vocabulary/resourceTypes/Txt
+    is_a: Document
+    class_uri: pcdmfmt:Text
+  MediaList:
+    name: MediaList
+    exact_mappings:
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#MediaList
+    is_a: Document
+    class_uri: pcdmfmt:MediaList
+  StructuredText:
+    name: StructuredText
+    exact_mappings:
+    - http://reference.data.gov.uk/technical-registry/StructuredText
+    is_a: Text
+    class_uri: pcdmfmt:StructuredText
   Image:
     name: Image
     exact_mappings:
@@ -199,29 +252,6 @@ classes:
     - http://purl.org/dc/dcmitype/StillImage
     is_a: Media
     class_uri: pcdmfmt:Image
-  PageDescription:
-    name: PageDescription
-    exact_mappings:
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#PaginatedTextDocument
-    - http://reference.data.gov.uk/technical-registry/PageDescription
-    - http://www.udfr.org/onto#PageDescriptionGenre
-    is_a: Text
-    class_uri: pcdmfmt:PageDescription
-  Email:
-    name: Email
-    exact_mappings:
-    - http://vocab.getty.edu/aat/300149026
-    - http://reference.data.gov.uk/technical-registry/Email
-    - http://www.udfr.org/onto#EmailGenre
-    is_a: Document
-    class_uri: pcdmfmt:Email
-  Unknown:
-    name: Unknown
-    exact_mappings:
-    - http://www.udfr.org/onto#Unknown
-    - http://id.loc.gov/vocabulary/resourceTypes/Unk
-    is_a: Document
-    class_uri: pcdmfmt:Unknown
   Archive:
     name: Archive
     exact_mappings:
@@ -232,32 +262,15 @@ classes:
     - http://www.udfr.org/onto#AggregateGenre
     is_a: Document
     class_uri: pcdmfmt:Archive
-  Executable:
-    name: Executable
+  Dataset:
+    name: Dataset
     exact_mappings:
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Executable
-    - http://www.udfr.org/onto#ExecutableGenre
-    is_a: Software
-    class_uri: pcdmfmt:Executable
-  VectorImage:
-    name: VectorImage
-    exact_mappings:
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#VectorImage
-    - http://reference.data.gov.uk/technical-registry/VectorImage
-    is_a: Image
-    class_uri: pcdmfmt:VectorImage
-  StructuredText:
-    name: StructuredText
-    exact_mappings:
-    - http://reference.data.gov.uk/technical-registry/StructuredText
-    is_a: Text
-    class_uri: pcdmfmt:StructuredText
-  Markup:
-    name: Markup
-    exact_mappings:
-    - http://reference.data.gov.uk/technical-registry/MarkupText
-    is_a: StructuredText
-    class_uri: pcdmfmt:Markup
+    - http://reference.data.gov.uk/technical-registry/Dataset
+    - http://www.udfr.org/onto#DatasetGenre
+    - http://id.loc.gov/vocabulary/resourceTypes/Dat
+    - http://purl.org/dc/dcmitype/Dataset
+    is_a: Document
+    class_uri: pcdmfmt:Dataset
   Website:
     name: Website
     exact_mappings:
@@ -275,60 +288,47 @@ classes:
     - http://purl.org/dc/dcmitype/MovingImage
     is_a: Media
     class_uri: pcdmfmt:Video
-  Presentation:
-    name: Presentation
+  Audio:
+    name: Audio
     exact_mappings:
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Presentation
-    - http://reference.data.gov.uk/technical-registry/Presentation
-    - http://www.udfr.org/onto#PresentationGenre
-    is_a: Document
-    class_uri: pcdmfmt:Presentation
-  FileHash:
-    name: FileHash
+    - http://www.udfr.org/onto#SoundGenre
+    - http://reference.data.gov.uk/technical-registry/Audio
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Audio
+    - http://id.loc.gov/vocabulary/resourceTypes/Aud
+    - http://purl.org/dc/dcmitype/Sound
+    is_a: Media
+    class_uri: pcdmfmt:Audio
+  PageDescription:
+    name: PageDescription
     exact_mappings:
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileHash
-    is_a: Document
-    class_uri: pcdmfmt:FileHash
-  MediaList:
-    name: MediaList
-    exact_mappings:
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#MediaList
-    is_a: Document
-    class_uri: pcdmfmt:MediaList
-  Document:
-    name: Document
-    exact_mappings:
-    - http://vocab.getty.edu/aat/300026031
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Document
-    - http://www.udfr.org/onto#DocumentGenre
-    class_uri: pcdmfmt:Document
-  RasterImage:
-    name: RasterImage
-    exact_mappings:
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#RasterImage
-    - http://reference.data.gov.uk/technical-registry/RasterImage
-    is_a: Image
-    class_uri: pcdmfmt:RasterImage
-  UnstructuredText:
-    name: UnstructuredText
-    exact_mappings:
-    - http://reference.data.gov.uk/technical-registry/UnstructuredText
-    close_mappings:
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#PlainTextDocument
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#PaginatedTextDocument
+    - http://reference.data.gov.uk/technical-registry/PageDescription
+    - http://www.udfr.org/onto#PageDescriptionGenre
     is_a: Text
-    class_uri: pcdmfmt:UnstructuredText
-  GIS:
-    name: GIS
+    class_uri: pcdmfmt:PageDescription
+  Media:
+    name: Media
     exact_mappings:
-    - http://reference.data.gov.uk/technical-registry/GIS
-    is_a: Dataset
-    class_uri: pcdmfmt:GIS
-  Text:
-    name: Text
-    exact_mappings:
-    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#TextDocument
-    - http://www.udfr.org/onto#TextGenre
-    - http://purl.org/dc/dcmitype/Text
-    - http://id.loc.gov/vocabulary/resourceTypes/Txt
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Media
+    - http://id.loc.gov/vocabulary/resourceTypes/Mul
     is_a: Document
-    class_uri: pcdmfmt:Text
+    class_uri: pcdmfmt:Media
+  SourceCode:
+    name: SourceCode
+    exact_mappings:
+    - http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#SourceCode
+    is_a: StructuredText
+    class_uri: pcdmfmt:SourceCode
+  Markup:
+    name: Markup
+    exact_mappings:
+    - http://reference.data.gov.uk/technical-registry/MarkupText
+    is_a: StructuredText
+    class_uri: pcdmfmt:Markup
+  Unknown:
+    name: Unknown
+    exact_mappings:
+    - http://www.udfr.org/onto#Unknown
+    - http://id.loc.gov/vocabulary/resourceTypes/Unk
+    is_a: Document
+    class_uri: pcdmfmt:Unknown

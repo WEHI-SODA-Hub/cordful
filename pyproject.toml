@@ -1,9 +1,13 @@
 [project]
 name = "pcdmlinkml"
 version = "0.1.0"
-description = "Add your description here"
+description = "LinkML implementation of the PCDM schema"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "schema-automator>=0.5.2",
 ]
+
+[tool.uv.sources]
+# Note: currently using my fork due to https://github.com/linkml/schema-automator/pull/152
+schema-automator = { git = "https://github.com/multimeric/schema-automator.git", branch = "refactor" }

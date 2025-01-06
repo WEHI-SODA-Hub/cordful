@@ -103,6 +103,7 @@ slots:
       \        rights statement will be in effect.  Recommended best practice is to\
       \ use an encoding scheme,\n          such as the W3CDTF profile of ISO 8601."
     slot_uri: <http://pcdm.org/rights#rightsOverrideExpiration>
+    range: Literal
   rightsOverride:
     name: rightsOverride
     comments:
@@ -110,3 +111,4 @@ slots:
       \      attached to a resource.  This could be an embargo, temporary license,\
       \ statutory\n          restriction."
     slot_uri: <http://pcdm.org/rights#rightsOverride>
+    range: RightsStatement
