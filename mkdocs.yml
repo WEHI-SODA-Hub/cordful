@@ -1,0 +1,9 @@
+site_name: cordful
+docs_dir: .
+nav:
+  - Introduction: 'README.md'
+  - 'models.md'
+markdown_extensions:
+  - attr_list
+plugins:
+  - same-dir

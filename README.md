@@ -1,4 +1,6 @@
-# RDF Schemas in LinkML
+# CORDFUL: Conversion Of RDF Unto LinkML
+
+A collection of RDF Schemas in LinkML
 
 ## Usage
 
