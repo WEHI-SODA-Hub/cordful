@@ -1,10 +1,11 @@
 [project]
-name = "pcdmlinkml"
+name = "RdfLinkmlLibrary"
 version = "0.1.0"
-description = "LinkML implementation of the PCDM schema"
+description = "LinkML implementation of various linked data schemas, profiles vocabularies and ontologies"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "doit>=0.36.0",
     "schema-automator>=0.5.2",
 ]
 
