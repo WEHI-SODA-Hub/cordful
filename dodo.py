@@ -65,7 +65,7 @@ def task_dc():
                     "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.ttl"
                 ],
                 subdir="dc",
-                format="xml",
+                format="ttl",
             )
         ],
         "targets": ["models/dc/core.yaml"],
