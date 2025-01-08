@@ -1,0 +1,108 @@
+name: example
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  ? ''
+  : prefix_prefix: ''
+    prefix_reference: http://www.w3.org/ns/dx/prof/
+  dct:
+    prefix_prefix: dct
+    prefix_reference: http://purl.org/dc/terms/
+  skos:
+    prefix_prefix: skos
+    prefix_reference: http://www.w3.org/2004/02/skos/core#
+default_prefix: example
+default_range: string
+slots:
+  hasResource:
+    name: hasResource
+    description: A resource which describes the nature of an artifact and the role
+      it plays in relation to the Profile
+    slot_uri: :hasResource
+    range: ResourceDescriptor
+  isInheritedFrom:
+    name: isInheritedFrom
+    description: A base specification, a Resource Descriptor from which is to be considered
+      a Resource Descriptor for this Profile also
+    slot_uri: :isInheritedFrom
+    range: Profile
+  isProfileOf:
+    name: isProfileOf
+    description: A specification for which this Profile defines constraints, extensions,
+      or which it uses in combination with other specifications, or provides guidance
+      or explanation about its usage
+    slot_uri: :isProfileOf
+    subproperty_of: isTransitiveProfileOf
+    range: Standard
+  conformsTo:
+    name: conformsTo
+    description: An established standard to which the described resource conforms
+    slot_uri: dct:conformsTo
+    range: Standard
+  hasRole:
+    name: hasRole
+    description: The function of an artifact described by a Resource Descriptor, such
+      as specification, guidance etc.
+    slot_uri: :hasRole
+    range: Concept
+  format:
+    name: format
+    slot_uri: dct:format
+    subproperty_of: format
+    range: MediaTypeOrExtent
+  hasArtifact:
+    name: hasArtifact
+    description: The URL of a downloadable file with particulars such as its format
+      and role indicated by the Resource Descriptor
+    slot_uri: :hasArtifact
+  hasToken:
+    name: hasToken
+    description: The preferred identifier for the Profile, for use in circumstances
+      where its URI cannot be used
+    slot_uri: :hasToken
+    range: token
+  isTransitiveProfileOf:
+    name: isTransitiveProfileOf
+    description: The transitive closure of the prof:isProfileOf property. Relates
+      a profile to another specification that it is a profile of, possibly via a chain
+      of intermediate profiles that are in prof:isProfileOf relationships
+    slot_uri: :isTransitiveProfileOf
+    range: Standard
+classes:
+  Profile:
+    name: Profile
+    description: 'A specification that constrains, extends, combines, or provides
+      guidance or explanation about the usage of other specifications.
+
+
+      This definition includes what are often called "application profiles", "metadata
+      application profiles", or "metadata profiles".'
+    source: https://www.w3.org/2017/dxwg/wiki/ProfileContext
+    is_a: Standard
+    slots:
+    - isProfileOf
+    - hasToken
+    - isTransitiveProfileOf
+    class_uri: :Profile
+  Concept:
+    name: Concept
+    class_uri: skos:Concept
+  Standard:
+    name: Standard
+    class_uri: dct:Standard
+  ResourceDescriptor:
+    name: ResourceDescriptor
+    description: A description of a resource that defines an aspect - a particular
+      part, feature or role - of a Profile
+    slots:
+    - isInheritedFrom
+    - hasRole
+    - hasArtifact
+    class_uri: :ResourceDescriptor
+  ResourceRole:
+    name: ResourceRole
+    description: A role that an profile resource, described by a Resource Descriptor,
+      plays
+    is_a: Concept
+    class_uri: :ResourceRole

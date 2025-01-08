@@ -1,0 +1,59 @@
+name: example
+id: http://example.org/example
+imports:
+- linkml:types
+default_prefix: example
+default_range: string
+classes:
+  IntermediateFile:
+    name: IntermediateFile
+    comments:
+    - "High quality representation of the Object, appropriate for generating\n   \
+      \     derivatives or other additional processing."
+    class_uri: ns1:IntermediateFile
+  ThumbnailImage:
+    name: ThumbnailImage
+    comments:
+    - "A low resolution image representation of the Object appropriate for using\n\
+      \        as an icon."
+    class_uri: ns1:ThumbnailImage
+  ServiceFile:
+    name: ServiceFile
+    comments:
+    - "A medium quality representation of the Object appropriate for serving to\n\
+      \        users.  Similar to a FADGI \"derivative file\" but can also be used\
+      \ for born-digital content,\n        and is not necessarily derived from another\
+      \ file."
+    class_uri: ns1:ServiceFile
+  Transcript:
+    name: Transcript
+    comments:
+    - "A textual representation of the Object appropriate for presenting to users,\n\
+      \        such as subtitles or transcript of a video.  Can be used as a substitute\
+      \ or complement to other\n        files for accessibility purposes."
+    class_uri: ns1:Transcript
+  PreservationFile:
+    name: PreservationFile
+    comments:
+    - "Best quality representation of the Object appropriate for long-term\n     \
+      \   preservation."
+    class_uri: ns1:PreservationFile
+  OriginalFile:
+    name: OriginalFile
+    comments:
+    - The original creation format of a file.
+    class_uri: ns1:OriginalFile
+  ExtractedText:
+    name: ExtractedText
+    comments:
+    - "A textual representation of the Object appropriate for fulltext indexing,\n\
+      \        such as a plaintext version of a document, or OCR text."
+    class_uri: ns1:ExtractedText
+  PreservationMasterFile:
+    name: PreservationMasterFile
+    deprecated: 'True'
+    comments:
+    - "Best quality representation of the Object appropriate for long-term\n     \
+      \   preservation."
+    - 'Note: This class has been deprecated in favor of PreservationFile.'
+    class_uri: ns1:PreservationMasterFile

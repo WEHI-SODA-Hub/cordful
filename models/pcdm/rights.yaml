@@ -1,0 +1,23 @@
+name: example
+id: http://example.org/example
+imports:
+- linkml:types
+default_prefix: example
+default_range: string
+slots:
+  rightsOverride:
+    name: rightsOverride
+    comments:
+    - "Links to a rights statement that overrides the base rights statement\n    \
+      \      attached to a resource.  This could be an embargo, temporary license,\
+      \ statutory\n          restriction."
+    slot_uri: ns1:rightsOverride
+    range: RightsStatement
+  rightsOverrideExpiration:
+    name: rightsOverrideExpiration
+    comments:
+    - "Date when a rights override expires.  After this date, the base rights\n  \
+      \        rights statement will be in effect.  Recommended best practice is to\
+      \ use an encoding scheme,\n          such as the W3CDTF profile of ISO 8601."
+    slot_uri: ns1:rightsOverrideExpiration
+    range: Literal

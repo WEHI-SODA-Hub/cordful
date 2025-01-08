@@ -1,0 +1,49 @@
+name: example
+id: http://example.org/example
+imports:
+- linkml:types
+default_prefix: example
+default_range: string
+classes:
+  Work:
+    name: Work
+    comments:
+    - "\n      A work or intellectual entity, such as a book, film, dissertation,\
+      \ etc.\n      Works have member Objects representing their physical structure\
+      \ (e.g., pages in a book),\n      FileSets to maintain representations of the\
+      \ entire resource (e.g. a PDF of all the pages),\n      and TopRanges representing\
+      \ their logical structure or structures (e.g., sections\n      and chapters\
+      \ in a book).\n    "
+    is_a: Object
+    class_uri: ns1:Work
+  Range:
+    name: Range
+    comments:
+    - "\n      A section of a Work, corresponding to a IIIF Range.  Has member FileSets\
+      \ representing the\n      physical parts of the Work are part of the section\
+      \ (e.g., which pages are in a chapter).\n    "
+    close_mappings:
+    - http://iiif.io/model/shared-canvas/1.0/#Range
+    is_a: Object
+    class_uri: ns1:Range
+  TopRange:
+    name: TopRange
+    comments:
+    - "\n      A logical ordering of the component parts of a Work, corresponding\
+      \ to a IIIF Range with\n      the \"top\" viewing hint.  Has member Ranges that\
+      \ represent the logical structure, such\n      as chapters within a book, scenes\
+      \ in a film, etc.\n    "
+    close_mappings:
+    - http://iiif.io/model/shared-canvas/1.0/#Range
+    is_a: Object
+    class_uri: ns1:TopRange
+  FileSet:
+    name: FileSet
+    comments:
+    - "\n      A group of related Files, typically a single source File and any derivatives.\n\
+      \    "
+    is_a: Object
+    class_uri: ns1:FileSet
+  Object:
+    name: Object
+    class_uri: ns2:Object

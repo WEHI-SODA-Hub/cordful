@@ -1,0 +1,237 @@
+name: example
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  skos:
+    prefix_prefix: skos
+    prefix_reference: http://www.w3.org/2004/02/skos/core#
+default_prefix: example
+default_range: string
+slots:
+  inScheme:
+    name: inScheme
+    description: Relates a resource (for example a concept) to a concept scheme in
+      which it is included.
+    slot_uri: skos:inScheme
+    range: ConceptScheme
+  exactMatch:
+    name: exactMatch
+    description: skos:exactMatch is used to link two concepts, indicating a high degree
+      of confidence that the concepts can be used interchangeably across a wide range
+      of information retrieval applications. skos:exactMatch is a transitive property,
+      and is a sub-property of skos:closeMatch.
+    comments:
+    - skos:exactMatch is disjoint with each of the properties skos:broadMatch and
+      skos:relatedMatch.
+    slot_uri: skos:exactMatch
+    subproperty_of: closeMatch
+  hiddenLabel:
+    name: hiddenLabel
+    description: A lexical label for a resource that should be hidden when generating
+      visual displays of the resource, but should still be accessible to free text
+      search operations.
+    comments:
+    - The range of skos:hiddenLabel is the class of RDF plain literals.
+    - skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.
+    slot_uri: skos:hiddenLabel
+  semanticRelation:
+    name: semanticRelation
+    description: Links a concept to a concept related by meaning.
+    slot_uri: skos:semanticRelation
+    range: Concept
+  editorialNote:
+    name: editorialNote
+    description: A note for an editor, translator or maintainer of the vocabulary.
+    slot_uri: skos:editorialNote
+    subproperty_of: note
+  related:
+    name: related
+    description: Relates a concept to a concept with which there is an associative
+      semantic relationship.
+    comments:
+    - skos:related is disjoint with skos:broaderTransitive
+    slot_uri: skos:related
+    subproperty_of: semanticRelation
+  definition:
+    name: definition
+    description: A statement or formal explanation of the meaning of a concept.
+    slot_uri: skos:definition
+    subproperty_of: note
+  changeNote:
+    name: changeNote
+    description: A note about a modification to a concept.
+    slot_uri: skos:changeNote
+    subproperty_of: note
+  narrowerTransitive:
+    name: narrowerTransitive
+    description: skos:narrowerTransitive is a transitive superproperty of skos:narrower.
+    slot_uri: skos:narrowerTransitive
+    subproperty_of: semanticRelation
+    inverse: broaderTransitive
+  broadMatch:
+    name: broadMatch
+    description: skos:broadMatch is used to state a hierarchical mapping link between
+      two conceptual resources in different concept schemes.
+    slot_uri: skos:broadMatch
+    subproperty_of: broader
+    inverse: narrowMatch
+  narrowMatch:
+    name: narrowMatch
+    description: skos:narrowMatch is used to state a hierarchical mapping link between
+      two conceptual resources in different concept schemes.
+    slot_uri: skos:narrowMatch
+    subproperty_of: narrower
+    inverse: broadMatch
+  topConceptOf:
+    name: topConceptOf
+    description: Relates a concept to the concept scheme that it is a top level concept
+      of.
+    slot_uri: skos:topConceptOf
+    subproperty_of: inScheme
+    inverse: hasTopConcept
+    range: ConceptScheme
+  hasTopConcept:
+    name: hasTopConcept
+    description: Relates, by convention, a concept scheme to a concept which is topmost
+      in the broader/narrower concept hierarchies for that scheme, providing an entry
+      point to these hierarchies.
+    slot_uri: skos:hasTopConcept
+    inverse: topConceptOf
+    range: Concept
+  broader:
+    name: broader
+    description: Relates a concept to a concept that is more general in meaning.
+    comments:
+    - Broader concepts are typically rendered as parents in a concept hierarchy (tree).
+    slot_uri: skos:broader
+    subproperty_of: broaderTransitive
+    inverse: narrower
+  scopeNote:
+    name: scopeNote
+    description: A note that helps to clarify the meaning and/or the use of a concept.
+    slot_uri: skos:scopeNote
+    subproperty_of: note
+  example:
+    name: example
+    description: An example of the use of a concept.
+    slot_uri: skos:example
+    subproperty_of: note
+  broaderTransitive:
+    name: broaderTransitive
+    description: skos:broaderTransitive is a transitive superproperty of skos:broader.
+    slot_uri: skos:broaderTransitive
+    subproperty_of: semanticRelation
+    inverse: narrowerTransitive
+  member:
+    name: member
+    description: Relates a collection to one of its members.
+    slot_uri: skos:member
+    range: Nee0797cb7d904b0690178fd74036032a
+  closeMatch:
+    name: closeMatch
+    description: skos:closeMatch is used to link two concepts that are sufficiently
+      similar that they can be used interchangeably in some information retrieval
+      applications. In order to avoid the possibility of "compound errors" when combining
+      mappings across more than two concept schemes, skos:closeMatch is not declared
+      to be a transitive property.
+    slot_uri: skos:closeMatch
+    subproperty_of: mappingRelation
+  notation:
+    name: notation
+    description: A notation, also known as classification code, is a string of characters
+      such as "T58.5" or "303.4833" used to uniquely identify a concept within the
+      scope of a given concept scheme.
+    slot_uri: skos:notation
+  historyNote:
+    name: historyNote
+    description: A note about the past state/use/meaning of a concept.
+    slot_uri: skos:historyNote
+    subproperty_of: note
+  memberList:
+    name: memberList
+    description: Relates an ordered collection to the RDF list containing its members.
+    comments:
+    - "For any resource, every item in the list given as the value of the\n      skos:memberList\
+      \ property is also a value of the skos:member property."
+    slot_uri: skos:memberList
+    range: List
+  mappingRelation:
+    name: mappingRelation
+    description: Relates two concepts coming, by convention, from different schemes,
+      and that have comparable meanings
+    comments:
+    - These concept mapping relations mirror semantic relations, and the data model
+      defined below is similar (with the exception of skos:exactMatch) to the data
+      model defined for semantic relations. A distinct vocabulary is provided for
+      concept mapping relations, to provide a convenient way to differentiate links
+      within a concept scheme from links between concept schemes. However, this pattern
+      of usage is not a formal requirement of the SKOS data model, and relies on informal
+      definitions of best practice.
+    slot_uri: skos:mappingRelation
+    subproperty_of: semanticRelation
+  note:
+    name: note
+    description: A general note, for any purpose.
+    slot_uri: skos:note
+  prefLabel:
+    name: prefLabel
+    description: The preferred lexical label for a resource, in a given language.
+    comments:
+    - A resource has no more than one value of skos:prefLabel per language tag, and
+      no more than one value of skos:prefLabel without language tag.
+    - The range of skos:prefLabel is the class of RDF plain literals.
+    - "skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise\n      disjoint\
+      \ properties."
+    slot_uri: skos:prefLabel
+  relatedMatch:
+    name: relatedMatch
+    description: skos:relatedMatch is used to state an associative mapping link between
+      two conceptual resources in different concept schemes.
+    slot_uri: skos:relatedMatch
+    subproperty_of: related
+  altLabel:
+    name: altLabel
+    description: An alternative lexical label for a resource.
+    comments:
+    - The range of skos:altLabel is the class of RDF plain literals.
+    - skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.
+    slot_uri: skos:altLabel
+  narrower:
+    name: narrower
+    description: Relates a concept to a concept that is more specific in meaning.
+    comments:
+    - Narrower concepts are typically rendered as children in a concept hierarchy
+      (tree).
+    slot_uri: skos:narrower
+    subproperty_of: narrowerTransitive
+    inverse: broader
+classes:
+  ConceptScheme:
+    name: ConceptScheme
+    description: A set of concepts, optionally including statements about semantic
+      relationships between those concepts.
+    slots:
+    - hasTopConcept
+    class_uri: skos:ConceptScheme
+  Concept:
+    name: Concept
+    description: An idea or notion; a unit of thought.
+    slots:
+    - semanticRelation
+    - topConceptOf
+    class_uri: skos:Concept
+  Collection:
+    name: Collection
+    description: A meaningful collection of concepts.
+    slots:
+    - member
+    class_uri: skos:Collection
+  OrderedCollection:
+    name: OrderedCollection
+    description: An ordered collection of concepts, where both the grouping and the
+      ordering are meaningful.
+    is_a: Collection
+    slots:
+    - memberList
+    class_uri: skos:OrderedCollection
