@@ -4,7 +4,7 @@ A collection of RDF Schemas in LinkML
 
 ## Usage
 
-Just use the LinkML schemas included in `models/`
+Just use the LinkML schemas included [**here**](https://multimeric.github.io/cordful/models/).
 
 ## Dev
 

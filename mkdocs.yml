@@ -3,9 +3,8 @@ docs_dir: .
 nav:
   - Introduction: 'README.md'
   - 'models.md'
-markdown_extensions:
-  - attr_list
 plugins:
   - same-dir
 theme:
   name: material
+site_url: https://multimeric.github.io/cordful/
