@@ -1,10 +1,14 @@
 from functools import partial
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any, Callable, Iterable
 from schema_automator.importers.rdfs_import_engine import RdfsImportEngine
 from linkml_runtime.dumpers import YAMLDumper
 from urllib.parse import urlparse, urljoin
 from linkml.linter.linter import Linter, RuleLevel
+from linkml_runtime.linkml_model import SchemaDefinition, TypeDefinition
+from linkml_runtime.linkml_model import types as linkml_types
+from linkml_runtime import SchemaView
+from dataclasses import replace
 
 models_root = Path(__file__).parent.resolve() / "models"
 
@@ -24,7 +28,7 @@ def url_to_path(url: str, subdir: str, suffix: str = ".yml") -> Path:
     rdf_name = rdf_path.with_suffix(".yaml").name
     return models_dir / rdf_name
 
-def rdf_to_linkml(rdf_url: str, subdir: str, format: str) -> None:
+def rdf_to_linkml(rdf_url: str, subdir: str, format: str, transformer: Callable[[SchemaDefinition], SchemaDefinition] = lambda x: x) -> None:
     """
     Converts a remote RDF file to LinkML YAML
 
@@ -35,6 +39,7 @@ def rdf_to_linkml(rdf_url: str, subdir: str, format: str) -> None:
     """
     output_path = url_to_path(rdf_url, subdir)
     schema = RdfsImportEngine().convert(rdf_url, format=format)
+    schema = transformer(schema)
     YAMLDumper().dump(schema, str(output_path))
 
 def validate_linkml(model_path: Path) -> None:
@@ -45,7 +50,7 @@ def validate_linkml(model_path: Path) -> None:
         if problem.level is RuleLevel.error:
             raise ValueError(problem.message)
 
-def download_and_validate(rdf_url: str, subdir: str, format: str) -> Iterable[dict[str, Any]]:
+def download_and_validate(rdf_url: str, subdir: str, **kwargs) -> Iterable[dict[str, Any]]:
     """
     Task generator that yields two tasks: one to convert an RDF file to LinkML YAML, and another to validate the YAML file
     """
@@ -57,7 +62,7 @@ def download_and_validate(rdf_url: str, subdir: str, format: str) -> Iterable[di
                 rdf_to_linkml,
                 rdf_url,
                 subdir=subdir,
-                format=format
+                **kwargs
             )
         ],
         "targets": [output_path],
@@ -68,30 +73,72 @@ def download_and_validate(rdf_url: str, subdir: str, format: str) -> Iterable[di
         "actions": [partial(validate_linkml, output_path)],
     }
 
+def fix_schema_org(schema: SchemaDefinition) -> SchemaDefinition:
+    """
+    Applies some Schema.org specific fixes
+    """
+    # Convert the primitive types from classes into types
+    schema_copy = replace(schema)
+    primitive_types = {
+        'Text': TypeDefinition(
+            name='Text',
+            typeof=linkml_types.String.type_name,
+            uri="https://schema.org/Number"
+        ),
+        'Boolean': TypeDefinition(
+            name='Boolean',
+            typeof=linkml_types.Boolean.type_name,
+            uri="https://schema.org/Boolean"
+        ),
+        'Time': TypeDefinition(
+            name='Time',
+            typeof=linkml_types.Time.type_name,
+            uri="https://schema.org/Time"
+        ),
+        'Number': TypeDefinition(
+            name='Number',
+            typeof=linkml_types.Float.type_name,
+            uri="https://schema.org/Number"
+        ),
+        'DateTime': TypeDefinition(
+            name='DateTime',
+            typeof=linkml_types.Datetime.type_name,
+            uri="https://schema.org/DateTime"
+        ),
+        'Date': TypeDefinition(
+            name='Date',
+            typeof=linkml_types.Date.type_name,
+            uri="https://schema.org/Date"
+        )
+    }
+    schema_copy.types = primitive_types
+    for type_name in primitive_types.keys():
+        schema_copy.classes.pop(type_name, None)
+    return schema_copy
 
 def task_prof():
     """
     Converts prof ontology from RDF to LinkML YAML
     """
-    yield from download_and_validate("https://www.w3.org/TR/dx-prof/rdf/prof.ttl", "prof", "ttl")
+    yield from download_and_validate("https://www.w3.org/TR/dx-prof/rdf/prof.ttl", "prof", format="ttl")
 
 def task_skos():
     """
     Converts SKOS Simple Knowledge Organization System from RDF to LinkML YAML
     """
-    yield from download_and_validate("https://www.w3.org/2004/02/skos/core.rdf", "skos", "xml")
+    yield from download_and_validate("https://www.w3.org/2004/02/skos/core.rdf", "skos", format="xml")
 
 def task_dc():
     """
     Converts Dublin Core from RDF to LinkML YAML
     """
-    yield from download_and_validate("https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.ttl", "dc", "ttl")
+    yield from download_and_validate("https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.ttl", "dc", format="ttl")
 
 def task_sdo():
     """
     Converts Schema.org from RDF to LinkML YAML
     """
-    yield from download_and_validate("https://schema.org/version/latest/schemaorg-current-https.ttl", "sdo", "ttl")
+    yield from download_and_validate("https://schema.org/version/latest/schemaorg-current-https.ttl", "sdo", format="ttl", transformer=fix_schema_org)
 
 def task_pcdm():
     """
@@ -101,4 +148,4 @@ def task_pcdm():
     base_url = "https://raw.githubusercontent.com/multimeric/pcdm/refs/heads/fix-80/"
     for url in ["models.rdf", "pcdm-ext/file-format-types.rdf", "pcdm-ext/rights.rdf", "pcdm-ext/use.rdf", "pcdm-ext/works.rdf"]:
         full_url = urljoin(base_url, url)
-        yield from download_and_validate(full_url, "pcdm", "xml")
+        yield from download_and_validate(full_url, "pcdm", format="xml")

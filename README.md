@@ -8,7 +8,7 @@ Just use the LinkML schemas included [**here**](https://multimeric.github.io/cor
 
 ## Dev
 
-```
+```bash
 # Install deps
 uv sync
 
