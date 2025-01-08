@@ -7,3 +7,5 @@ markdown_extensions:
   - attr_list
 plugins:
   - same-dir
+theme:
+  name: material
