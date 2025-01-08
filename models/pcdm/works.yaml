@@ -5,6 +5,16 @@ imports:
 default_prefix: example
 default_range: string
 classes:
+  Range:
+    name: Range
+    comments:
+    - "\n      A section of a Work, corresponding to a IIIF Range.  Has member FileSets\
+      \ representing the\n      physical parts of the Work are part of the section\
+      \ (e.g., which pages are in a chapter).\n    "
+    close_mappings:
+    - http://iiif.io/model/shared-canvas/1.0/#Range
+    is_a: Object
+    class_uri: ns1:Range
   Work:
     name: Work
     comments:
@@ -16,16 +26,6 @@ classes:
       \ in a book).\n    "
     is_a: Object
     class_uri: ns1:Work
-  Range:
-    name: Range
-    comments:
-    - "\n      A section of a Work, corresponding to a IIIF Range.  Has member FileSets\
-      \ representing the\n      physical parts of the Work are part of the section\
-      \ (e.g., which pages are in a chapter).\n    "
-    close_mappings:
-    - http://iiif.io/model/shared-canvas/1.0/#Range
-    is_a: Object
-    class_uri: ns1:Range
   TopRange:
     name: TopRange
     comments:
