@@ -120,6 +120,7 @@ def fix_schema_org(schema: SchemaDefinition) -> SchemaDefinition:
         'URL': TypeDefinition(
             name='URL',
             base='str',
+            repr='str',
             typeof=linkml_types.Uri.type_name,
             uri="https://schema.org/URL"
         ),
