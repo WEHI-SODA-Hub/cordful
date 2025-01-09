@@ -83,30 +83,37 @@ def fix_schema_org(schema: SchemaDefinition) -> SchemaDefinition:
         'Text': TypeDefinition(
             name='Text',
             typeof=linkml_types.String.type_name,
+            # base should be inherited but isn't. See https://github.com/linkml/linkml/issues/2485
+            base='str',
             uri="https://schema.org/Number"
         ),
         'Boolean': TypeDefinition(
             name='Boolean',
             typeof=linkml_types.Boolean.type_name,
+            base='bool',
             uri="https://schema.org/Boolean"
         ),
         'Time': TypeDefinition(
             name='Time',
+            base='XSDTime',
             typeof=linkml_types.Time.type_name,
             uri="https://schema.org/Time"
         ),
         'Number': TypeDefinition(
             name='Number',
+            base='float',
             typeof=linkml_types.Float.type_name,
             uri="https://schema.org/Number"
         ),
         'DateTime': TypeDefinition(
             name='DateTime',
             typeof=linkml_types.Datetime.type_name,
+            base='XSDDateTime',
             uri="https://schema.org/DateTime"
         ),
         'Date': TypeDefinition(
             name='Date',
+            base='XSDDate',
             typeof=linkml_types.Date.type_name,
             uri="https://schema.org/Date"
         )
