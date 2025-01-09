@@ -2,21 +2,37 @@ name: example
 id: http://example.org/example
 imports:
 - linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
 default_prefix: example
 default_range: string
 classes:
+  OriginalFile:
+    name: OriginalFile
+    comments:
+    - The original creation format of a file.
+    class_uri: ns1:OriginalFile
+  Transcript:
+    name: Transcript
+    comments:
+    - "A textual representation of the Object appropriate for presenting to users,\n\
+      \        such as subtitles or transcript of a video.  Can be used as a substitute\
+      \ or complement to other\n        files for accessibility purposes."
+    class_uri: ns1:Transcript
+  ThumbnailImage:
+    name: ThumbnailImage
+    comments:
+    - "A low resolution image representation of the Object appropriate for using\n\
+      \        as an icon."
+    class_uri: ns1:ThumbnailImage
   IntermediateFile:
     name: IntermediateFile
     comments:
     - "High quality representation of the Object, appropriate for generating\n   \
       \     derivatives or other additional processing."
     class_uri: ns1:IntermediateFile
-  ExtractedText:
-    name: ExtractedText
-    comments:
-    - "A textual representation of the Object appropriate for fulltext indexing,\n\
-      \        such as a plaintext version of a document, or OCR text."
-    class_uri: ns1:ExtractedText
   PreservationMasterFile:
     name: PreservationMasterFile
     deprecated: 'True'
@@ -25,13 +41,18 @@ classes:
       \   preservation."
     - 'Note: This class has been deprecated in favor of PreservationFile.'
     class_uri: ns1:PreservationMasterFile
-  Transcript:
-    name: Transcript
+  ExtractedText:
+    name: ExtractedText
     comments:
-    - "A textual representation of the Object appropriate for presenting to users,\n\
-      \        such as subtitles or transcript of a video.  Can be used as a substitute\
-      \ or complement to other\n        files for accessibility purposes."
-    class_uri: ns1:Transcript
+    - "A textual representation of the Object appropriate for fulltext indexing,\n\
+      \        such as a plaintext version of a document, or OCR text."
+    class_uri: ns1:ExtractedText
+  PreservationFile:
+    name: PreservationFile
+    comments:
+    - "Best quality representation of the Object appropriate for long-term\n     \
+      \   preservation."
+    class_uri: ns1:PreservationFile
   ServiceFile:
     name: ServiceFile
     comments:
@@ -40,20 +61,3 @@ classes:
       \ for born-digital content,\n        and is not necessarily derived from another\
       \ file."
     class_uri: ns1:ServiceFile
-  PreservationFile:
-    name: PreservationFile
-    comments:
-    - "Best quality representation of the Object appropriate for long-term\n     \
-      \   preservation."
-    class_uri: ns1:PreservationFile
-  ThumbnailImage:
-    name: ThumbnailImage
-    comments:
-    - "A low resolution image representation of the Object appropriate for using\n\
-      \        as an icon."
-    class_uri: ns1:ThumbnailImage
-  OriginalFile:
-    name: OriginalFile
-    comments:
-    - The original creation format of a file.
-    class_uri: ns1:OriginalFile

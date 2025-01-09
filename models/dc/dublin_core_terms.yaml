@@ -3,6 +3,9 @@ id: http://example.org/example
 imports:
 - linkml:types
 prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
   dcterms:
     prefix_prefix: dcterms
     prefix_reference: http://purl.org/dc/terms/
@@ -12,6 +15,21 @@ prefixes:
 default_prefix: example
 default_range: string
 slots:
+  isPartOf:
+    name: isPartOf
+    description: This property is intended to be used with non-literal values. This
+      property is an inverse property of Has Part.
+    comments:
+    - A related resource in which the described resource is physically or logically
+      included.
+    slot_uri: dcterms:isPartOf
+    subproperty_of: relation
+  abstract:
+    name: abstract
+    comments:
+    - A summary of the resource.
+    slot_uri: dcterms:abstract
+    subproperty_of: description
   accessRights:
     name: accessRights
     description: Access Rights may include information regarding access or restrictions
@@ -20,23 +38,126 @@ slots:
     - Information about who access the resource or an indication of its security status.
     slot_uri: dcterms:accessRights
     subproperty_of: rights
-  valid:
-    name: valid
+  created:
+    name: created
     description: Recommended practice is to describe the date, date/time, or period
       of time as recommended for the property Date, of which this is a subproperty.
     comments:
-    - Date (often a range) of validity of a resource.
-    slot_uri: dcterms:valid
+    - Date of creation of the resource.
+    slot_uri: dcterms:created
     subproperty_of: date
     range: Literal
-  references:
-    name: references
-    description: This property is intended to be used with non-literal values. This
-      property is an inverse property of Is Referenced By.
+  bibliographicCitation:
+    name: bibliographicCitation
+    description: Recommended practice is to include sufficient bibliographic detail
+      to identify the resource as unambiguously as possible.
     comments:
-    - A related resource that is referenced, cited, or otherwise pointed to by the
-      described resource.
-    slot_uri: dcterms:references
+    - A bibliographic reference for the resource.
+    slot_uri: dcterms:bibliographicCitation
+    subproperty_of: identifier
+    range: Literal
+  isReplacedBy:
+    name: isReplacedBy
+    description: This property is intended to be used with non-literal values. This
+      property is an inverse property of Replaces.
+    comments:
+    - A related resource that supplants, displaces, or supersedes the described resource.
+    slot_uri: dcterms:isReplacedBy
+    subproperty_of: relation
+  subject:
+    name: subject
+    description: Recommended practice is to refer to the subject with a URI. If this
+      is not possible or feasible, a literal value that identifies the subject may
+      be provided. Both should preferably refer to a subject in a controlled vocabulary.
+    comments:
+    - A topic of the resource.
+    slot_uri: dcterms:subject
+    subproperty_of: subject
+  hasFormat:
+    name: hasFormat
+    description: This property is intended to be used with non-literal values. This
+      property is an inverse property of Is Format Of.
+    comments:
+    - A related resource that is substantially the same as the pre-existing described
+      resource, but in another format.
+    slot_uri: dcterms:hasFormat
+    subproperty_of: relation
+  modified:
+    name: modified
+    description: Recommended practice is to describe the date, date/time, or period
+      of time as recommended for the property Date, of which this is a subproperty.
+    comments:
+    - Date on which the resource was changed.
+    slot_uri: dcterms:modified
+    subproperty_of: date
+    range: Literal
+  conformsTo:
+    name: conformsTo
+    comments:
+    - An established standard to which the described resource conforms.
+    slot_uri: dcterms:conformsTo
+    subproperty_of: relation
+  alternative:
+    name: alternative
+    description: The distinction between titles and alternative titles is application-specific.
+    comments:
+    - An alternative name for the resource.
+    slot_uri: dcterms:alternative
+    subproperty_of: title
+    range: Literal
+  contributor:
+    name: contributor
+    description: The guidelines for using names of persons or organizations as creators
+      apply to contributors.
+    comments:
+    - An entity responsible for making contributions to the resource.
+    slot_uri: dcterms:contributor
+    subproperty_of: contributor
+  mediator:
+    name: mediator
+    description: In an educational context, a mediator might be a parent, teacher,
+      teaching assistant, or care-giver.
+    comments:
+    - An entity that mediates access to the resource.
+    slot_uri: dcterms:mediator
+    subproperty_of: audience
+  identifier:
+    name: identifier
+    description: Recommended practice is to identify the resource by means of a string
+      conforming to an identification system. Examples include International Standard
+      Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name
+      (URN).  Persistent identifiers should be provided as HTTP URIs.
+    comments:
+    - An unambiguous reference to the resource within a given context.
+    slot_uri: dcterms:identifier
+    subproperty_of: identifier
+    range: Literal
+  source:
+    name: source
+    description: This property is intended to be used with non-literal values. The
+      described resource may be derived from the related resource in whole or in part.
+      Best practice is to identify the related resource by means of a URI or a string
+      conforming to a formal identification system.
+    comments:
+    - A related resource from which the described resource is derived.
+    slot_uri: dcterms:source
+    subproperty_of: relation
+  provenance:
+    name: provenance
+    description: The statement may include a description of any changes successive
+      custodians made to the resource.
+    comments:
+    - A statement of any changes in ownership and custody of the resource since its
+      creation that are significant for its authenticity, integrity, and interpretation.
+    slot_uri: dcterms:provenance
+  hasPart:
+    name: hasPart
+    description: This property is intended to be used with non-literal values. This
+      property is an inverse property of Is Part Of.
+    comments:
+    - A related resource that is included either physically or logically in the described
+      resource.
+    slot_uri: dcterms:hasPart
     subproperty_of: relation
   language:
     name: language
@@ -48,6 +169,90 @@ slots:
     - A language of the resource.
     slot_uri: dcterms:language
     subproperty_of: language
+  isFormatOf:
+    name: isFormatOf
+    description: This property is intended to be used with non-literal values. This
+      property is an inverse property of Has Format.
+    comments:
+    - A pre-existing related resource that is substantially the same as the described
+      resource, but in another format.
+    slot_uri: dcterms:isFormatOf
+    subproperty_of: relation
+  accrualPeriodicity:
+    name: accrualPeriodicity
+    description: Recommended practice is to use a value from the Collection Description
+      Frequency Vocabulary [[DCMI-COLLFREQ](https://dublincore.org/groups/collections/frequency/)].
+    comments:
+    - The frequency with which items are added to a collection.
+    slot_uri: dcterms:accrualPeriodicity
+  medium:
+    name: medium
+    comments:
+    - The material or physical carrier of the resource.
+    slot_uri: dcterms:medium
+    subproperty_of: format
+  creator:
+    name: creator
+    description: Recommended practice is to identify the creator with a URI.  If this
+      is not possible or feasible, a literal value that identifies the creator may
+      be provided.
+    comments:
+    - An entity responsible for making the resource.
+    slot_uri: dcterms:creator
+    subproperty_of: contributor
+  audience:
+    name: audience
+    description: Recommended practice is to use this property with non-literal values
+      from a vocabulary of audience types.
+    comments:
+    - A class of agents for whom the resource is intended or useful.
+    slot_uri: dcterms:audience
+  description:
+    name: description
+    description: 'Description may include but is not limited to: an abstract, a table
+      of contents, a graphical representation, or a free-text account of the resource.'
+    comments:
+    - An account of the resource.
+    slot_uri: dcterms:description
+    subproperty_of: description
+  dateCopyrighted:
+    name: dateCopyrighted
+    description: Typically a year.  Recommended practice is to describe the date,
+      date/time, or period of time as recommended for the property Date, of which
+      this is a subproperty.
+    comments:
+    - Date of copyright of the resource.
+    slot_uri: dcterms:dateCopyrighted
+    subproperty_of: date
+    range: Literal
+  extent:
+    name: extent
+    description: Recommended practice is to specify the file size in megabytes and
+      duration in ISO 8601 format.
+    comments:
+    - The size or duration of the resource.
+    slot_uri: dcterms:extent
+    subproperty_of: format
+  dateSubmitted:
+    name: dateSubmitted
+    description: Recommended practice is to describe the date, date/time, or period
+      of time as recommended for the property Date, of which this is a subproperty.  Examples
+      of resources to which a 'Date Submitted' may be relevant include a thesis (submitted
+      to a university department) or an article (submitted to a journal).
+    comments:
+    - Date of submission of the resource.
+    slot_uri: dcterms:dateSubmitted
+    subproperty_of: date
+    range: Literal
+  requires:
+    name: requires
+    description: This property is intended to be used with non-literal values. This
+      property is an inverse property of Is Required By.
+    comments:
+    - A related resource that is required by the described resource to support its
+      function, delivery, or coherence.
+    slot_uri: dcterms:requires
+    subproperty_of: relation
   isReferencedBy:
     name: isReferencedBy
     description: This property is intended to be used with non-literal values. This
@@ -57,6 +262,79 @@ slots:
       resource.
     slot_uri: dcterms:isReferencedBy
     subproperty_of: relation
+  valid:
+    name: valid
+    description: Recommended practice is to describe the date, date/time, or period
+      of time as recommended for the property Date, of which this is a subproperty.
+    comments:
+    - Date (often a range) of validity of a resource.
+    slot_uri: dcterms:valid
+    subproperty_of: date
+    range: Literal
+  available:
+    name: available
+    description: Recommended practice is to describe the date, date/time, or period
+      of time as recommended for the property Date, of which this is a subproperty.
+    comments:
+    - Date that the resource became or will become available.
+    slot_uri: dcterms:available
+    subproperty_of: date
+    range: Literal
+  rights:
+    name: rights
+    description: Typically, rights information includes a statement about various
+      property rights associated with the resource, including intellectual property
+      rights.  Recommended practice is to refer to a rights statement with a URI.  If
+      this is not possible or feasible, a literal value (name, label, or short text)
+      may be provided.
+    comments:
+    - Information about rights held in and over the resource.
+    slot_uri: dcterms:rights
+    subproperty_of: rights
+  accrualMethod:
+    name: accrualMethod
+    description: Recommended practice is to use a value from the Collection Description
+      Accrual Method Vocabulary [[DCMI-ACCRUALMETHOD](https://dublincore.org/groups/collections/accrual-method/)].
+    comments:
+    - The method by which items are added to a collection.
+    slot_uri: dcterms:accrualMethod
+  temporal:
+    name: temporal
+    comments:
+    - Temporal characteristics of the resource.
+    slot_uri: dcterms:temporal
+    subproperty_of: coverage
+  replaces:
+    name: replaces
+    description: This property is intended to be used with non-literal values. This
+      property is an inverse property of Is Replaced By.
+    comments:
+    - A related resource that is supplanted, displaced, or superseded by the described
+      resource.
+    slot_uri: dcterms:replaces
+    subproperty_of: relation
+  spatial:
+    name: spatial
+    comments:
+    - Spatial characteristics of the resource.
+    slot_uri: dcterms:spatial
+    subproperty_of: coverage
+  issued:
+    name: issued
+    description: Recommended practice is to describe the date, date/time, or period
+      of time as recommended for the property Date, of which this is a subproperty.
+    comments:
+    - Date of formal issuance of the resource.
+    slot_uri: dcterms:issued
+    subproperty_of: date
+    range: Literal
+  educationLevel:
+    name: educationLevel
+    comments:
+    - A class of agents, defined in terms of progression through an educational or
+      training context, for which the described resource is intended.
+    slot_uri: dcterms:educationLevel
+    subproperty_of: audience
   hasVersion:
     name: hasVersion
     description: Changes in version imply substantive changes in content rather than
@@ -67,20 +345,61 @@ slots:
       resource.
     slot_uri: dcterms:hasVersion
     subproperty_of: relation
-  isReplacedBy:
-    name: isReplacedBy
+  format:
+    name: format
+    description: Recommended practice is to use a controlled vocabulary where available.
+      For example, for file formats one could use the list of Internet Media Types
+      [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)].  Examples
+      of dimensions include size and duration.
+    comments:
+    - The file format, physical medium, or dimensions of the resource.
+    slot_uri: dcterms:format
+    subproperty_of: format
+  isRequiredBy:
+    name: isRequiredBy
     description: This property is intended to be used with non-literal values. This
-      property is an inverse property of Replaces.
+      property is an inverse property of Requires.
     comments:
-    - A related resource that supplants, displaces, or supersedes the described resource.
-    slot_uri: dcterms:isReplacedBy
+    - A related resource that requires the described resource to support its function,
+      delivery, or coherence.
+    slot_uri: dcterms:isRequiredBy
     subproperty_of: relation
-  tableOfContents:
-    name: tableOfContents
+  rightsHolder:
+    name: rightsHolder
+    description: Recommended practice is to refer to the rights holder with a URI.
+      If this is not possible or feasible, a literal value that identifies the rights
+      holder may be provided.
     comments:
-    - A list of subunits of the resource.
-    slot_uri: dcterms:tableOfContents
-    subproperty_of: description
+    - A person or organization owning or managing rights over the resource.
+    slot_uri: dcterms:rightsHolder
+  accrualPolicy:
+    name: accrualPolicy
+    description: Recommended practice is to use a value from the Collection Description
+      Accrual Policy Vocabulary [[DCMI-ACCRUALPOLICY](https://dublincore.org/groups/collections/accrual-policy/)].
+    comments:
+    - The policy governing the addition of items to a collection.
+    slot_uri: dcterms:accrualPolicy
+  type:
+    name: type
+    description: Recommended practice is to use a controlled vocabulary such as the
+      DCMI Type Vocabulary [[DCMI-TYPE](http://dublincore.org/documents/dcmi-type-vocabulary/)].
+      To describe the file format, physical medium, or dimensions of the resource,
+      use the property Format.
+    comments:
+    - The nature or genre of the resource.
+    slot_uri: dcterms:type
+    subproperty_of: type
+  dateAccepted:
+    name: dateAccepted
+    description: Recommended practice is to describe the date, date/time, or period
+      of time as recommended for the property Date, of which this is a subproperty.  Examples
+      of resources to which a date of acceptance may be relevant are a thesis (accepted
+      by a university department) or an article (accepted by a journal).
+    comments:
+    - Date of acceptance of the resource.
+    slot_uri: dcterms:dateAccepted
+    subproperty_of: date
+    range: Literal
   isVersionOf:
     name: isVersionOf
     description: Changes in version imply substantive changes in content rather than
@@ -100,146 +419,18 @@ slots:
     - A related resource.
     slot_uri: dcterms:relation
     subproperty_of: relation
-  issued:
-    name: issued
-    description: Recommended practice is to describe the date, date/time, or period
-      of time as recommended for the property Date, of which this is a subproperty.
+  tableOfContents:
+    name: tableOfContents
     comments:
-    - Date of formal issuance of the resource.
-    slot_uri: dcterms:issued
-    subproperty_of: date
-    range: Literal
+    - A list of subunits of the resource.
+    slot_uri: dcterms:tableOfContents
+    subproperty_of: description
   publisher:
     name: publisher
     comments:
     - An entity responsible for making the resource available.
     slot_uri: dcterms:publisher
     subproperty_of: publisher
-  abstract:
-    name: abstract
-    comments:
-    - A summary of the resource.
-    slot_uri: dcterms:abstract
-    subproperty_of: description
-  replaces:
-    name: replaces
-    description: This property is intended to be used with non-literal values. This
-      property is an inverse property of Is Replaced By.
-    comments:
-    - A related resource that is supplanted, displaced, or superseded by the described
-      resource.
-    slot_uri: dcterms:replaces
-    subproperty_of: relation
-  provenance:
-    name: provenance
-    description: The statement may include a description of any changes successive
-      custodians made to the resource.
-    comments:
-    - A statement of any changes in ownership and custody of the resource since its
-      creation that are significant for its authenticity, integrity, and interpretation.
-    slot_uri: dcterms:provenance
-  mediator:
-    name: mediator
-    description: In an educational context, a mediator might be a parent, teacher,
-      teaching assistant, or care-giver.
-    comments:
-    - An entity that mediates access to the resource.
-    slot_uri: dcterms:mediator
-    subproperty_of: audience
-  accrualPeriodicity:
-    name: accrualPeriodicity
-    description: Recommended practice is to use a value from the Collection Description
-      Frequency Vocabulary [[DCMI-COLLFREQ](https://dublincore.org/groups/collections/frequency/)].
-    comments:
-    - The frequency with which items are added to a collection.
-    slot_uri: dcterms:accrualPeriodicity
-  hasFormat:
-    name: hasFormat
-    description: This property is intended to be used with non-literal values. This
-      property is an inverse property of Is Format Of.
-    comments:
-    - A related resource that is substantially the same as the pre-existing described
-      resource, but in another format.
-    slot_uri: dcterms:hasFormat
-    subproperty_of: relation
-  dateAccepted:
-    name: dateAccepted
-    description: Recommended practice is to describe the date, date/time, or period
-      of time as recommended for the property Date, of which this is a subproperty.  Examples
-      of resources to which a date of acceptance may be relevant are a thesis (accepted
-      by a university department) or an article (accepted by a journal).
-    comments:
-    - Date of acceptance of the resource.
-    slot_uri: dcterms:dateAccepted
-    subproperty_of: date
-    range: Literal
-  isRequiredBy:
-    name: isRequiredBy
-    description: This property is intended to be used with non-literal values. This
-      property is an inverse property of Requires.
-    comments:
-    - A related resource that requires the described resource to support its function,
-      delivery, or coherence.
-    slot_uri: dcterms:isRequiredBy
-    subproperty_of: relation
-  contributor:
-    name: contributor
-    description: The guidelines for using names of persons or organizations as creators
-      apply to contributors.
-    comments:
-    - An entity responsible for making contributions to the resource.
-    slot_uri: dcterms:contributor
-    subproperty_of: contributor
-  requires:
-    name: requires
-    description: This property is intended to be used with non-literal values. This
-      property is an inverse property of Is Required By.
-    comments:
-    - A related resource that is required by the described resource to support its
-      function, delivery, or coherence.
-    slot_uri: dcterms:requires
-    subproperty_of: relation
-  audience:
-    name: audience
-    description: Recommended practice is to use this property with non-literal values
-      from a vocabulary of audience types.
-    comments:
-    - A class of agents for whom the resource is intended or useful.
-    slot_uri: dcterms:audience
-  dateCopyrighted:
-    name: dateCopyrighted
-    description: Typically a year.  Recommended practice is to describe the date,
-      date/time, or period of time as recommended for the property Date, of which
-      this is a subproperty.
-    comments:
-    - Date of copyright of the resource.
-    slot_uri: dcterms:dateCopyrighted
-    subproperty_of: date
-    range: Literal
-  available:
-    name: available
-    description: Recommended practice is to describe the date, date/time, or period
-      of time as recommended for the property Date, of which this is a subproperty.
-    comments:
-    - Date that the resource became or will become available.
-    slot_uri: dcterms:available
-    subproperty_of: date
-    range: Literal
-  spatial:
-    name: spatial
-    comments:
-    - Spatial characteristics of the resource.
-    slot_uri: dcterms:spatial
-    subproperty_of: coverage
-  subject:
-    name: subject
-    description: Recommended practice is to refer to the subject with a URI. If this
-      is not possible or feasible, a literal value that identifies the subject may
-      be provided. Both should preferably refer to a subject in a controlled vocabulary.
-    comments:
-    - A topic of the resource.
-    slot_uri: dcterms:subject
-    subproperty_of: subject
   coverage:
     name: coverage
     description: Spatial topic and spatial applicability may be a named place or a
@@ -257,167 +448,6 @@ slots:
       resource, or jurisdiction under which the resource is relevant.
     slot_uri: dcterms:coverage
     subproperty_of: coverage
-  dateSubmitted:
-    name: dateSubmitted
-    description: Recommended practice is to describe the date, date/time, or period
-      of time as recommended for the property Date, of which this is a subproperty.  Examples
-      of resources to which a 'Date Submitted' may be relevant include a thesis (submitted
-      to a university department) or an article (submitted to a journal).
-    comments:
-    - Date of submission of the resource.
-    slot_uri: dcterms:dateSubmitted
-    subproperty_of: date
-    range: Literal
-  educationLevel:
-    name: educationLevel
-    comments:
-    - A class of agents, defined in terms of progression through an educational or
-      training context, for which the described resource is intended.
-    slot_uri: dcterms:educationLevel
-    subproperty_of: audience
-  accrualMethod:
-    name: accrualMethod
-    description: Recommended practice is to use a value from the Collection Description
-      Accrual Method Vocabulary [[DCMI-ACCRUALMETHOD](https://dublincore.org/groups/collections/accrual-method/)].
-    comments:
-    - The method by which items are added to a collection.
-    slot_uri: dcterms:accrualMethod
-  modified:
-    name: modified
-    description: Recommended practice is to describe the date, date/time, or period
-      of time as recommended for the property Date, of which this is a subproperty.
-    comments:
-    - Date on which the resource was changed.
-    slot_uri: dcterms:modified
-    subproperty_of: date
-    range: Literal
-  accrualPolicy:
-    name: accrualPolicy
-    description: Recommended practice is to use a value from the Collection Description
-      Accrual Policy Vocabulary [[DCMI-ACCRUALPOLICY](https://dublincore.org/groups/collections/accrual-policy/)].
-    comments:
-    - The policy governing the addition of items to a collection.
-    slot_uri: dcterms:accrualPolicy
-  temporal:
-    name: temporal
-    comments:
-    - Temporal characteristics of the resource.
-    slot_uri: dcterms:temporal
-    subproperty_of: coverage
-  identifier:
-    name: identifier
-    description: Recommended practice is to identify the resource by means of a string
-      conforming to an identification system. Examples include International Standard
-      Book Number (ISBN), Digital Object Identifier (DOI), and Uniform Resource Name
-      (URN).  Persistent identifiers should be provided as HTTP URIs.
-    comments:
-    - An unambiguous reference to the resource within a given context.
-    slot_uri: dcterms:identifier
-    subproperty_of: identifier
-    range: Literal
-  title:
-    name: title
-    comments:
-    - A name given to the resource.
-    slot_uri: dcterms:title
-    subproperty_of: title
-    range: Literal
-  created:
-    name: created
-    description: Recommended practice is to describe the date, date/time, or period
-      of time as recommended for the property Date, of which this is a subproperty.
-    comments:
-    - Date of creation of the resource.
-    slot_uri: dcterms:created
-    subproperty_of: date
-    range: Literal
-  rights:
-    name: rights
-    description: Typically, rights information includes a statement about various
-      property rights associated with the resource, including intellectual property
-      rights.  Recommended practice is to refer to a rights statement with a URI.  If
-      this is not possible or feasible, a literal value (name, label, or short text)
-      may be provided.
-    comments:
-    - Information about rights held in and over the resource.
-    slot_uri: dcterms:rights
-    subproperty_of: rights
-  conformsTo:
-    name: conformsTo
-    comments:
-    - An established standard to which the described resource conforms.
-    slot_uri: dcterms:conformsTo
-    subproperty_of: relation
-  creator:
-    name: creator
-    description: Recommended practice is to identify the creator with a URI.  If this
-      is not possible or feasible, a literal value that identifies the creator may
-      be provided.
-    comments:
-    - An entity responsible for making the resource.
-    slot_uri: dcterms:creator
-    subproperty_of: contributor
-  format:
-    name: format
-    description: Recommended practice is to use a controlled vocabulary where available.
-      For example, for file formats one could use the list of Internet Media Types
-      [[MIME](https://www.iana.org/assignments/media-types/media-types.xhtml)].  Examples
-      of dimensions include size and duration.
-    comments:
-    - The file format, physical medium, or dimensions of the resource.
-    slot_uri: dcterms:format
-    subproperty_of: format
-  extent:
-    name: extent
-    description: Recommended practice is to specify the file size in megabytes and
-      duration in ISO 8601 format.
-    comments:
-    - The size or duration of the resource.
-    slot_uri: dcterms:extent
-    subproperty_of: format
-  description:
-    name: description
-    description: 'Description may include but is not limited to: an abstract, a table
-      of contents, a graphical representation, or a free-text account of the resource.'
-    comments:
-    - An account of the resource.
-    slot_uri: dcterms:description
-    subproperty_of: description
-  hasPart:
-    name: hasPart
-    description: This property is intended to be used with non-literal values. This
-      property is an inverse property of Is Part Of.
-    comments:
-    - A related resource that is included either physically or logically in the described
-      resource.
-    slot_uri: dcterms:hasPart
-    subproperty_of: relation
-  type:
-    name: type
-    description: Recommended practice is to use a controlled vocabulary such as the
-      DCMI Type Vocabulary [[DCMI-TYPE](http://dublincore.org/documents/dcmi-type-vocabulary/)].
-      To describe the file format, physical medium, or dimensions of the resource,
-      use the property Format.
-    comments:
-    - The nature or genre of the resource.
-    slot_uri: dcterms:type
-    subproperty_of: type
-  rightsHolder:
-    name: rightsHolder
-    description: Recommended practice is to refer to the rights holder with a URI.
-      If this is not possible or feasible, a literal value that identifies the rights
-      holder may be provided.
-    comments:
-    - A person or organization owning or managing rights over the resource.
-    slot_uri: dcterms:rightsHolder
-  alternative:
-    name: alternative
-    description: The distinction between titles and alternative titles is application-specific.
-    comments:
-    - An alternative name for the resource.
-    slot_uri: dcterms:alternative
-    subproperty_of: title
-    range: Literal
   date:
     name: date
     description: Date may be used to express temporal information at any level of
@@ -435,14 +465,21 @@ slots:
     slot_uri: dcterms:date
     subproperty_of: date
     range: Literal
-  isPartOf:
-    name: isPartOf
-    description: This property is intended to be used with non-literal values. This
-      property is an inverse property of Has Part.
+  title:
+    name: title
     comments:
-    - A related resource in which the described resource is physically or logically
-      included.
-    slot_uri: dcterms:isPartOf
+    - A name given to the resource.
+    slot_uri: dcterms:title
+    subproperty_of: title
+    range: Literal
+  references:
+    name: references
+    description: This property is intended to be used with non-literal values. This
+      property is an inverse property of Is Referenced By.
+    comments:
+    - A related resource that is referenced, cited, or otherwise pointed to by the
+      described resource.
+    slot_uri: dcterms:references
     subproperty_of: relation
   license:
     name: license
@@ -453,31 +490,6 @@ slots:
     - A legal document giving official permission to do something with the resource.
     slot_uri: dcterms:license
     subproperty_of: rights
-  source:
-    name: source
-    description: This property is intended to be used with non-literal values. The
-      described resource may be derived from the related resource in whole or in part.
-      Best practice is to identify the related resource by means of a URI or a string
-      conforming to a formal identification system.
-    comments:
-    - A related resource from which the described resource is derived.
-    slot_uri: dcterms:source
-    subproperty_of: relation
-  medium:
-    name: medium
-    comments:
-    - The material or physical carrier of the resource.
-    slot_uri: dcterms:medium
-    subproperty_of: format
-  isFormatOf:
-    name: isFormatOf
-    description: This property is intended to be used with non-literal values. This
-      property is an inverse property of Has Format.
-    comments:
-    - A pre-existing related resource that is substantially the same as the described
-      resource, but in another format.
-    slot_uri: dcterms:isFormatOf
-    subproperty_of: relation
   instructionalMethod:
     name: instructionalMethod
     description: Instructional Method typically includes ways of presenting instructional
@@ -490,50 +502,106 @@ slots:
     - A process, used to engender knowledge, attitudes and skills, that the described
       resource is designed to support.
     slot_uri: dcterms:instructionalMethod
-  bibliographicCitation:
-    name: bibliographicCitation
-    description: Recommended practice is to include sufficient bibliographic detail
-      to identify the resource as unambiguously as possible.
-    comments:
-    - A bibliographic reference for the resource.
-    slot_uri: dcterms:bibliographicCitation
-    subproperty_of: identifier
-    range: Literal
 classes:
-  LocationPeriodOrJurisdiction:
-    name: LocationPeriodOrJurisdiction
+  RightsStatement:
+    name: RightsStatement
     comments:
-    - A location, period of time, or jurisdiction.
-    class_uri: dcterms:LocationPeriodOrJurisdiction
-  Location:
-    name: Location
+    - A statement about the intellectual property rights (IPR) held in or over a resource,
+      a legal document giving official permission to do something with a resource,
+      or a statement about access rights.
+    class_uri: dcterms:RightsStatement
+  FileFormat:
+    name: FileFormat
     comments:
-    - A spatial region or named place.
-    is_a: LocationPeriodOrJurisdiction
-    class_uri: dcterms:Location
+    - A digital resource format.
+    is_a: MediaType
+    class_uri: dcterms:FileFormat
+  Policy:
+    name: Policy
+    comments:
+    - A plan or course of action by an authority, intended to influence and determine
+      decisions, actions, and other matters.
+    class_uri: dcterms:Policy
   BibliographicResource:
     name: BibliographicResource
     comments:
     - A book, article, or other documentary resource.
     class_uri: dcterms:BibliographicResource
-  LicenseDocument:
-    name: LicenseDocument
-    comments:
-    - A legal document giving official permission to do something with a resource.
-    is_a: RightsStatement
-    class_uri: dcterms:LicenseDocument
-  PeriodOfTime:
-    name: PeriodOfTime
-    comments:
-    - An interval of time that is named or defined by its start and end dates.
-    is_a: LocationPeriodOrJurisdiction
-    class_uri: dcterms:PeriodOfTime
   AgentClass:
     name: AgentClass
     comments:
     - A group of agents.
     is_a: Class
     class_uri: dcterms:AgentClass
+  PhysicalMedium:
+    name: PhysicalMedium
+    description: Examples include paper, canvas, or DVD.
+    comments:
+    - A physical material or carrier.
+    is_a: MediaType
+    class_uri: dcterms:PhysicalMedium
+  Agent:
+    name: Agent
+    comments:
+    - A resource that acts or has the power to act.
+    class_uri: dcterms:Agent
+  PhysicalResource:
+    name: PhysicalResource
+    comments:
+    - A material thing.
+    class_uri: dcterms:PhysicalResource
+  PeriodOfTime:
+    name: PeriodOfTime
+    comments:
+    - An interval of time that is named or defined by its start and end dates.
+    is_a: LocationPeriodOrJurisdiction
+    class_uri: dcterms:PeriodOfTime
+  MediaType:
+    name: MediaType
+    comments:
+    - A file format or physical medium.
+    is_a: MediaTypeOrExtent
+    class_uri: dcterms:MediaType
+  ProvenanceStatement:
+    name: ProvenanceStatement
+    comments:
+    - Any changes in ownership and custody of a resource since its creation that are
+      significant for its authenticity, integrity, and interpretation.
+    class_uri: dcterms:ProvenanceStatement
+  Class:
+    name: Class
+    class_uri: rdfs:Class
+  LocationPeriodOrJurisdiction:
+    name: LocationPeriodOrJurisdiction
+    comments:
+    - A location, period of time, or jurisdiction.
+    class_uri: dcterms:LocationPeriodOrJurisdiction
+  MethodOfAccrual:
+    name: MethodOfAccrual
+    comments:
+    - A method by which resources are added to a collection.
+    class_uri: dcterms:MethodOfAccrual
+  MethodOfInstruction:
+    name: MethodOfInstruction
+    comments:
+    - A process that is used to engender knowledge, attitudes, and skills.
+    class_uri: dcterms:MethodOfInstruction
+  Standard:
+    name: Standard
+    comments:
+    - A reference point against which other things can be evaluated or compared.
+    class_uri: dcterms:Standard
+  Frequency:
+    name: Frequency
+    comments:
+    - A rate at which something recurs.
+    class_uri: dcterms:Frequency
+  LicenseDocument:
+    name: LicenseDocument
+    comments:
+    - A legal document giving official permission to do something with a resource.
+    is_a: RightsStatement
+    class_uri: dcterms:LicenseDocument
   MediaTypeOrExtent:
     name: MediaTypeOrExtent
     comments:
@@ -545,83 +613,12 @@ classes:
     - The extent or range of judicial, law enforcement, or other authority.
     is_a: LocationPeriodOrJurisdiction
     class_uri: dcterms:Jurisdiction
-  MethodOfInstruction:
-    name: MethodOfInstruction
+  Location:
+    name: Location
     comments:
-    - A process that is used to engender knowledge, attitudes, and skills.
-    class_uri: dcterms:MethodOfInstruction
-  ProvenanceStatement:
-    name: ProvenanceStatement
-    comments:
-    - Any changes in ownership and custody of a resource since its creation that are
-      significant for its authenticity, integrity, and interpretation.
-    class_uri: dcterms:ProvenanceStatement
-  PhysicalMedium:
-    name: PhysicalMedium
-    description: Examples include paper, canvas, or DVD.
-    comments:
-    - A physical material or carrier.
-    is_a: MediaType
-    class_uri: dcterms:PhysicalMedium
-  PhysicalResource:
-    name: PhysicalResource
-    comments:
-    - A material thing.
-    class_uri: dcterms:PhysicalResource
-  Class:
-    name: Class
-    class_uri: rdfs:Class
-  Policy:
-    name: Policy
-    comments:
-    - A plan or course of action by an authority, intended to influence and determine
-      decisions, actions, and other matters.
-    class_uri: dcterms:Policy
-  Frequency:
-    name: Frequency
-    comments:
-    - A rate at which something recurs.
-    class_uri: dcterms:Frequency
-  MediaType:
-    name: MediaType
-    comments:
-    - A file format or physical medium.
-    is_a: MediaTypeOrExtent
-    class_uri: dcterms:MediaType
-  FileFormat:
-    name: FileFormat
-    comments:
-    - A digital resource format.
-    is_a: MediaType
-    class_uri: dcterms:FileFormat
-  RightsStatement:
-    name: RightsStatement
-    comments:
-    - A statement about the intellectual property rights (IPR) held in or over a resource,
-      a legal document giving official permission to do something with a resource,
-      or a statement about access rights.
-    class_uri: dcterms:RightsStatement
-  Standard:
-    name: Standard
-    comments:
-    - A reference point against which other things can be evaluated or compared.
-    class_uri: dcterms:Standard
-  MethodOfAccrual:
-    name: MethodOfAccrual
-    comments:
-    - A method by which resources are added to a collection.
-    class_uri: dcterms:MethodOfAccrual
-  Agent:
-    name: Agent
-    comments:
-    - A resource that acts or has the power to act.
-    class_uri: dcterms:Agent
-  LinguisticSystem:
-    name: LinguisticSystem
-    description: Written, spoken, sign, and computer languages are linguistic systems.
-    comments:
-    - A system of signs, symbols, sounds, gestures, or rules used in communication.
-    class_uri: dcterms:LinguisticSystem
+    - A spatial region or named place.
+    is_a: LocationPeriodOrJurisdiction
+    class_uri: dcterms:Location
   SizeOrDuration:
     name: SizeOrDuration
     description: Examples include a number of pages, a specification of length, width,
@@ -630,3 +627,9 @@ classes:
     - A dimension or extent, or a time taken to play or execute.
     is_a: MediaTypeOrExtent
     class_uri: dcterms:SizeOrDuration
+  LinguisticSystem:
+    name: LinguisticSystem
+    description: Written, spoken, sign, and computer languages are linguistic systems.
+    comments:
+    - A system of signs, symbols, sounds, gestures, or rules used in communication.
+    class_uri: dcterms:LinguisticSystem

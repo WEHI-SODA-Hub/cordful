@@ -2,19 +2,13 @@ name: example
 id: http://example.org/example
 imports:
 - linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
 default_prefix: example
 default_range: string
 classes:
-  Range:
-    name: Range
-    comments:
-    - "\n      A section of a Work, corresponding to a IIIF Range.  Has member FileSets\
-      \ representing the\n      physical parts of the Work are part of the section\
-      \ (e.g., which pages are in a chapter).\n    "
-    close_mappings:
-    - http://iiif.io/model/shared-canvas/1.0/#Range
-    is_a: Object
-    class_uri: ns1:Range
   Work:
     name: Work
     comments:
@@ -26,6 +20,23 @@ classes:
       \ in a book).\n    "
     is_a: Object
     class_uri: ns1:Work
+  Range:
+    name: Range
+    comments:
+    - "\n      A section of a Work, corresponding to a IIIF Range.  Has member FileSets\
+      \ representing the\n      physical parts of the Work are part of the section\
+      \ (e.g., which pages are in a chapter).\n    "
+    close_mappings:
+    - http://iiif.io/model/shared-canvas/1.0/#Range
+    is_a: Object
+    class_uri: ns1:Range
+  FileSet:
+    name: FileSet
+    comments:
+    - "\n      A group of related Files, typically a single source File and any derivatives.\n\
+      \    "
+    is_a: Object
+    class_uri: ns1:FileSet
   TopRange:
     name: TopRange
     comments:
@@ -37,13 +48,6 @@ classes:
     - http://iiif.io/model/shared-canvas/1.0/#Range
     is_a: Object
     class_uri: ns1:TopRange
-  FileSet:
-    name: FileSet
-    comments:
-    - "\n      A group of related Files, typically a single source File and any derivatives.\n\
-      \    "
-    is_a: Object
-    class_uri: ns1:FileSet
   Object:
     name: Object
     class_uri: ns2:Object

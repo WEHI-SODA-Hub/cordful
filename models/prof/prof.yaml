@@ -3,6 +3,9 @@ id: http://example.org/example
 imports:
 - linkml:types
 prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
   ? ''
   : prefix_prefix: ''
     prefix_reference: http://www.w3.org/ns/dx/prof/
@@ -15,40 +18,6 @@ prefixes:
 default_prefix: example
 default_range: string
 slots:
-  conformsTo:
-    name: conformsTo
-    description: An established standard to which the described resource conforms
-    slot_uri: dct:conformsTo
-    range: Standard
-  format:
-    name: format
-    slot_uri: dct:format
-    subproperty_of: format
-    range: MediaTypeOrExtent
-  hasRole:
-    name: hasRole
-    description: The function of an artifact described by a Resource Descriptor, such
-      as specification, guidance etc.
-    slot_uri: :hasRole
-    range: Concept
-  isTransitiveProfileOf:
-    name: isTransitiveProfileOf
-    description: The transitive closure of the prof:isProfileOf property. Relates
-      a profile to another specification that it is a profile of, possibly via a chain
-      of intermediate profiles that are in prof:isProfileOf relationships
-    slot_uri: :isTransitiveProfileOf
-    range: Standard
-  hasArtifact:
-    name: hasArtifact
-    description: The URL of a downloadable file with particulars such as its format
-      and role indicated by the Resource Descriptor
-    slot_uri: :hasArtifact
-  hasToken:
-    name: hasToken
-    description: The preferred identifier for the Profile, for use in circumstances
-      where its URI cannot be used
-    slot_uri: :hasToken
-    range: token
   isProfileOf:
     name: isProfileOf
     description: A specification for which this Profile defines constraints, extensions,
@@ -63,13 +32,59 @@ slots:
       it plays in relation to the Profile
     slot_uri: :hasResource
     range: ResourceDescriptor
+  hasRole:
+    name: hasRole
+    description: The function of an artifact described by a Resource Descriptor, such
+      as specification, guidance etc.
+    slot_uri: :hasRole
+    range: Concept
+  hasToken:
+    name: hasToken
+    description: The preferred identifier for the Profile, for use in circumstances
+      where its URI cannot be used
+    slot_uri: :hasToken
+    range: token
+  isTransitiveProfileOf:
+    name: isTransitiveProfileOf
+    description: The transitive closure of the prof:isProfileOf property. Relates
+      a profile to another specification that it is a profile of, possibly via a chain
+      of intermediate profiles that are in prof:isProfileOf relationships
+    slot_uri: :isTransitiveProfileOf
+    range: Standard
+  hasArtifact:
+    name: hasArtifact
+    description: The URL of a downloadable file with particulars such as its format
+      and role indicated by the Resource Descriptor
+    slot_uri: :hasArtifact
   isInheritedFrom:
     name: isInheritedFrom
     description: A base specification, a Resource Descriptor from which is to be considered
       a Resource Descriptor for this Profile also
     slot_uri: :isInheritedFrom
     range: Profile
+  format:
+    name: format
+    slot_uri: dct:format
+    subproperty_of: format
+    range: MediaTypeOrExtent
+  conformsTo:
+    name: conformsTo
+    description: An established standard to which the described resource conforms
+    slot_uri: dct:conformsTo
+    range: Standard
 classes:
+  Concept:
+    name: Concept
+    class_uri: skos:Concept
+  Standard:
+    name: Standard
+    class_uri: dct:Standard
+  ResourceRole:
+    name: ResourceRole
+    description: A role that an profile resource, described by a Resource Descriptor,
+      plays
+    is_a: Concept
+    class_uri: :ResourceRole
   ResourceDescriptor:
     name: ResourceDescriptor
     description: A description of a resource that defines an aspect - a particular
@@ -79,18 +94,6 @@ classes:
     - hasArtifact
     - isInheritedFrom
     class_uri: :ResourceDescriptor
-  ResourceRole:
-    name: ResourceRole
-    description: A role that an profile resource, described by a Resource Descriptor,
-      plays
-    is_a: Concept
-    class_uri: :ResourceRole
-  Standard:
-    name: Standard
-    class_uri: dct:Standard
-  Concept:
-    name: Concept
-    class_uri: skos:Concept
   Profile:
     name: Profile
     description: 'A specification that constrains, extends, combines, or provides
@@ -102,7 +105,7 @@ classes:
     source: https://www.w3.org/2017/dxwg/wiki/ProfileContext
     is_a: Standard
     slots:
-    - isTransitiveProfileOf
-    - hasToken
     - isProfileOf
+    - hasToken
+    - isTransitiveProfileOf
     class_uri: :Profile

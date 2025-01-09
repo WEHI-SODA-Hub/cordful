@@ -3,6 +3,9 @@ id: http://example.org/example
 imports:
 - linkml:types
 prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
   ore:
     prefix_prefix: ore
     prefix_reference: http://www.openarchives.org/ore/terms/
@@ -19,6 +22,15 @@ slots:
     slot_uri: pcdm:relatedObjectOf
     inverse: hasRelatedObject
     range: Aggregation
+  hasMember:
+    name: hasMember
+    comments:
+    - "Links to a subsidiary Object or Collection. Typically used to link\n      \
+      \    to component parts, such as a book linking to a page.  Note on transitivity:\
+      \ hasMember is\n          not defined as transitive, but applications may treat\
+      \ it as transitive as local needs\n          dictate."
+    slot_uri: pcdm:hasMember
+    range: Aggregation
   fileOf:
     name: fileOf
     comments:
@@ -33,21 +45,6 @@ slots:
       a donor agreement or policies that govern the resource.
     slot_uri: pcdm:hasRelatedObject
     range: Object
-  hasFile:
-    name: hasFile
-    comments:
-    - Links to a File contained by this Object.
-    slot_uri: pcdm:hasFile
-    range: File
-  hasMember:
-    name: hasMember
-    comments:
-    - "Links to a subsidiary Object or Collection. Typically used to link\n      \
-      \    to component parts, such as a book linking to a page.  Note on transitivity:\
-      \ hasMember is\n          not defined as transitive, but applications may treat\
-      \ it as transitive as local needs\n          dictate."
-    slot_uri: pcdm:hasMember
-    range: Aggregation
   memberOf:
     name: memberOf
     comments:
@@ -55,6 +52,12 @@ slots:
     slot_uri: pcdm:memberOf
     inverse: hasMember
     range: Aggregation
+  hasFile:
+    name: hasFile
+    comments:
+    - Links to a File contained by this Object.
+    slot_uri: pcdm:hasFile
+    range: File
 classes:
   File:
     name: File
@@ -76,6 +79,13 @@ classes:
       \ can be ordered using the ORE Proxy class.\n      "
     is_a: Aggregation
     class_uri: pcdm:Collection
+  Aggregation:
+    name: Aggregation
+    slots:
+    - hasMember
+    - hasRelatedObject
+    - memberOf
+    class_uri: ore:Aggregation
   AlternateOrder:
     name: AlternateOrder
     comments:
@@ -100,10 +110,3 @@ classes:
     - relatedObjectOf
     - hasFile
     class_uri: pcdm:Object
-  Aggregation:
-    name: Aggregation
-    slots:
-    - hasRelatedObject
-    - hasMember
-    - memberOf
-    class_uri: ore:Aggregation
