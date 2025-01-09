@@ -77,50 +77,57 @@ def fix_schema_org(schema: SchemaDefinition) -> SchemaDefinition:
     """
     Applies some Schema.org specific fixes
     """
+    # Convert the primitive types from classes into types
     schema_copy = replace(schema)
-    schema_copy.types = {
+    primitive_types = {
         'Text': TypeDefinition(
             name='Text',
             typeof=linkml_types.String.type_name,
+            # base should be inherited but isn't. See https://github.com/linkml/linkml/issues/2485
+            base='str',
+            uri="https://schema.org/Number"
         ),
         'Boolean': TypeDefinition(
             name='Boolean',
             typeof=linkml_types.Boolean.type_name,
+            base='bool',
+            uri="https://schema.org/Boolean"
         ),
         'Time': TypeDefinition(
             name='Time',
+            base='XSDTime',
             typeof=linkml_types.Time.type_name,
+            uri="https://schema.org/Time"
         ),
         'Number': TypeDefinition(
             name='Number',
+            base='float',
             typeof=linkml_types.Float.type_name,
+            uri="https://schema.org/Number"
         ),
         'DateTime': TypeDefinition(
             name='DateTime',
             typeof=linkml_types.Datetime.type_name,
+            base='XSDDateTime',
+            uri="https://schema.org/DateTime"
         ),
         'Date': TypeDefinition(
             name='Date',
+            base='XSDDate',
             typeof=linkml_types.Date.type_name,
-        )
+            uri="https://schema.org/Date"
+        ),
+        'URL': TypeDefinition(
+            name='URL',
+            base='str',
+            typeof=linkml_types.Uri.type_name,
+            uri="https://schema.org/URL"
+        ),
     }
-    for type_name in schema_copy.types.keys():
-        if type_name in schema_copy.classes:
-            del schema_copy.classes[type_name]
+    schema_copy.types = primitive_types
+    for type_name in primitive_types.keys():
+        schema_copy.classes.pop(type_name, None)
     return schema_copy
-
-    metamodel = SchemaView("https://raw.githubusercontent.com/linkml/linkml-model/refs/heads/main/linkml_model/model/schema/types.yaml")
-    metamodel_by_uri = {type.uri: type for type in metamodel.all_types().values()}
-    sv = SchemaView(schema)
-    for primitive_typename in sv.class_children("DataType"):
-        primitive_type = sv.get_class(primitive_typename)
-        schema_copy.types[primitive_typename] = TypeDefinition(
-            name=primitive_typename,
-            typeof=metamodel_by_uri[primitive_type.class_uri].name,
-        )
-        del schema_copy.classes[primitive_typename]
-    return schema_copy
-
 
 def task_prof():
     """
