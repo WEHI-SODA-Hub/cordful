@@ -1,8 +1,8 @@
 site_name: cordful
 docs_dir: .
-# nav:
-#   - Introduction: 'README.md'
-#   - 'models.md'
+nav:
+  - Introduction: 'README.md'
+  - 'models.md'
 plugins:
   - same-dir
   - gen-files:
