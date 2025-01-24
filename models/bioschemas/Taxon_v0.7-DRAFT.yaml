@@ -1,0 +1,64 @@
+name: Taxon_v0.7-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemasdrafts:
+    prefix_prefix: bioschemasdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemasdrafts/
+  dwc:
+    prefix_prefix: dwc
+    prefix_reference: http://rs.tdwg.org/dwc/terms/
+default_prefix: example
+default_range: string
+slots:
+  alternateScientificName:
+    name: alternateScientificName
+    comments:
+    - A TaxonName representing a scientific name, with authorship and date information
+      if known, of a synonym of the currently valid (zoological) or accepted (botanical)
+      name.
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:alternateScientificName
+    range: URL
+  scientificName:
+    name: scientificName
+    comments:
+    - A TaxonName representing the currently valid (zoological) or accepted (botanical)
+      name for that taxon.
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:scientificName
+    range: URL
+  vernacularName:
+    name: vernacularName
+    comments:
+    - A vernacular (common) name of the taxon.
+    from_schema: http://example.org/example
+    slot_uri: dwc:vernacularName
+    range: URL
+  isBasedOn:
+    name: isBasedOn
+    comments:
+    - "A resource from which this work is derived or from which it is a modification\
+      \ or adaption. Supersedes, isBasedOnUrl. \n A CreativeWork, such as a scholarly\
+      \ article, asserting the status of the accepted/valid name and synonyms, retained\
+      \ for the taxon circumscription."
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:isBasedOn
+    range: CreativeWork
+classes:
+  Taxon:
+    name: Taxon
+    from_schema: http://example.org/example
+    slots:
+    - alternateScientificName
+    - scientificName
+    - vernacularName
+    - isBasedOn
+    class_uri: schema1:Taxon

@@ -1,0 +1,127 @@
+name: Protein_v0.5-DRAFT-2018_11_09
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  isEncodedBy:
+    name: isEncodedBy
+    comments:
+    - "BioChemEntity from which this protein was encoded from. \n Gene(s) from which\
+      \ this protein was encoded."
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:isEncodedBy
+    range: URL
+  contains:
+    name: contains
+    comments:
+    - "Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity.\
+      \ Inverse property: isContainedIn. \n For proteins, it can be used to link to\
+      \ protein sequence annotations such as domains, sites, regions, etc."
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:contains
+    range: ProteinAnnotation
+  involvedInBP:
+    name: involvedInBP
+    comments:
+    - 'RO:0002331 (is involved in). GO biological process this gene/protein is involved
+      in. Recommended range: BioChemEntity or CategoryCode, ProteinAnnotation if evidence
+      should be included.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:involvedInBP
+    range: PropertyValue
+  enablesMF:
+    name: enablesMF
+    comments:
+    - 'RO:0002327 (enables). GO molecular function enabled by the gene/protein. Recommended
+      range: BioChemEntity or CategoryCode, ProteinAnnotation if evidence should be
+      included.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:enablesMF
+    range: PropertyValue
+  positionInRepresentation:
+    name: positionInRepresentation
+    comments:
+    - "Refers to a position in the chromosome or sequence. For instance, FALDO can\
+      \ be used for sequence coordinates. \n The location can be refer to a position\
+      \ in a chromosome or sequence or to a physical place where, for instance, a\
+      \ sample is stored. Using additionalType is advised to make the distinction.\
+      \ For proteins, we use PropertyValue."
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:positionInRepresentation
+    range: URL
+  hasCategoryCode:
+    name: hasCategoryCode
+    comments:
+    - A controlled vocabulary term equivalent to this entity. For instance, an organism
+      coined in NCBI taxonomy can be represented as a BioChemEntity. As it also exists
+      as a term in an ontology, it would be nice to capture that information via categoryCode.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasCategoryCode
+    range: CategoryCode
+  isContainedIn:
+    name: isContainedIn
+    comments:
+    - "Indicates a BioChemEntity that this BioChemEntity is (in some sense) part of.\
+      \ \n For proteins, it is recommended to at least specify the taxon/organism\
+      \ associated to the described protein. For taxon/organism, it is a good practice\
+      \ to use hasCategoryCode to point to a controlled vacabulary such as NCBI taxon\
+      \ or UniProt Taxonomy. Including as well the GO cellular locations is optional;\
+      \ for cellular locations it is a good practice to use hasCategorryCode to point\
+      \ to a GO Cellular Location term."
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:isContainedIn
+    range: BioChemEntity
+  additionalProperty:
+    name: additionalProperty
+    comments:
+    - "A property-value pair representing an additional characteristics of the entitity,\
+      \ e.g. a product feature or another characteristic for which there is no matching\
+      \ property in schema.org. \n Note: Publishers should be aware that applications\
+      \ designed to use specific schema.org properties (e.g. http://schema.org/width,\
+      \ http://schema.org/color, http://schema.org/gtin13, …) will typically expect\
+      \ such data to be provided using those properties, rather than using the generic\
+      \ property/value mechanism. \n Whenever possible, please use a property coined\
+      \ in a third-party well-known vocabulary. For instance, you can directly use\
+      \ RO ObjectProperty: enables as a property to express how a protein or gene\
+      \ enables some GO molecular function. If you still want or need to use additionalProperty,\
+      \ please use (i) property name to specify the name of the property, (ii) additionalType\
+      \ (if possible) to better specify the nature of the property, and (iii) value\
+      \ to link to the object/range of this property. We recommend to look at the\
+      \ OBO Relations Ontology (RO) or the Semanticscience Integrated Ontology (SIO)\
+      \ as starting points. \n Bioschemas Protein: If no suitable property exists\
+      \ in this profile, use any ontology term coined as a property and suitable for\
+      \ your needs. For instance sio:SIO_000095 (is member of) could be used to model\
+      \ the relation between a protein and a protein clan."
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:additionalProperty
+    range: PropertyValue
+classes:
+  Protein:
+    name: Protein
+    comments:
+    - 'Bioschemas profile describing a Protein in Life Sciences. This Protein profile
+      specification presents the markup when describing a Protein. Version: 0.5-DRAFT-2018_11_09'
+    from_schema: http://example.org/example
+    is_a: Protein
+    slots:
+    - isEncodedBy
+    - contains
+    - involvedInBP
+    - enablesMF
+    - positionInRepresentation
+    - hasCategoryCode
+    - isContainedIn
+    - additionalProperty
+    class_uri: bioschemas:Protein

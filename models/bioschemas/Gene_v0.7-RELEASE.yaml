@@ -1,0 +1,41 @@
+name: Gene_v0.7-RELEASE
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  hasStatus:
+    name: hasStatus
+    comments:
+    - One of pseudogene, dead, killed, live, predicted, suppressed.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasStatus
+    range: Text
+classes:
+  Gene:
+    name: Gene
+    comments:
+    - 'Bioschemas profile describing a Gene in Life Sciences This Gene profile specification
+      presents the markup for describing a Gene. <h4>Summary of Changes</h4> Changes
+      since previous release of the Gene Profile: <ul> <li>No changes at Minimum level</li>
+      <li>Various changes to properties at the Recommended level <ul> <li>encodes
+      renamed to encodesBioChemEntity and types changed</li> <li>hasRepresentation
+      and image demoted to optional</li> </ul> </li> <li>Various changes at Optional
+      level, several properties renamed. Removed additionalProperty and additionalType
+      properties.</li> </ul>  Version: 0.7-RELEASE'
+    from_schema: http://example.org/example
+    is_a: Gene
+    slots:
+    - hasStatus
+    class_uri: bioschemas:Gene

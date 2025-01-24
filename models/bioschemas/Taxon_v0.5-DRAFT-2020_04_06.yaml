@@ -1,0 +1,34 @@
+name: Taxon_v0.5-DRAFT-2020_04_06
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+  dwc:
+    prefix_prefix: dwc
+    prefix_reference: http://rs.tdwg.org/dwc/terms/
+default_prefix: example
+default_range: string
+slots:
+  vernacularName:
+    name: vernacularName
+    comments:
+    - A vernacular (common) name of the taxon.
+    from_schema: http://example.org/example
+    slot_uri: dwc:vernacularName
+    range: URL
+classes:
+  Taxon:
+    name: Taxon
+    from_schema: http://example.org/example
+    slots:
+    - vernacularName
+    class_uri: bioschemastypes:Taxon

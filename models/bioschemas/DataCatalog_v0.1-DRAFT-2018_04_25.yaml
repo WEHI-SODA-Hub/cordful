@@ -1,0 +1,48 @@
+name: DataCatalog_v0.1-DRAFT-2018_04_25
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  rdf1:
+    prefix_prefix: rdf1
+    prefix_reference: https://www.w3.org/1999/02/22-rdf-syntax-ns#
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  fileFormat:
+    name: fileFormat
+    comments:
+    - Media type, typically MIME format (see IANA site) of the content e.g. application/zip
+      of a SoftwareApplication binary. In cases where a CreativeWork has several media
+      type representations, ‘encoding’ can be used to indicate each MediaObject alongside
+      particular fileFormat information. Unregistered or niche file formats can be
+      indicated instead via the most appropriate URL, e.g. defining Web page or a
+      Wikipedia entry.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:fileFormat
+    range: URL
+  type:
+    name: type
+    comments:
+    - his is used by validation tools to indentify the profile used. You must use
+      the value specified in the Controlled Vocabulary column.
+    from_schema: http://example.org/example
+    slot_uri: rdf1:type
+    range: URL
+classes:
+  DataCatalog:
+    name: DataCatalog
+    from_schema: http://example.org/example
+    slots:
+    - fileFormat
+    - type
+    class_uri: schema1:DataCatalog

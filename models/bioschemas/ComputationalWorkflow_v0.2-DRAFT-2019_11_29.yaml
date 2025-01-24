@@ -1,0 +1,21 @@
+name: ComputationalWorkflow_v0.2-DRAFT-2019_11_29
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemastemp:
+    prefix_prefix: bioschemastemp
+    prefix_reference: https://discovery.biothings.io/view/bioschemastemp/
+default_prefix: example
+default_range: string
+classes:
+  ComputationalWorkflow:
+    name: ComputationalWorkflow
+    from_schema: http://example.org/example
+    class_uri: bioschemastypes:ComputationalWorkflow

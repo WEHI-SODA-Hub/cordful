@@ -1,0 +1,57 @@
+name: Course_v0.6-DRAFT-2019_06_06
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  learningOutcome:
+    name: learningOutcome
+    comments:
+    - Statements that describe what knowledge and skills a student will acquire from
+      completing this training. It is recommended you utilize terms from Blooms taxonomy.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:learningOutcome
+    range: Text
+  uses:
+    name: uses
+    comments:
+    - List resources utilized by this resource such as datasets, tools, technologies,
+      or other entities. Datasets, tools, technologies, entities etc, which will be
+      utilized in this Course.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:uses
+    range: Thing
+  skillLevel:
+    name: skillLevel
+    comments:
+    - The students expected level of ability in the topic being taught. Skill levels
+      are ‘beginner’, ‘intermediate’ or ‘advanced’.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:skillLevel
+    range: Text
+classes:
+  Course:
+    name: Course
+    comments:
+    - 'Specification describing a course.  This specification must be used in tandem
+      with a courseInstance. A course is used to describe the broad, common aspects
+      of a recurring training event - whereas a course instance is about the specific
+      times and location of when that course is held.  Version: 0.6-DRAFT-2019_06_06'
+    from_schema: http://example.org/example
+    is_a: Course
+    slots:
+    - learningOutcome
+    - uses
+    - skillLevel
+    class_uri: bioschemas:Course

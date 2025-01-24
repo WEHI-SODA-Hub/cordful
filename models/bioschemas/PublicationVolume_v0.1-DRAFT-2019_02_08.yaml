@@ -1,0 +1,27 @@
+name: PublicationVolume_v0.1-DRAFT-2019_02_08
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+classes:
+  PublicationVolume:
+    name: PublicationVolume
+    comments:
+    - 'Bioschemas profile, based on Biotea model, describing a PublicationVolume in
+      Life Sciences. A PublicationVolume is a collection of publication issues, or
+      scholarly articles, or possibly, although no commonly, any mix from those mentioned.
+      It is commonly part of a Journal. Version: 0.1-DRAFT-2019_02_08'
+    from_schema: http://example.org/example
+    is_a: PublicationVolume
+    class_uri: bioschemas:PublicationVolume

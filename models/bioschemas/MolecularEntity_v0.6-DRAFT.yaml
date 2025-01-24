@@ -1,0 +1,31 @@
+name: MolecularEntity_v0.6-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+classes:
+  MolecularEntity:
+    name: MolecularEntity
+    comments:
+    - 'Bioschemas profile describing a MolecularEntity. Any constitutionally or isotopically
+      distinct atom, molecule, ion, ion pair, radical, radical ion, complex, conformer
+      etc., identifiable as a separately distinguishable entity. (Source: ChEBI:23367)
+      based on version 0.5. Note, the parent class for this profile has been updated
+      to a pending class in schema.org. Version 0.6-DRAFT. <h3>Summary of Changes</h3><br>Changes
+      since 0.5-DRAFT:<ul></li>anyOf ''name'',''inCHI'',''SMILES'' required</li><li>sameAs
+      removed from recommended</li><li>identifier moved from required to optional.
+      </li></ul>'
+    from_schema: http://example.org/example
+    is_a: MolecularEntity
+    class_uri: bioschemas:MolecularEntity

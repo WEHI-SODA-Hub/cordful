@@ -1,0 +1,69 @@
+name: Taxon_v0.1-DRAFT-2018_06_27
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+  dwc:
+    prefix_prefix: dwc
+    prefix_reference: http://rs.tdwg.org/dwc/terms/
+default_prefix: example
+default_range: string
+slots:
+  scientificName:
+    name: scientificName
+    comments:
+    - Full scientific name, with authorship and date information if known.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:scientificName
+    range: Text
+  rank:
+    name: rank
+    comments:
+    - The taxonomic rank of this name.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:rank
+    range: Text
+  scientificNameAuthorship:
+    name: scientificNameAuthorship
+    comments:
+    - 'Authorship information for the scientificName formatted according to the conventions
+      of the applicable nomenclatural Code. Example: ''(Torr.) J.T. Howell'', ''(Martinovský)
+      Tzvelev'', ''(Györfi, 1952)''.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:scientificNameAuthorship
+    range: Text
+  vernacularName:
+    name: vernacularName
+    comments:
+    - A vernacular (common) name of the taxon.
+    from_schema: http://example.org/example
+    slot_uri: dwc:vernacularName
+    range: URL
+  isContainedIn:
+    name: isContainedIn
+    comments:
+    - "Indicates a BioChemEntity that this BioChemEntity is (in some sense) part of.\n\
+      \ Direct, most proximate higher-rank parent taxon"
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:isContainedIn
+    range: BioChemEntity
+classes:
+  Taxon:
+    name: Taxon
+    from_schema: http://example.org/example
+    slots:
+    - scientificName
+    - rank
+    - scientificNameAuthorship
+    - vernacularName
+    - isContainedIn
+    class_uri: bioschemastypes:Taxon

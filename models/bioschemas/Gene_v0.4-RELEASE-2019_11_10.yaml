@@ -1,0 +1,101 @@
+name: Gene_v0.4-RELEASE-2019_11_10
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  encodes:
+    name: encodes
+    comments:
+    - 'SIO:010078 (encodes). For genes, this property is used to express in a generic
+      way gene products encoded by this gene. Two more specific properties SIO:010082
+      (is translated into) and SIO:010080 (is transcribed into) should be used for
+      (protein) translation and (RNA) transcription respectively. Controlled Vocabulary:
+      SIO'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:encodes
+    range: BioChemEntity
+  involvedInBP:
+    name: involvedInBP
+    comments:
+    - 'RO:0002331 (is involved in). GO biological process this gene/protein is involved
+      in. Recommended range: BioChemEntity or CategoryCode, ProteinAnnotation if evidence
+      should be included.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:involvedInBP
+    range: PropertyValue
+  isTranscribedInto:
+    name: isTranscribedInto
+    comments:
+    - 'SIO:010080 (is transcribed into). For genes, this property is used to link
+      to gene products transcribed from this gene such as RNA. Controlled Vocabulary:
+      SIO.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:isTranscribedInto
+    range: BioChemEntity
+  enablesMF:
+    name: enablesMF
+    comments:
+    - 'RO:0002327 (enables). GO molecular function enabled by the gene/protein. Recommended
+      range: BioChemEntity or CategoryCode, ProteinAnnotation if evidence should be
+      included.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:enablesMF
+    range: PropertyValue
+  hasCategoryCode:
+    name: hasCategoryCode
+    comments:
+    - A controlled vocabulary term equivalent to this entity. For instance, an organism
+      coined in NCBI taxonomy can be represented as a BioChemEntity. As it also exists
+      as a term in an ontology, it would be nice to capture that information via categoryCode.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasCategoryCode
+    range: CategoryCode
+  additionalProperty:
+    name: additionalProperty
+    comments:
+    - 'A property-value pair representing an additional characteristics of the entitity,
+      e.g. a product feature or another characteristic for which there is no matching
+      property in schema.org. Note: Publishers should be aware that applications designed
+      to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color,
+      http://schema.org/gtin13, ...) will typically expect such data to be provided
+      using those properties, rather than using the generic property/value mechanism.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:additionalProperty
+    range: PropertyValue
+  isVariantOf:
+    name: isVariantOf
+    comments:
+    - 'SIO: 000272 (is variant of). Use this property to express when a gene is a
+      variant of any other gene. Controlled Vocabulary: SIO.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:isVariantOf
+    range: Gene
+classes:
+  Gene:
+    name: Gene
+    comments:
+    - 'Bioschemas profile describing a Gene in Life Sciences This Gene profile specification
+      presents the markup for describing a Gene. Version: 0.4-RELEASE-2019_11_10'
+    from_schema: http://example.org/example
+    is_a: Gene
+    slots:
+    - encodes
+    - involvedInBP
+    - isTranscribedInto
+    - enablesMF
+    - hasCategoryCode
+    - additionalProperty
+    - isVariantOf
+    class_uri: bioschemas:Gene

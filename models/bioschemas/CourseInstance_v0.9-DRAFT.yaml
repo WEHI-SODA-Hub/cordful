@@ -1,0 +1,35 @@
+name: CourseInstance_v0.9-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+classes:
+  CourseInstance:
+    name: CourseInstance
+    comments:
+    - 'Specification describing the instance of a course.  This specification can
+      be used in tandem with a Course. A course is used to describe the broad, common
+      aspects of a recurring training event - whereas a course instance is about the
+      specific times and location of when that course is held. <h4>Summary of Changes</h4>    Changes
+      since previous draft 0.8 of the CourseInstance profile:    <ul>     <li>courseMode
+      - added the BSC Description (made the description more explicit with more examples</li><li>courseMode
+      - removed the Controled Vocabullary</li><li>eventStatus - added the BSC Description
+      with examples</li><li>eventStatus - removed the Controled Vocabullary</li><li>offers
+      - added the BSC Description with examples</li><li>offers - added IOS 8601 for
+      the dates and ISO 4217 for currency in the Controled Vocabullary</li><li>workFeatured
+      - removed ''Inverse property: workFeatured'' from the Description</li><li>Changes
+      prepared by Patricia Palagi</li>    </ul> Version: 0.9-DRAFT (16 August 2022)'
+    from_schema: http://example.org/example
+    is_a: CourseInstance
+    class_uri: bioschemas:CourseInstance

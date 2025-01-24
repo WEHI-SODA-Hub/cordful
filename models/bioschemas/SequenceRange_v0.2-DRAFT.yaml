@@ -1,0 +1,28 @@
+name: SequenceRange_v0.2-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+classes:
+  SequenceRange:
+    name: SequenceRange
+    comments:
+    - 'Used to define the range of a subsequence, typically used in conjunction with
+      SequenceAnnotation to define the range of the annotation on the protein or gene
+      sequence. Version: 0.1-DRAFT. <h3>Summary of Changes</h3><br>Not available.
+      Note, the parent class for this profile has been updated to a pending class
+      in schema.org.'
+    from_schema: http://example.org/example
+    is_a: SequenceRange
+    class_uri: bioschemas:SequenceRange

@@ -1,0 +1,25 @@
+name: FormalParameter_v0.1-DRAFT-2020_06_23
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+classes:
+  FormalParameter:
+    name: FormalParameter
+    comments:
+    - 'A formal parameter is a slot that may be satisfied when the workflow is run.
+      It appears as an Input or Output of a Workflow  Version: 0.1-DRAFT-2020_06_23'
+    from_schema: http://example.org/example
+    is_a: FormalParameter
+    class_uri: bioschemas:FormalParameter

@@ -1,0 +1,31 @@
+name: Disease_v0.2-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemasdrafts:
+    prefix_prefix: bioschemasdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemasdrafts/
+default_prefix: example
+default_range: string
+classes:
+  MedicalCondition:
+    name: MedicalCondition
+    from_schema: http://example.org/example
+    class_uri: schema1:MedicalCondition
+  Disease:
+    name: Disease
+    comments:
+    - This is the first draft of the Disease profile, using MedicalCondition type
+      from schema.org as template for inheriting some properties. Version 0.2-DRAFT.
+      <h3>Summary of Changes</h3> <br>Changes since 0.1-DRAFT:<ul><li>added sameAs
+      as recommended<li></ul>
+    from_schema: http://example.org/example
+    is_a: MedicalCondition
+    class_uri: bioschemasdrafts:Disease

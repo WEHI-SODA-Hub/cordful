@@ -1,0 +1,31 @@
+name: Protein_v0.12-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemasdrafts:
+    prefix_prefix: bioschemasdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemasdrafts/
+default_prefix: example
+default_range: string
+slots:
+  hasSequenceAnnotation:
+    name: hasSequenceAnnotation
+    comments:
+    - An annotation on the BioPolymerSequence associated with this BioChemEntity.
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:hasSequenceAnnotation
+    range: URL
+classes:
+  Protein:
+    name: Protein
+    from_schema: http://example.org/example
+    slots:
+    - hasSequenceAnnotation
+    class_uri: schema1:Protein

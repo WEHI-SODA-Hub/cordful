@@ -1,0 +1,28 @@
+name: ComputationalWorkflow_v1.0-RELEASE
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+default_prefix: example
+default_range: string
+classes:
+  ComputationalWorkflow:
+    name: ComputationalWorkflow
+    comments:
+    - A computational workflow consists of an orchestrated and repeatable pattern
+      of activity enabled by the systematic organization of resources into processes
+      that transform materials, provide services, or process information (source Wikipedia.org).
+      It is executed by a computational process and is thus distinct from laboratory
+      or business workflows. version 1.0-RELEASE
+    from_schema: http://example.org/example
+    is_a: ComputationalWorkflow
+    class_uri: bioschemas:ComputationalWorkflow

@@ -1,0 +1,42 @@
+name: Dataset_v0.2-DRAFT-2018_02_25
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  rdf:
+    prefix_prefix: rdf
+    prefix_reference: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  type:
+    name: type
+    comments:
+    - This is used by validation tools to indentify the profile used. You must use
+      the value specified in the Controlled Vocabulary column. This is used by validation
+      tools to indentify the profile used. You must use the value specified in the
+      Controlled Vocabulary column.
+    from_schema: http://example.org/example
+    slot_uri: rdf:type
+    range: URL
+classes:
+  Dataset:
+    name: Dataset
+    comments:
+    - 'Bioschemas specification for describing a dataset in the life-science. A guide
+      for how to describe datasets in the life-sciences using Schema.org-like annotation.
+      Version: 0.2-DRAFT-2018_02_25'
+    from_schema: http://example.org/example
+    is_a: Dataset
+    slots:
+    - type
+    class_uri: bioschemas:Dataset

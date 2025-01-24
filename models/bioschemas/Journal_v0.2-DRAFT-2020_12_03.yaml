@@ -1,0 +1,33 @@
+name: Journal_v0.2-DRAFT-2020_12_03
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+classes:
+  CreativeWorkSeries:
+    name: CreativeWorkSeries
+    from_schema: http://example.org/example
+    class_uri: schema1:CreativeWorkSeries
+  Journal:
+    name: Journal
+    comments:
+    - 'Bioschemas profile, based on Biotea model, describing a Journal in Life Sciences.
+      A Journal is a collection of publication issues, publication volumes or scholarly
+      articles, or possibly, although no commonly, any mix from those mentioned. <h4>Summary
+      of Changes</h4>    Changes since previous draft 0.1 Journal profile:    <ul>      <li>Add
+      examples</li>      <li>Keywords range updated as per changes on schema.org</li>    </ul>
+      Version: 0.2-DRAFT-2020_12_03'
+    from_schema: http://example.org/example
+    is_a: CreativeWorkSeries
+    class_uri: bioschemas:Journal

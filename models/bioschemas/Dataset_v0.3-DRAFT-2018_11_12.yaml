@@ -1,0 +1,25 @@
+name: Dataset_v0.3-DRAFT-2018_11_12
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+classes:
+  Dataset:
+    name: Dataset
+    comments:
+    - ' A guide for how to describe datasets in the life-sciences using Schema.org-like
+      annotation. Version: 0.3-DRAFT-2018_11_12'
+    from_schema: http://example.org/example
+    is_a: Dataset
+    class_uri: bioschemas:Dataset

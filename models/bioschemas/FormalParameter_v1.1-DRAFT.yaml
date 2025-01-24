@@ -1,0 +1,26 @@
+name: FormalParameter_v1.1-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+default_prefix: example
+default_range: string
+classes:
+  FormalParameter:
+    name: FormalParameter
+    comments:
+    - Bioschemas specification for describing a formal parameter in the Life Sciences.
+      Version 1.1-DRAFT. <h3>Summary of Changes</h3><br>Changes since 1.0-RELEASE:<ul><li>added
+      sameAs property as recommended</li></ul>
+    from_schema: http://example.org/example
+    is_a: FormalParameter
+    class_uri: bioschemas:FormalParameter

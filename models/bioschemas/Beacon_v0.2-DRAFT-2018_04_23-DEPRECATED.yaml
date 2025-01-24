@@ -1,0 +1,62 @@
+name: Beacon_v0.2-DRAFT-2018_04_23-DEPRECATED
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  rdf1:
+    prefix_prefix: rdf1
+    prefix_reference: https://www.w3.org/1999/02/22-rdf-syntax-ns#
+  bioschemasdeprecated:
+    prefix_prefix: bioschemasdeprecated
+    prefix_reference: https://discovery.biothings.io/view/bioschemasdeprecated/
+default_prefix: example
+default_range: string
+slots:
+  aggregator:
+    name: aggregator
+    comments:
+    - True if Beacon is an agregator of other Beacon Datasets.
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdeprecated:aggregator
+    range: Boolean
+  type:
+    name: type
+    comments:
+    - This is used by validation tools to indentify the profile used. You must use
+      the value specified in the Controlled Vocabulary column.
+    from_schema: http://example.org/example
+    slot_uri: rdf1:type
+    range: URL
+  supportedRefs:
+    name: supportedRefs
+    comments:
+    - Supported Genome ID references.
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdeprecated:supportedRefs
+    range: URL
+classes:
+  Beacon:
+    name: Beacon
+    comments:
+    - 'A convention for beacon to self-describe.  In this document we propose a simple
+      way for a beacons to self-describe their genetic variant cardinality service
+      for better integration with other beacons within the beacon-network. It builds
+      upon the Beacon service API and uses existing schema.org entities and properties.  Version:
+      0.2-DRAFT-2018_04_23'
+    from_schema: http://example.org/example
+    is_a: DataCatalog
+    slots:
+    - aggregator
+    - type
+    - supportedRefs
+    class_uri: bioschemasdeprecated:Beacon
+  DataCatalog:
+    name: DataCatalog
+    from_schema: http://example.org/example
+    class_uri: schema1:DataCatalog

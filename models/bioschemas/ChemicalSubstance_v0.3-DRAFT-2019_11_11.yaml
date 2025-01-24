@@ -1,0 +1,27 @@
+name: ChemicalSubstance_v0.3-DRAFT-2019_11_11
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastemp:
+    prefix_prefix: bioschemastemp
+    prefix_reference: https://discovery.biothings.io/view/bioschemastemp/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+default_prefix: example
+default_range: string
+classes:
+  ChemicalSubstance:
+    name: ChemicalSubstance
+    comments:
+    - 'Bioschemas profile describing a ChemicalEntity This profile describes a ChemicalSubstance
+      which is ''a portion of matter of constant composition, composed of molecular
+      entities of the same type or of different types'' (source: <a href=''https://www.ebi.ac.uk/chebi/searchId.do?chebiId=59999''>ChEBI:59999</a>).
+      Version: 0.3-DRAFT-2019_11_11'
+    from_schema: http://example.org/example
+    is_a: ChemicalSubstance
+    class_uri: bioschemastemp:ChemicalSubstance

@@ -1,0 +1,54 @@
+name: TrainingMaterial_v0.4-DRAFT-2019_02_08
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  status:
+    name: status
+    comments:
+    - The status of a training material. If this is not filled in it will be regarded
+      as Active. Options are 'Active', 'Under development', and 'Archived'.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:status
+    range: Text
+  skillLevel:
+    name: skillLevel
+    comments:
+    - The students level of ability in the topic being taught. Examples of skill levels
+      include 'beginner', 'intermediate' or 'advanced'.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:skillLevel
+    range: URL
+classes:
+  TrainingMaterial:
+    name: TrainingMaterial
+    comments:
+    - 'A specification for describing training materials in life sciences. The Life
+      Science Training Materials specification provides a way to describe bioscience
+      training material on the World Wide Web. It defines a set of metadata and vocabularies,
+      built on top of existing technologies and standards, that can be used to represent
+      events in Web pages and applications. The goal of the specification is to make
+      it easier to discover, exchange and integrate life science training material
+      information across the Internet. Version: 0.4-DRAFT-2019_02_08'
+    from_schema: http://example.org/example
+    is_a: CreativeWork
+    slots:
+    - status
+    - skillLevel
+    class_uri: bioschemas:TrainingMaterial
+  CreativeWork:
+    name: CreativeWork
+    from_schema: http://example.org/example
+    class_uri: schema1:CreativeWork

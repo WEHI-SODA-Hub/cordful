@@ -1,0 +1,21 @@
+name: LabProtocol_v0.8-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+  bioschemasdrafts:
+    prefix_prefix: bioschemasdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemasdrafts/
+default_prefix: example
+default_range: string
+classes:
+  LabProtocol:
+    name: LabProtocol
+    from_schema: http://example.org/example
+    class_uri: bioschemastypesdrafts:LabProtocol

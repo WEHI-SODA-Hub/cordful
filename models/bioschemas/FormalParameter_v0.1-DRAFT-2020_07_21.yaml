@@ -1,0 +1,26 @@
+name: FormalParameter_v0.1-DRAFT-2020_07_21
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+classes:
+  FormalParameter:
+    name: FormalParameter
+    comments:
+    - 'Bioschemas specification for describing a formal parameter in the Life Sciences.
+      A FormalParameter is an identified variable used to stand for the actual value(s)
+      are consumed/produced by a ComputationalWorkflow Version: 0.1-DRAFT-2020_07_21'
+    from_schema: http://example.org/example
+    is_a: FormalParameter
+    class_uri: bioschemas:FormalParameter

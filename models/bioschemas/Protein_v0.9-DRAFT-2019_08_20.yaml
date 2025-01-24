@@ -1,0 +1,26 @@
+name: Protein_v0.9-DRAFT-2019_08_20
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+classes:
+  Protein:
+    name: Protein
+    comments:
+    - 'Bioschemas profile describing a Protein in Life Sciences. This Protein profile
+      specification presents the most common properties used for a Protein plus examples
+      on how to use them. Version: 0.9-DRAFT-2019_08_20'
+    from_schema: http://example.org/example
+    is_a: Protein
+    class_uri: bioschemas:Protein

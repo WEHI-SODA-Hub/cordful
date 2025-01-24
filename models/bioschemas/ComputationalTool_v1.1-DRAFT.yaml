@@ -1,0 +1,51 @@
+name: ComputationalTool_v1.1-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  output:
+    name: output
+    comments:
+    - Specification of a produced output.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:output
+    range: FormalParameter
+  input:
+    name: input
+    comments:
+    - Specification of a consumed input.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:input
+    range: FormalParameter
+classes:
+  SoftwareApplication:
+    name: SoftwareApplication
+    from_schema: http://example.org/example
+    class_uri: schema1:SoftwareApplication
+  ComputationalTool:
+    name: ComputationalTool
+    comments:
+    - The Life Science Tools specification provides a way to describe bioscience tools
+      and software on the World Wide Web. It defines a set of metadata and vocabularies,
+      built on top of existing technologies and standards, that can be used to represent
+      such tools in Web pages and applications. The goal of the specification is to
+      make it easier to discover. Version 1.1-DRAFT. <h3>Summary of Changes</h3> Changes
+      since the 1.0-RELEASE</p><ul><li>added sameAs property as recommended.</li></ul>
+    from_schema: http://example.org/example
+    is_a: SoftwareApplication
+    slots:
+    - output
+    - input
+    class_uri: bioschemas:ComputationalTool

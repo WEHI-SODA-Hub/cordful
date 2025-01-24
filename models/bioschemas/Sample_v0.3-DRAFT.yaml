@@ -1,0 +1,29 @@
+name: Sample_v0.3-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemasdrafts:
+    prefix_prefix: bioschemasdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemasdrafts/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+default_prefix: example
+default_range: string
+classes:
+  Sample:
+    name: Sample
+    comments:
+    - To deliver on the identified use cases for samples, we have identified a minimal
+      set of properties to encapsulate identification, linking, and metadata descriptions.
+      Some of these properties are existing standard schema.org properties, others
+      require Bioschemas extensions. Version 0.3-DRAFT<h4>Summary of Changes</h4>
+      Changes since 0.2-DRAFT<ul><li>added sameAs property as recommended.</li><li>modified
+      by Nick and Ginger</li><li>removed irrelevant text from description</li></ul>
+    from_schema: http://example.org/example
+    is_a: Sample
+    class_uri: bioschemasdrafts:Sample

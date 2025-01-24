@@ -1,0 +1,35 @@
+name: Phenotype_v0.1-DRAFT-2018_11_15
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  isAssociatedWith:
+    name: isAssociatedWith
+    comments:
+    - BioChemEntity that has some association with this Phenotype.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:isAssociatedWith
+    range: BioChemEntity
+classes:
+  Phenotype:
+    name: Phenotype
+    comments:
+    - 'Bioschemas profile describing a Phenotype in Life Sciences This Phenotype type
+      specification presents the markup for describing a Phenotype. Version: 0.1-DRAFT-2018_11_15'
+    from_schema: http://example.org/example
+    is_a: Phenotype
+    slots:
+    - isAssociatedWith
+    class_uri: bioschemas:Phenotype

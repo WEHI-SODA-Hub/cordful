@@ -1,0 +1,118 @@
+name: ProteinStructure_v0.5-DRAFT-2018_08_15
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemasdrafts:
+    prefix_prefix: bioschemasdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemasdrafts/
+default_prefix: example
+default_range: string
+slots:
+  boundMolecule:
+    name: boundMolecule
+    comments:
+    - Bound molecules.
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:boundMolecule
+    range: URL
+  contains:
+    name: contains
+    comments:
+    - "Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity.\
+      \ Inverse property: isContainedIn. \n For proteins, it can be used to link to\
+      \ protein sequence annotations such as domains, sites, regions, etc."
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:contains
+    range: ProteinAnnotation
+  structureDeterminationMethod:
+    name: structureDeterminationMethod
+    comments:
+    - Method used to determine the protein structure.
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:structureDeterminationMethod
+    range: URL
+  hasCategoryCode:
+    name: hasCategoryCode
+    comments:
+    - A controlled vocabulary term equivalent to this entity. For instance, an organism
+      coined in NCBI taxonomy can be represented as a BioChemEntity. As it also exists
+      as a term in an ontology, it would be nice to capture that information via categoryCode.
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:hasCategoryCode
+    range: CategoryCode
+  expressionSystem:
+    name: expressionSystem
+    comments:
+    - Organism where this protein extructure is expresed.
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:expressionSystem
+    range: Taxon
+  additionalProperty:
+    name: additionalProperty
+    comments:
+    - "A property-value pair representing an additional characteristics of the entitity,\
+      \ e.g. a product feature or another characteristic for which there is no matching\
+      \ property in schema.org. \n Note: Publishers should be aware that applications\
+      \ designed to use specific schema.org properties (e.g. http://schema.org/width,\
+      \ http://schema.org/color, http://schema.org/gtin13, …) will typically expect\
+      \ such data to be provided using those properties, rather than using the generic\
+      \ property/value mechanism. \n As much a possible, do not use it! Alternatively,\
+      \ consider reusing properties/relations already coined in controlled vocabularies.\
+      \ We recommed to look at the OBO Relations Ontology (RO) or the Semanticscience\
+      \ Integrated Ontology (SIO) as starting points."
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:additionalProperty
+    range: PropertyValue
+  isContainedIn:
+    name: isContainedIn
+    comments:
+    - "Indicates a BioChemEntity that this BioChemEntity is (in some sense) part of.\
+      \ \n For proteins, it is recommended to at least specify the taxon/organism\
+      \ associated to the described protein. For taxon/organism, it is a good practice\
+      \ to use hasCategoryCode to point to a controlled vacabulary such as NCBI taxon\
+      \ or UniProt Taxonomy. Including as well the GO cellular locations is optional;\
+      \ for cellular locations it is a good practice to use hasCategorryCode to point\
+      \ to a GO Cellular Location term."
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:isContainedIn
+    range: BioChemEntity
+  location:
+    name: location
+    comments:
+    - "The location can be refer to a position in a chromosome or sequence or to a\
+      \ physical place where, for instance, a sample is stored. Using additionalType\
+      \ is advised to make the distinction. For instance, FALDO can be used for sequence\
+      \ coordinates. \n Note: The list of Expected Types has been extended as schema.org/location\
+      \ only has Place, PostalAddress and Text."
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:location
+    range: URL
+classes:
+  ProteinStructure:
+    name: ProteinStructure
+    comments:
+    - 'This profile specification presents the BioChemEntity usage when describing
+      a Protein structure. Version: 0.5-DRAFT-2018_08_15'
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    slots:
+    - boundMolecule
+    - contains
+    - structureDeterminationMethod
+    - hasCategoryCode
+    - expressionSystem
+    - additionalProperty
+    - isContainedIn
+    - location
+    class_uri: bioschemasdrafts:ProteinStructure
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: bioschemastypes:BioChemEntity

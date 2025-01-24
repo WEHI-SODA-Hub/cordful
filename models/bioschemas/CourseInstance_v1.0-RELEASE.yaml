@@ -1,0 +1,29 @@
+name: CourseInstance_v1.0-RELEASE
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+classes:
+  CourseInstance:
+    name: CourseInstance
+    comments:
+    - 'Specification describing the instance of a course.  This specification can
+      be used in tandem with a Course. A course is used to describe the broad, common
+      aspects of a recurring training event - whereas a course instance is about the
+      specific times and location of when that course is held. <h4>Summary of Changes</h4>    No
+      changes since 0.9-DRAFT of the CourseInstance profile. Version: 1.0-RELEASE
+      (13 September 2022)'
+    from_schema: http://example.org/example
+    is_a: CourseInstance
+    class_uri: bioschemas:CourseInstance
