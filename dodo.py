@@ -203,4 +203,8 @@ def task_bioschemas():
         jsonld = entity / "jsonld"
         if jsonld.exists():
             for definition in jsonld.glob("*.json*"):
-                yield from download_and_validate(definition.as_uri(), "bioschemas", format="json-ld")
+                yield from download_and_validate(definition.as_uri(), "bioschemas/profiles", format="json-ld")
+            type = jsonld / "type"
+            if type.exists():
+                for definition in type.glob("*.json*"):
+                    yield from download_and_validate(definition.as_uri(), "bioschemas/types", format="json-ld")
