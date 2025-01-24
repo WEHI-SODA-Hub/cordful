@@ -1,10 +1,13 @@
 site_name: cordful
 docs_dir: .
-nav:
-  - Introduction: 'README.md'
-  - 'models.md'
+# nav:
+#   - Introduction: 'README.md'
+#   - 'models.md'
 plugins:
   - same-dir
+  - gen-files:
+      scripts:
+        - gen_pages.py 
 theme:
   name: material
-site_url: https://multimeric.github.io/cordful/
+site_url: https://wehi-soda-hub.github.io/cordful/
