@@ -38,8 +38,20 @@ def rdf_to_linkml(rdf_url: str, subdir: str, format: str, transformer: Callable[
         format: format of the RDF file (e.g. "xml", "ttl")
     """
     output_path = url_to_path(rdf_url, subdir)
-    schema = RdfsImportEngine().convert(rdf_url, format=format)
+
+    try:
+        schema = RdfsImportEngine().convert(rdf_url, format=format)
+    except Exception:
+        # Skip files that can't be parsed
+        return
+        
     schema = transformer(schema)
+    sv = SchemaView(schema)
+
+    if len(sv.all_slots()) + len(sv.all_classes()) == 0:
+        # Skip empty schemas
+        return
+
     YAMLDumper().dump(schema, str(output_path))
 
 def validate_linkml(model_path: Path) -> None:
@@ -163,3 +175,31 @@ def task_pcdm():
     for url in ["models.rdf", "pcdm-ext/file-format-types.rdf", "pcdm-ext/rights.rdf", "pcdm-ext/use.rdf", "pcdm-ext/works.rdf"]:
         full_url = urljoin(base_url, url)
         yield from download_and_validate(full_url, "pcdm", format="xml")
+
+BIOSCHEMAS_PATH = Path("specifications").resolve()
+
+def task_clone_bioschemas():
+    """
+    Clones the BioSchemas specifications repository
+    """
+    return {
+        "actions": ["git clone https://github.com/BioSchemas/specifications.git --depth 1"],
+        "targets": [BIOSCHEMAS_PATH],
+        # See https://pydoit.org/dependencies.html?highlight=uptodate#doit-up-to-date-definition
+        "uptodate": [True]
+    }
+
+def task_bioschemas():
+    """
+    Generates a Python module with URIs from the BioSchemas specifications
+    """
+
+    def _action():
+        for file in BIOSCHEMAS_PATH.rglob("*.json*"):
+            rdf_to_linkml(file.as_uri(), "bioschemas", format="json-ld")
+
+    return {
+        "actions": [_action],
+        "file_dep": [BIOSCHEMAS_PATH / "BioSample/jsonld/type/BioSample_v0.2-DRAFT.jsonld"],
+        "targets": ["bioschemas/BioSample_v0.2-DRAFT.yaml"],
+    }
