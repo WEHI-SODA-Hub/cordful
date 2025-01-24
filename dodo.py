@@ -1,6 +1,7 @@
 from functools import partial
 from pathlib import Path
 from typing import Any, Callable, Iterable
+from doit import create_after
 from schema_automator.importers.rdfs_import_engine import RdfsImportEngine
 from linkml_runtime.dumpers import YAMLDumper
 from urllib.parse import urlparse, urljoin
@@ -44,7 +45,10 @@ def rdf_to_linkml(rdf_url: str, subdir: str, format: str, transformer: Callable[
     except Exception:
         # Skip files that can't be parsed
         return
-        
+    
+    if schema.name == "example":
+        schema.name = output_path.stem
+
     schema = transformer(schema)
     sv = SchemaView(schema)
 
@@ -189,17 +193,14 @@ def task_clone_bioschemas():
         "uptodate": [True]
     }
 
+@create_after(executed='clone_bioschemas')
 def task_bioschemas():
     """
     Generates a Python module with URIs from the BioSchemas specifications
     """
 
-    def _action():
-        for file in BIOSCHEMAS_PATH.rglob("*.json*"):
-            rdf_to_linkml(file.as_uri(), "bioschemas", format="json-ld")
-
-    return {
-        "actions": [_action],
-        "file_dep": [BIOSCHEMAS_PATH / "BioSample/jsonld/type/BioSample_v0.2-DRAFT.jsonld"],
-        "targets": ["bioschemas/BioSample_v0.2-DRAFT.yaml"],
-    }
+    for entity in BIOSCHEMAS_PATH.iterdir():
+        jsonld = entity / "jsonld"
+        if jsonld.exists():
+            for definition in jsonld.glob("*.json*"):
+                yield from download_and_validate(definition.as_uri(), "bioschemas", format="json-ld")
