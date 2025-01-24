@@ -1,0 +1,137 @@
+name: BioChemEntity_v0.7-RELEASE
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  associatedDisease:
+    name: associatedDisease
+    comments:
+    - Disease associated to this BioChemEntity. Such a disease can be a MedicalCondition
+      or a URL. If you want to add an evidence supporting the association, please
+      use PropertyValue.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:associatedDisease
+    range: PropertyValue
+  isLocatedInSubcellularLocation:
+    name: isLocatedInSubcellularLocation
+    comments:
+    - Subcellular location where this BioChemEntity is located; please use PropertyValue
+      if you want to include any evidence.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:isLocatedInSubcellularLocation
+    range: URL
+  hasBioChemEntityPart:
+    name: hasBioChemEntityPart
+    comments:
+    - 'Indicates a BioChemEntity that (in some sense) has this BioChemEntity as a
+      part. Inverse property: isPartOfBioChemEntity'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasBioChemEntityPart
+    range: BioChemEntity
+  bioChemInteraction:
+    name: bioChemInteraction
+    comments:
+    - A BioChemEntity that is know to interact with this item.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:bioChemInteraction
+    range: BioChemEntity
+  isEncodedByBioChemEntity:
+    name: isEncodedByBioChemEntity
+    comments:
+    - 'Another BioChemEntity encoding this one. Inverse property: encodesBioChemEntity.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:isEncodedByBioChemEntity
+    range: Gene
+  taxonomicRange:
+    name: taxonomicRange
+    comments:
+    - The taxonomic grouping of the organism that expresses, encodes, or in someway
+      related to the BioChemEntity.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:taxonomicRange
+    range: Taxon
+  biologicalRole:
+    name: biologicalRole
+    comments:
+    - A role played by the molecular entity within a biological context.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:biologicalRole
+    range: DefinedTerm
+  hasRepresentation:
+    name: hasRepresentation
+    comments:
+    - A common representation such as a protein sequence or chemical structure for
+      this entity. For images use schema.org/image.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasRepresentation
+    range: BioChemEntity
+  isPartOfBioChemEntity:
+    name: isPartOfBioChemEntity
+    comments:
+    - 'Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity.
+      Inverse property: hasBioChemEntityPart'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:isPartOfBioChemEntity
+    range: BioChemEntity
+  hasMolecularFunction:
+    name: hasMolecularFunction
+    comments:
+    - Molecular function performed by this BioChemEntity; please use PropertyValue
+      if you want to include any evidence.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasMolecularFunction
+    range: URL
+  isInvolvedInBiologicalProcess:
+    name: isInvolvedInBiologicalProcess
+    comments:
+    - Biological process this BioChemEntity is involved in; please use PropertyValue
+      if you want to include any evidence.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:isInvolvedInBiologicalProcess
+    range: URL
+  bioChemSimilarity:
+    name: bioChemSimilarity
+    comments:
+    - A similar molecular entity, e.g., obtained by fingerprint similarity algorithm.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:bioChemSimilarity
+    range: BioChemEntity
+classes:
+  Thing:
+    name: Thing
+    from_schema: http://example.org/example
+    class_uri: schema1:Thing
+  BioChemEntity:
+    name: BioChemEntity
+    comments:
+    - 'Any biological, chemical, or biochemical thing. For example: a protein; a gene;
+      a chemical; a synthetic chemical. Note, this version (0.7-RELEASE) is the version
+      that is currently pending on schema.org'
+    from_schema: http://example.org/example
+    is_a: Thing
+    slots:
+    - associatedDisease
+    - isLocatedInSubcellularLocation
+    - hasBioChemEntityPart
+    - bioChemInteraction
+    - isEncodedByBioChemEntity
+    - taxonomicRange
+    - biologicalRole
+    - hasRepresentation
+    - isPartOfBioChemEntity
+    - hasMolecularFunction
+    - isInvolvedInBiologicalProcess
+    - bioChemSimilarity
+    class_uri: bioschemas:BioChemEntity

@@ -1,0 +1,54 @@
+name: RNA_v0.1-DRAFT-2019_06_21
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+default_prefix: example
+default_range: string
+slots:
+  encodesBioChemEntity:
+    name: encodesBioChemEntity
+    comments:
+    - 'Another BioChemEntity encoded by this one. Inverse property: isEncodedByBioChemEntity.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:encodesBioChemEntity
+    range: BioChemEntity
+  isCodingRNA:
+    name: isCodingRNA
+    comments:
+    - Indicates whether or not this RNA is a coding one.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:isCodingRNA
+    range: Boolean
+  hasSequence:
+    name: hasSequence
+    comments:
+    - Nucleotide or amino acid sequence.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:hasSequence
+    range: Text
+classes:
+  RNA:
+    name: RNA
+    comments:
+    - RNA. Version 0.1-DRAFT-2019_06_21
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    slots:
+    - encodesBioChemEntity
+    - isCodingRNA
+    - hasSequence
+    class_uri: bioschemastypesdrafts:RNA
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: bioschemastypes:BioChemEntity

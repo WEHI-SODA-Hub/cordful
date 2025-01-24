@@ -1,0 +1,59 @@
+name: Taxon_v0.3-DRAFT-2018_11_09
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+  dwc:
+    prefix_prefix: dwc
+    prefix_reference: http://rs.tdwg.org/dwc/terms/
+default_prefix: example
+default_range: string
+slots:
+  vernacularName:
+    name: vernacularName
+    comments:
+    - A vernacular (common) name of the taxon.
+    from_schema: http://example.org/example
+    slot_uri: dwc:vernacularName
+    range: URL
+  scientificNameAuthorship:
+    name: scientificNameAuthorship
+    comments:
+    - 'Authorship information for the scientificName formatted according to the conventions
+      of the applicable nomenclatural Code. Example: ''(Torr.) J.T. Howell'', ''(Martinovský)
+      Tzvelev'', ''(Györfi, 1952)''.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:scientificNameAuthorship
+    range: Text
+  scientificName:
+    name: scientificName
+    comments:
+    - Full scientific name, with authorship and date information if know, of the currently
+      valid (zoological) or accepted (botanical) taxon.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:scientificName
+    range: Text
+classes:
+  Taxon:
+    name: Taxon
+    comments:
+    - 'Bioschemas profile for describing a biological taxon This profile aims to denote
+      a taxon by common properties such as its scientific name, authority, taxonomic
+      rank and vernacular names. It is also a means to link to existing taxonomic
+      registers where each taxon has a URI. Version: 0.3-DRAFT-2018_11_09'
+    from_schema: http://example.org/example
+    is_a: Taxon
+    slots:
+    - vernacularName
+    - scientificNameAuthorship
+    - scientificName
+    class_uri: bioschemas:Taxon

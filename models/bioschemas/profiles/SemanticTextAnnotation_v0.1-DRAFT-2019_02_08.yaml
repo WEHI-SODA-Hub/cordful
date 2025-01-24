@@ -1,0 +1,32 @@
+name: SemanticTextAnnotation_v0.1-DRAFT-2019_02_08
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+classes:
+  CreativeWork:
+    name: CreativeWork
+    from_schema: http://example.org/example
+    class_uri: schema1:CreativeWork
+  SemanticTextAnnotation:
+    name: SemanticTextAnnotation
+    comments:
+    - 'Bioschemas profile, based on Biotea model, describing a semantic annotation
+      associated to a piece of text in a ScholarlyArticle in Life Sciences. A SemanticTExtAnnotation
+      currently corresponds to an expression identified in a ScholarlyArticle and
+      associated to an ontology term. It could apply as well to documents other than
+      ScholarlyArticle, for instant patents and so. Version: 0.1-DRAFT-2019_02_08'
+    from_schema: http://example.org/example
+    is_a: CreativeWork
+    class_uri: bioschemas:SemanticTextAnnotation

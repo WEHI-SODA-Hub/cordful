@@ -1,0 +1,32 @@
+name: Protein_v0.4-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+default_prefix: example
+default_range: string
+classes:
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: bioschemastypesdrafts:BioChemEntity
+  Protein:
+    name: Protein
+    comments:
+    - Protein is here used in its widest possible definition, as classes of amino
+      acid based molecules. Amyloid-beta Protein in human (UniProt P05067), eukaryota
+      (e.g. an OrthoDB group) or even a single molecule that one can point to are
+      all of type schema:Protein. A protein can thus be a subclass of another protein,
+      e.g. schema:Protein as a UniProt record can have multiple isoforms inside it
+      which would also be schema:Protein. They can be imagined, synthetic, hypothetical
+      or naturally occurring. This version has been added to schema.org as a pending
+      type.
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    class_uri: bioschemastypesdrafts:Protein

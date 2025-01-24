@@ -1,0 +1,58 @@
+name: DNA_v0.2-DRAFT-2019_06_20
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  hasSequence:
+    name: hasSequence
+    comments:
+    - Nucleotide or amino acid sequence.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasSequence
+    range: Text
+  encodesBioChemEntity:
+    name: encodesBioChemEntity
+    comments:
+    - Another BioChemEntity encoded by this one. Inverse property:isEncodedByBioChemEntity.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:encodesBioChemEntity
+    range: SequenceAnnotation
+  hasSequenceAnnotation:
+    name: hasSequenceAnnotation
+    comments:
+    - Pointer to a sequence annotation; please use PropertyValue if you want to include
+      any evidence.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasSequenceAnnotation
+    range: SequenceAnnotation
+classes:
+  DNA:
+    name: DNA
+    comments:
+    - 'DNA
+
+      Version: 0.2-DRAFT-2019_06_20 (2019-06-20). Note, the parent class for this
+      type has been updated to a pending class in schema.org.'
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    slots:
+    - hasSequence
+    - encodesBioChemEntity
+    - hasSequenceAnnotation
+    class_uri: bioschemas:DNA
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: schema1:BioChemEntity

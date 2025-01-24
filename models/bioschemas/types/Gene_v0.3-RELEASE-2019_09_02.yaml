@@ -1,0 +1,75 @@
+name: Gene_v0.3-RELEASE-2019_09_02
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+default_prefix: example
+default_range: string
+slots:
+  encodesBioChemEntity:
+    name: encodesBioChemEntity
+    comments:
+    - 'Another BioChemEntity encoded by this one. Inverse property: isEncodedByBioChemEntity.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:encodesBioChemEntity
+    range: BioChemEntity
+  alternativeOf:
+    name: alternativeOf
+    comments:
+    - Another gene which is a variation of this one.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:alternativeOf
+    range: Gene
+  expressedIn:
+    name: expressedIn
+    comments:
+    - Tissue, organ, biological sample, etc in which activity of this gene has been
+      observed experimentally. For example brain, digestive system.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:expressedIn
+    range: DefinedTerm
+  hasBioPolymerSequence:
+    name: hasBioPolymerSequence
+    comments:
+    - A symbolic representation of a BioChemEnity. For example, a nucleotide sequence
+      of a Gene or an amino acid sequence of a Protein.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:hasBioPolymerSequence
+    range: Text
+  hasStatus:
+    name: hasStatus
+    comments:
+    - 'Schema:  One of pseudogene, dead, killed, live, predicted, suppressed.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:hasStatus
+    range: Text
+classes:
+  Gene:
+    name: Gene
+    comments:
+    - 'A discrete unit of inheritance which affects one or more biological traits
+      (Source: https://en.wikipedia.org/wiki/Gene). Examples include FOXP2 (Forkhead
+      box protein P2), SCARNA21 (small Cajal body-specific RNA 21), A- (agouti genotype).
+      Note, this version of the type has been added as a pending class in schema.org.'
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    slots:
+    - encodesBioChemEntity
+    - alternativeOf
+    - expressedIn
+    - hasBioPolymerSequence
+    - hasStatus
+    class_uri: bioschemastypes:Gene
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: schema1:BioChemEntity

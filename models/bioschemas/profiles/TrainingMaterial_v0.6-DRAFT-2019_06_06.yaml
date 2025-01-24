@@ -1,0 +1,84 @@
+name: TrainingMaterial_v0.6-DRAFT-2019_06_06
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  uses:
+    name: uses
+    comments:
+    - "List resources utilized by this resource such as datasets, tools, technologies,\
+      \ or other entities.\n Datasets, tools, technologies, entities etc, which will\
+      \ be utilized in this training material."
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:uses
+    range: Thing
+  skillLevel:
+    name: skillLevel
+    comments:
+    - The students level of ability in the topic being taught. Examples of skill levels
+      include 'beginner', 'intermediate' or 'advanced'.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:skillLevel
+    range: URL
+  status:
+    name: status
+    comments:
+    - The status of a training material. If this is not filled in it will be regarded
+      as Active. Options are 'Active', 'Under development', and 'Archived'.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:status
+    range: Text
+  featuredInEvent:
+    name: featuredInEvent
+    comments:
+    - "The course instance or event where this training material was or will be featured.\
+      \ Inverse of workFeatured.\n Use isPartOf by default unless this training material\
+      \ is unique to a specific course instance."
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:featuredInEvent
+    range: Event
+  learningOutcome:
+    name: learningOutcome
+    comments:
+    - 'Statements that describe what knowledge and skills a student will acquire from
+      completing this training. Controlled Vocabulary: It is recommended you utilize
+      terms from Blooms taxonomy.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:learningOutcome
+    range: Text
+classes:
+  CreativeWork:
+    name: CreativeWork
+    from_schema: http://example.org/example
+    class_uri: schema1:CreativeWork
+  TrainingMaterial:
+    name: TrainingMaterial
+    comments:
+    - 'A specification for describing training materials in life sciences. The Life
+      Science Training Materials specification provides a way to describe bioscience
+      training material on the World Wide Web. It defines a set of metadata and vocabularies,
+      built on top of existing technologies and standards, that can be used to represent
+      events in Web pages and applications. The goal of the specification is to make
+      it easier to discover, exchange and integrate life science training material
+      information across the Internet. Version: 0.6-DRAFT-2019_06_06'
+    from_schema: http://example.org/example
+    is_a: CreativeWork
+    slots:
+    - uses
+    - skillLevel
+    - status
+    - featuredInEvent
+    - learningOutcome
+    class_uri: bioschemas:TrainingMaterial

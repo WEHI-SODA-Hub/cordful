@@ -1,0 +1,41 @@
+name: TaxonName_v1.0-RELEASE
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+default_prefix: example
+default_range: string
+slots:
+  taxonRank:
+    name: taxonRank
+    comments:
+    - 'The taxonomic rank of this taxon given preferably as a URI from a controlled
+      vocabulary – (typically the ranks from TDWG TaxonRank ontology or equivalent
+      Wikidata URIs). '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:taxonRank
+    range: URL
+classes:
+  CreativeWork:
+    name: CreativeWork
+    from_schema: http://example.org/example
+    class_uri: schema1:CreativeWork
+  TaxonName:
+    name: TaxonName
+    comments:
+    - 'A name of a biological taxon, may it be valid (zoology) / accepted (botany)
+      or not. Version: 1.0-RELEASE'
+    from_schema: http://example.org/example
+    is_a: CreativeWork
+    slots:
+    - taxonRank
+    class_uri: bioschemastypes:TaxonName

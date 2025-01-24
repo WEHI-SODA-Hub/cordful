@@ -1,0 +1,64 @@
+name: SequenceMatchingModel_v0.1-DRAFT-2019_06_21
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  modelDataset:
+    name: modelDataset
+    comments:
+    - Dataset where this matching model has been recorded.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:modelDataset
+    range: Dataset
+  modelSignature:
+    name: modelSignature
+    comments:
+    - Representation of the model such as regular expression or image.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:modelSignature
+    range: PropertyValue
+  match:
+    name: match
+    comments:
+    - 'Entity matched by this model, for instance proteins where the domain targeted
+      by this model are found. Inverse property: isMatchedBy.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:match
+    range: BioChemEntity
+  biologicalType:
+    name: biologicalType
+    comments:
+    - Biological type targeted by this model, for instance domains or sites in proteins.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:biologicalType
+    range: URL
+classes:
+  SequenceMatchingModel:
+    name: SequenceMatchingModel
+    comments:
+    - 'A model used to determine sequence matches such as domains in proteins. Version:
+      0.1-DRAFT-2019_06_21 (2019-06-21)'
+    from_schema: http://example.org/example
+    is_a: CreativeWork
+    slots:
+    - modelDataset
+    - modelSignature
+    - match
+    - biologicalType
+    class_uri: bioschemas:SequenceMatchingModel
+  CreativeWork:
+    name: CreativeWork
+    from_schema: http://example.org/example
+    class_uri: schema1:CreativeWork

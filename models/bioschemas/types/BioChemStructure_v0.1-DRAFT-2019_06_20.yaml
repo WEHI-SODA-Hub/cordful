@@ -1,0 +1,93 @@
+name: BioChemStructure_v0.1-DRAFT-2019_06_20
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  sequenceLocation:
+    name: sequenceLocation
+    comments:
+    - A range/position location where this annotation or BioChemEntity is located
+      reagrding another BioChemEntity, for instance a BioChemStructure in a Protein.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:sequenceLocation
+    range: SequenceRange
+  isMatchedBy:
+    name: isMatchedBy
+    comments:
+    - A model matching this BioChemEntity.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:isMatchedBy
+    range: SequenceMatchingModel
+  hasAssociatedBioChemEntity:
+    name: hasAssociatedBioChemEntity
+    comments:
+    - Used to define the actual protein or RNA.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasAssociatedBioChemEntity
+    range: RNA
+  boundMolecule:
+    name: boundMolecule
+    comments:
+    - Molecule, e.g., ligand, bound to this BioChem structure
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:boundMolecule
+    range: DefinedTerm
+  massResolution:
+    name: massResolution
+    comments:
+    - Mass spectometry resolution in the form '<Number> <Unit of measure>', for example
+      '2.85 Å'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:massResolution
+    range: Quantity
+  creationMethod:
+    name: creationMethod
+    comments:
+    - Method used to create or obtain this annotation or BioChemEntity; please use
+      PropertyValue if you want to include any evidence.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:creationMethod
+    range: URL
+  hasSequenceAnnotation:
+    name: hasSequenceAnnotation
+    comments:
+    - Pointer to a sequence annotation; please use PropertyValue if you want to include
+      any evidence.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasSequenceAnnotation
+    range: SequenceAnnotation
+classes:
+  BioChemStructure:
+    name: BioChemStructure
+    comments:
+    - 'WwPDB and related data including modelled and hypothetical data. As well as
+      3D data for chemicals, e.g. stereo chemistry images in an analyzable format
+      (not pure images). Version: 0.1-DRAFT-2019_06_20 (2019-06-20). Note, the parent
+      class for this type has been updated to a pending class in schema.org.'
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    slots:
+    - sequenceLocation
+    - isMatchedBy
+    - hasAssociatedBioChemEntity
+    - boundMolecule
+    - massResolution
+    - creationMethod
+    - hasSequenceAnnotation
+    class_uri: bioschemas:BioChemStructure
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: schema1:BioChemEntity

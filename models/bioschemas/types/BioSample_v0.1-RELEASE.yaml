@@ -1,0 +1,116 @@
+name: BioSample_v0.1-RELEASE
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  custodian:
+    name: custodian
+    comments:
+    - The Person or Organization who is responsible for the Sample.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:custodian
+    range: Person
+  samplingAge:
+    name: samplingAge
+    comments:
+    - 'The age of the object when the Sample was created. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:samplingAge
+    range: Integer
+  gender:
+    name: gender
+    comments:
+    - Gender of the person. While http://schema.org/Male and http://schema.org/Female
+      may be used, text strings are also acceptable for people who do not identify
+      as a binary gender
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:gender
+    range: GenderType
+  locationCreated:
+    name: locationCreated
+    comments:
+    - 'The location where the CreativeWork was created, which may not be the same
+      as the location depicted in the CreativeWork. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:locationCreated
+    range: Place
+  collector:
+    name: collector
+    comments:
+    - 'The Person or Organization who collected the Sample. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:collector
+    range: Person
+  additionalProperty:
+    name: additionalProperty
+    comments:
+    - 'A property-value pair representing an additional characteristics of the entitity,
+      e.g. a product feature or another characteristic for which there is no matching
+      property in schema.org. Note: Publishers should be aware that applications designed
+      to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color,
+      http://schema.org/gtin13, ...) will typically expect such data to be provided
+      using those properties, rather than using the generic property/value mechanism.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:additionalProperty
+    range: PropertyValue
+  dateCreated:
+    name: dateCreated
+    comments:
+    - 'The date on which the CreativeWork was created or the item was added to a DataFeed. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:dateCreated
+    range: Date
+  isControl:
+    name: isControl
+    comments:
+    - Indicates whether the sample is being used as a normal control, may be in combination
+      with another sample.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:isControl
+    range: Boolean
+  itemLocation:
+    name: itemLocation
+    comments:
+    - 'Current location of the item. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:itemLocation
+    range: Text
+classes:
+  BioSample:
+    name: BioSample
+    comments:
+    - 'A biological material entity that is representative of a whole.
+
+      Comments: Typically samples are intended to be representative of the whole or
+      aspects thereof. Examples of samples include biomedical samples (blood, urine)
+      and plant specimens held at herbaria. Version 0.1-RELEASE. Note, the parent
+      class for this schema has been updated to a pending class in schema.org.'
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    slots:
+    - custodian
+    - samplingAge
+    - gender
+    - locationCreated
+    - collector
+    - additionalProperty
+    - dateCreated
+    - isControl
+    - itemLocation
+    class_uri: bioschemas:BioSample
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: schema1:BioChemEntity

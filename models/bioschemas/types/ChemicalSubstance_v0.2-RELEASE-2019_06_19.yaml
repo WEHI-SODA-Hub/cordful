@@ -1,0 +1,55 @@
+name: ChemicalSubstance_v0.2-RELEASE-2019_06_19
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+default_prefix: example
+default_range: string
+slots:
+  molecularFormula:
+    name: molecularFormula
+    comments:
+    - The empirical formula is the simplest whole number ratio of all the atoms in
+      a molecule.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:molecularFormula
+    range: Text
+  chemicalRole:
+    name: chemicalRole
+    comments:
+    - A role played by the BioChemEntity within a chemical context. A role played
+      by the molecular entity within a chemical context.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:chemicalRole
+    range: DefinedTerm
+  potentialUse:
+    name: potentialUse
+    comments:
+    - 'Intended use of the BioChemEntity by humans. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:potentialUse
+    range: DefinedTerm
+classes:
+  ChemicalSubstance:
+    name: ChemicalSubstance
+    comments:
+    - 'A chemical substance is ''a portion of matter of constant composition, composed
+      of molecular entities of the same type or of different types'' (source: ChEBI:59999).
+      Version: 0.2-RELEASE-2019_06_19.'
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    slots:
+    - molecularFormula
+    - chemicalRole
+    - potentialUse
+    class_uri: bioschemastypes:ChemicalSubstance
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: bioschemastypes:BioChemEntity

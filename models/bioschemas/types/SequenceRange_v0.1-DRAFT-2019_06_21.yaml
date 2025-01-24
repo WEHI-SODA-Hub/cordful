@@ -1,0 +1,70 @@
+name: SequenceRange_v0.1-DRAFT-2019_06_21
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+default_prefix: example
+default_range: string
+slots:
+  rangeEnd:
+    name: rangeEnd
+    comments:
+    - Final position of the range
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:rangeEnd
+    range: Integer
+  rangeStart:
+    name: rangeStart
+    comments:
+    - Initial position of the range.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:rangeStart
+    range: Integer
+  endUncertainty:
+    name: endUncertainty
+    comments:
+    - If the initial position is not known with reasonable certainty, specify here
+      the uncertainty type as one of ‘<’ (any position before than rangeEnd), ‘>’
+      (any position after rangeEnd), ‘~’ (around rangeEnd), ‘[#-#] (to indicate a
+      range where rangeEnd could be located)’.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:endUncertainty
+    range: Text
+  startUncertainty:
+    name: startUncertainty
+    comments:
+    - If the initial position is not known with reasonable certainty, specify here
+      the uncertainty type as one of ‘<’ (any position before than rangeStart), ‘>’
+      (any position after rangeStart), ‘~’ (around the rangeStart), ‘[#-#] (to indicate
+      a range where rangeStart could be located)’.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:startUncertainty
+    range: Text
+classes:
+  SequenceRange:
+    name: SequenceRange
+    comments:
+    - 'Used to define the range of a subsequence, typically used in conjunction with
+      SequenceAnnotation to define the range of the annotation on the protein or gene
+      sequence. Version: 0.1-DRAFT-2019_06_21.'
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    slots:
+    - rangeEnd
+    - rangeStart
+    - endUncertainty
+    - startUncertainty
+    class_uri: bioschemastypesdrafts:SequenceRange
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: bioschemastypes:BioChemEntity

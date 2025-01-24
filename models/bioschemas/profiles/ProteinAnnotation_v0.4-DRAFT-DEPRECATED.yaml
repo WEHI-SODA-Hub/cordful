@@ -1,0 +1,115 @@
+name: ProteinAnnotation_v0.4-DRAFT-DEPRECATED
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  rdf1:
+    prefix_prefix: rdf1
+    prefix_reference: https://www.w3.org/1999/02/22-rdf-syntax-ns#
+  bioschemasdeprecated:
+    prefix_prefix: bioschemasdeprecated
+    prefix_reference: https://discovery.biothings.io/view/bioschemasdeprecated/
+default_prefix: example
+default_range: string
+slots:
+  creationMethod:
+    name: creationMethod
+    comments:
+    - Method used to create this annotation.
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdeprecated:creationMethod
+    range: PropertyValue
+  isContainedIn:
+    name: isContainedIn
+    comments:
+    - "Indicates a BioChemEntity that this BioChemEntity is (in some sense) part of.\
+      \ \n For proteins, it is recommended to at least specify the taxon/organism\
+      \ associated to the described protein. For taxon/organism, it is a good practice\
+      \ to use hasCategoryCode to point to a controlled vacabulary such as NCBI taxon\
+      \ or UniProt Taxonomy. Including as well the GO cellular locations is optional;\
+      \ for cellular locations it is a good practice to use hasCategorryCode to point\
+      \ to a GO Cellular Location term."
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdeprecated:isContainedIn
+    range: BioChemEntity
+  type:
+    name: type
+    comments:
+    - This is used by validation tools to indentify the profile used. You must use
+      the value specified in the Controlled Vocabulary column. This is used by validation
+      tools to indentify the profile used. You must use the value specified in the
+      Controlled Vocabulary column.
+    from_schema: http://example.org/example
+    slot_uri: rdf1:type
+    range: URL
+  contains:
+    name: contains
+    comments:
+    - "Indicates a BioChemEntity that is (in some sense) a part of this BioChemEntity.\
+      \ Inverse property: isContainedIn. \n For proteins, it can be used to link to\
+      \ protein sequence annotations such as domains, sites, regions, etc."
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdeprecated:contains
+    range: ProteinAnnotation
+  location:
+    name: location
+    comments:
+    - "The location can be refer to a position in a chromosome or sequence or to a\
+      \ physical place where, for instance, a sample is stored. Using additionalType\
+      \ is advised to make the distinction. For instance, FALDO can be used for sequence\
+      \ coordinates. \n Note: The list of Expected Types has been extended as schema.org/location\
+      \ only has Place, PostalAddress and Text."
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdeprecated:location
+    range: URL
+  additionalProperty:
+    name: additionalProperty
+    comments:
+    - "A property-value pair representing an additional characteristics of the entitity,\
+      \ e.g. a product feature or another characteristic for which there is no matching\
+      \ property in schema.org. \n Note: Publishers should be aware that applications\
+      \ designed to use specific schema.org properties (e.g. http://schema.org/width,\
+      \ http://schema.org/color, http://schema.org/gtin13, …) will typically expect\
+      \ such data to be provided using those properties, rather than using the generic\
+      \ property/value mechanism. \n Whenever possible, please use a property coined\
+      \ in a third-party well-known vocabulary. For instance, you can directly use\
+      \ RO ObjectProperty: enables as a property to express how a protein or gene\
+      \ enables some GO molecular function. If you still want or need to use additionalProperty,\
+      \ please use (i) property name to specify the name of the property, (ii) additionalType\
+      \ (if possible) to better specify the nature of the property, and (iii) value\
+      \ to link to the object/range of this property. We recommend to look at the\
+      \ OBO Relations Ontology (RO) or the Semanticscience Integrated Ontology (SIO)\
+      \ as starting points. \n Bioschemas Protein: If no suitable property exists\
+      \ in this profile, use any ontology term coined as a property and suitable for\
+      \ your needs. For instance sio:SIO_000095 (is member of) could be used to model\
+      \ the relation between a protein and a protein clan."
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdeprecated:additionalProperty
+    range: PropertyValue
+classes:
+  ProteinAnnotation:
+    name: ProteinAnnotation
+    comments:
+    - 'Bioschemas specification describing a Protein annotation (BioChemEntity profile)
+      in Life Sciences. This profile specification presents the BioChemEntity usage
+      when describing a Protein annotation. Version: 0.4-DRAFT-2018_02_25'
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    slots:
+    - creationMethod
+    - isContainedIn
+    - type
+    - contains
+    - location
+    - additionalProperty
+    class_uri: bioschemasdeprecated:ProteinAnnotation
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: schema1:BioChemEntity

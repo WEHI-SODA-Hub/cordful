@@ -1,0 +1,46 @@
+name: Protein_v0.3-RELEASE-2019_09_02
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+default_prefix: example
+default_range: string
+slots:
+  hasBioPolymerSequence:
+    name: hasBioPolymerSequence
+    comments:
+    - A symbolic representation of a BioChemEnity. For example, a nucleotide sequence
+      of a Gene or an amino acid sequence of a Protein.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:hasBioPolymerSequence
+    range: Text
+classes:
+  Protein:
+    name: Protein
+    comments:
+    - Protein is here used in its widest possible definition, as classes of amino
+      acid based molecules. Amyloid-beta Protein in human (UniProt P05067), eukaryota
+      (e.g. an OrthoDB group) or even a single molecule that one can point to are
+      all of type schema:Protein. A protein can thus be a subclass of another protein,
+      e.g. schema:Protein as a UniProt record can have multiple isoforms inside it
+      which would also be schema:Protein. They can be imagined, synthetic, hypothetical
+      or naturally occurring. This version has been added to schema.org as a pending
+      type.
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    slots:
+    - hasBioPolymerSequence
+    class_uri: bioschemastypes:Protein
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: schema1:BioChemEntity

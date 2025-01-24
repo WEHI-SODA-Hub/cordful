@@ -1,0 +1,42 @@
+name: Taxon_v0.5-DRAFT-2020_04_06
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+  dwc:
+    prefix_prefix: dwc
+    prefix_reference: http://rs.tdwg.org/dwc/terms/
+default_prefix: example
+default_range: string
+slots:
+  vernacularName:
+    name: vernacularName
+    comments:
+    - A vernacular (common) name of the taxon.
+    from_schema: http://example.org/example
+    slot_uri: dwc:vernacularName
+    range: URL
+classes:
+  Taxon:
+    name: Taxon
+    comments:
+    - 'Bioschemas profile for describing a biological taxon This profile aims to denote
+      a taxon by common properties such as its scientific name, taxonomic rank and
+      vernacular names. It is also a means to link to existing taxonomic registers
+      where each taxon has a URI. <br/><h4>Summary of Changes</h4>Changes in 0.5:
+      <ul><li>remove hasCategoryCode see <a href="https://github.com/Bioschemas/specifications/issues/408">issue
+      408</a></li></ul> Version: 0.5-DRAFT-2020_04_06'
+    from_schema: http://example.org/example
+    is_a: Taxon
+    slots:
+    - vernacularName
+    class_uri: bioschemas:Taxon

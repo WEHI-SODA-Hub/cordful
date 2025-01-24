@@ -1,0 +1,97 @@
+name: Enzyme_v0.1-DRAFT-2019_06_20
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  isMatchedBy:
+    name: isMatchedBy
+    comments:
+    - A model matching this BioChemEntity.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:isMatchedBy
+    range: SequenceMatchingModel
+  hasAssociatedBioChemEntity:
+    name: hasAssociatedBioChemEntity
+    comments:
+    - Used to define the actual protein or RNA.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasAssociatedBioChemEntity
+    range: Rna
+  optimalTemperature:
+    name: optimalTemperature
+    comments:
+    - Optimal temperature in the form '<Number> <Temperature unit of measure>', for
+      example '8 Celsius', at which this enzyme performs best.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:optimalTemperature
+    range: Quantity
+  hasCofactor:
+    name: hasCofactor
+    comments:
+    - Cofactor helping this enzyme to function.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasCofactor
+    range: ChemicalSubstance
+  hasKineticRate:
+    name: hasKineticRate
+    comments:
+    - missing description
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasKineticRate
+    range: Text
+  hasCoenzyme:
+    name: hasCoenzyme
+    comments:
+    - Coenzymes helping this enzyme in turning substrates into products.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasCoenzyme
+    range: BioChemEntity
+  optimalPH:
+    name: optimalPH
+    comments:
+    - Optimal PHs.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:optimalPH
+    range: Number
+  hasSequenceAnnotation:
+    name: hasSequenceAnnotation
+    comments:
+    - Pointer to a sequence annotation; please use PropertyValue if you want to include
+      any evidence.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:hasSequenceAnnotation
+    range: SequenceAnnotation
+classes:
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: schema1:BioChemEntity
+  Enzyme:
+    name: Enzyme
+    comments:
+    - 'Version: 0.1-DRAFT-2019_06_20 (2019-06-20). Note, the parent class for this
+      type has been updated to a pending class in schema.org.'
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    slots:
+    - isMatchedBy
+    - hasAssociatedBioChemEntity
+    - optimalTemperature
+    - hasCofactor
+    - hasKineticRate
+    - hasCoenzyme
+    - optimalPH
+    - hasSequenceAnnotation
+    class_uri: bioschemas:Enzyme

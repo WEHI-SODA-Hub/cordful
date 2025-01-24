@@ -1,0 +1,21 @@
+name: ChemicalSubstance_v0.3-DRAFT-2019_11_11
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastemp:
+    prefix_prefix: bioschemastemp
+    prefix_reference: https://discovery.biothings.io/view/bioschemastemp/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+default_prefix: example
+default_range: string
+classes:
+  ChemicalSubstance:
+    name: ChemicalSubstance
+    from_schema: http://example.org/example
+    class_uri: bioschemastypes:ChemicalSubstance

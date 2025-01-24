@@ -1,0 +1,69 @@
+name: Taxon_v0.3-RELEASE-2019_11_18
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+default_prefix: example
+default_range: string
+slots:
+  parentTaxon:
+    name: parentTaxon
+    comments:
+    - 'Closest parent taxon of the taxon in question.
+
+      Inverse property: childTaxon Direct, most proximate higher-rank parent taxon'
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:parentTaxon
+    range: URL
+  taxonRank:
+    name: taxonRank
+    comments:
+    - 'The taxonomic rank of this taxon given preferably as a URI from a controlled
+      vocabulary (e.g. the ranks from TDWG TaxonRank ontology or equivalent Wikidata
+      URIs) '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:taxonRank
+    range: URL
+  hasDefinedTerm:
+    name: hasDefinedTerm
+    comments:
+    - 'A TaxonName representing the currently valid (zoological) or accepted (botanical)
+      name for that taxon '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:hasDefinedTerm
+    range: DefinedTerm
+  childTaxon:
+    name: childTaxon
+    comments:
+    - 'Closest child taxa of the taxon in question. Inverse property: parentTaxon'
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:childTaxon
+    range: URL
+classes:
+  Taxon:
+    name: Taxon
+    comments:
+    - 'A set of organisms asserted to represent a natural cohesive biological unit.
+      Version: 0.3-RELEASE-2019_11_18. Note that this version of the Taxon type has
+      been added as a pending class to schema.org.'
+    from_schema: http://example.org/example
+    is_a: Thing
+    slots:
+    - parentTaxon
+    - taxonRank
+    - hasDefinedTerm
+    - childTaxon
+    class_uri: bioschemastypes:Taxon
+  Thing:
+    name: Thing
+    from_schema: http://example.org/example
+    class_uri: schema1:Thing

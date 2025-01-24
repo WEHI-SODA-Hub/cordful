@@ -1,0 +1,79 @@
+name: ComputationalWorkflow_v1.0-RELEASE
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: http://discovery.biothings.io/view/bioschemastypes/
+default_prefix: example
+default_range: string
+slots:
+  documentation:
+    name: documentation
+    comments:
+    - Documentation describing the ComputationalWorkflow and its use.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:documentation
+    range: URL
+  softwareRequirements:
+    name: softwareRequirements
+    comments:
+    - 'Renaming schema.org/requirements as softwareRequirements. Component dependency
+      requirements for application. This includes runtime environments and shared
+      libraries that are not included in the application distribution package, but
+      required to run the application (Examples: DirectX, Java or .NET runtime). Supersedes
+      requirements. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:softwareRequirements
+    range: URL
+  funding:
+    name: funding
+    comments:
+    - The funding for the workflow
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:funding
+    range: Grant
+  output:
+    name: output
+    comments:
+    - An output produced by the workflow
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:output
+    range: FormalParameter
+  input:
+    name: input
+    comments:
+    - An input required to use the computational workflow (eg. Excel spreadsheet,
+      BAM file)
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:input
+    range: FormalParameter
+classes:
+  ComputationalWorkflow:
+    name: ComputationalWorkflow
+    comments:
+    - A computational workflow consists of an orchestrated and repeatable pattern
+      of activity enabled by the systematic organization of resources into processes
+      that transform materials, provide services, or process information (source Wikipedia.org).
+      It is executed by a computational process and is thus distinct from laboratory
+      or business workflows. version 1.0-RELEASE
+    from_schema: http://example.org/example
+    is_a: SoftwareSourceCode
+    slots:
+    - documentation
+    - softwareRequirements
+    - funding
+    - output
+    - input
+    class_uri: bioschemastypes:ComputationalWorkflow
+  SoftwareSourceCode:
+    name: SoftwareSourceCode
+    from_schema: http://example.org/example
+    class_uri: schema1:SoftwareSourceCode

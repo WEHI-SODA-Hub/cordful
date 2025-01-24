@@ -1,0 +1,114 @@
+name: MolecularEntity_v0.3-RELEASE-2019_09_02
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+default_prefix: example
+default_range: string
+slots:
+  monoisotopicMolecularWeight:
+    name: monoisotopicMolecularWeight
+    comments:
+    - The monoisotopic mass is the sum of the masses of the atoms in a molecule using
+      the unbound, ground-state, rest mass of the principal (most abundant) isotope
+      for each element instead of the isotopic average mass. Please include the units
+      the form '<Number> <unit>', for example '770.230488 g/mol' or as '<QuantitativeValue>.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:monoisotopicMolecularWeight
+    range: Text
+  inChIKey:
+    name: inChIKey
+    comments:
+    - InChIKey is a hashed version of the full InChI (using the SHA-256 algorithm).
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:inChIKey
+    range: Text
+  molecularWeight:
+    name: molecularWeight
+    comments:
+    - This is the molecular weight of the entity being described, not of the parent.
+      Units should be included in the form '<Number> <unit>', for example '12 amu'
+      or as '<QuantitativeValue>.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:molecularWeight
+    range: Text
+  smiles:
+    name: smiles
+    comments:
+    - A specification in form of a line notation for describing the structure of chemical
+      species using short ASCII strings.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:smiles
+    range: Text
+  iupacName:
+    name: iupacName
+    comments:
+    - Systematic method of naming chemical compounds as recommended by the International
+      Union of Pure and Applied Chemistry (IUPAC).
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:iupacName
+    range: Text
+  molecularFormula:
+    name: molecularFormula
+    comments:
+    - The empirical formula is the simplest whole number ratio of all the atoms in
+      a molecule.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:molecularFormula
+    range: Text
+  chemicalRole:
+    name: chemicalRole
+    comments:
+    - A role played by the BioChemEntity within a chemical context.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:chemicalRole
+    range: DefinedTerm
+  inChI:
+    name: inChI
+    comments:
+    - Non-proprietary identifier for molecular entity that can be used in printed
+      and electronic data sources thus enabling easier linking of diverse data compilations.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:inChI
+    range: Text
+  potentialUse:
+    name: potentialUse
+    comments:
+    - Intended use of the BioChemEntity by humans.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypes:potentialUse
+    range: DefinedTerm
+classes:
+  MolecularEntity:
+    name: MolecularEntity
+    comments:
+    - 'Any constitutionally or isotopically distinct atom, molecule, ion, ion pair,
+      radical, radical ion, complex, conformer etc., identifiable as a separately
+      distinguishable entity. (Source: ChEBI:23367). Note, this version has been updated
+      to a pending class in schema.org.'
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    slots:
+    - monoisotopicMolecularWeight
+    - inChIKey
+    - molecularWeight
+    - smiles
+    - iupacName
+    - molecularFormula
+    - chemicalRole
+    - inChI
+    - potentialUse
+    class_uri: bioschemastypes:MolecularEntity
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: schema1:BioChemEntity

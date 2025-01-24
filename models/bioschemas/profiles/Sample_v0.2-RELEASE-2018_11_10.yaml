@@ -1,0 +1,21 @@
+name: Sample_v0.2-RELEASE-2018_11_10
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: http://discovery.biothings.io/view/bioschemastypesdrafts/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+classes:
+  Sample:
+    name: Sample
+    from_schema: http://example.org/example
+    class_uri: bioschemastypesdrafts:Sample

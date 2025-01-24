@@ -1,0 +1,57 @@
+name: ChemicalSubstance_v0.2-DRAFT-2019_06_11
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastemp:
+    prefix_prefix: bioschemastemp
+    prefix_reference: https://discovery.biothings.io/view/bioschemastemp/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+default_prefix: example
+default_range: string
+slots:
+  potentialUse:
+    name: potentialUse
+    comments:
+    - 'Intended use of the BioChemEntity by humans. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastemp:potentialUse
+    range: DefinedTerm
+  bioChemInteraction:
+    name: bioChemInteraction
+    comments:
+    - A BioChemEntity that is know to interact with this item.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastemp:bioChemInteraction
+    range: BioChemEntity
+  chemicalRole:
+    name: chemicalRole
+    comments:
+    - A role played by the BioChemEntity within a chemical context. A role played
+      by the molecular entity within a chemical context.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastemp:chemicalRole
+    range: DefinedTerm
+  molecularFormula:
+    name: molecularFormula
+    comments:
+    - The empirical formula is the simplest whole number ratio of all the  atoms in
+      a molecule.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastemp:molecularFormula
+    range: Text
+classes:
+  ChemicalSubstance:
+    name: ChemicalSubstance
+    from_schema: http://example.org/example
+    slots:
+    - potentialUse
+    - bioChemInteraction
+    - chemicalRole
+    - molecularFormula
+    class_uri: bioschemastypes:ChemicalSubstance

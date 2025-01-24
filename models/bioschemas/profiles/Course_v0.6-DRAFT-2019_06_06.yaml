@@ -1,0 +1,51 @@
+name: Course_v0.6-DRAFT-2019_06_06
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  uses:
+    name: uses
+    comments:
+    - List resources utilized by this resource such as datasets, tools, technologies,
+      or other entities. Datasets, tools, technologies, entities etc, which will be
+      utilized in this Course.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:uses
+    range: Thing
+  skillLevel:
+    name: skillLevel
+    comments:
+    - The students expected level of ability in the topic being taught. Skill levels
+      are ‘beginner’, ‘intermediate’ or ‘advanced’.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:skillLevel
+    range: Text
+  learningOutcome:
+    name: learningOutcome
+    comments:
+    - Statements that describe what knowledge and skills a student will acquire from
+      completing this training. It is recommended you utilize terms from Blooms taxonomy.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:learningOutcome
+    range: Text
+classes:
+  Course:
+    name: Course
+    from_schema: http://example.org/example
+    slots:
+    - uses
+    - skillLevel
+    - learningOutcome
+    class_uri: schema1:Course

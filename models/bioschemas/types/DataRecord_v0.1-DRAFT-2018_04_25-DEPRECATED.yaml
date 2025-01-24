@@ -1,0 +1,64 @@
+name: DataRecord_v0.1-DRAFT-2018_04_25-DEPRECATED
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  rdf1:
+    prefix_prefix: rdf1
+    prefix_reference: https://www.w3.org/1999/02/22-rdf-syntax-ns#
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: http://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  type:
+    name: type
+    comments:
+    - ' This is used by validation tools to indentify the profile used. You must use
+      the value specified in the Controlled Vocabulary column.'
+    from_schema: http://example.org/example
+    slot_uri: rdf1:type
+    range: URL
+  isBasisFor:
+    name: isBasisFor
+    comments:
+    - ' A resource for which this resource is basis for. Inverse property:  [isBasedOn](http://schema.org/isBasedOn).'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:isBasisFor
+    range: URL
+  seeAlso:
+    name: seeAlso
+    comments:
+    - ' A pointer to any (somehow related) Thing. To be used whenever you are not
+      so sure about the nature of the relation. Otherwise, use more precise terms
+      from pre-existing Controlled Vocabularies.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:seeAlso
+    range: URL
+classes:
+  DataRecord:
+    name: DataRecord
+    deprecated: 'True'
+    comments:
+    - 'Bioschemas specification describing a record in a dataset. A Record acts itself
+      as a dataset although it refers to what could be seen as the minimum compact,
+      complete and auto-descriptive unit in a dataset, i.e., a record. Bioschemas
+      usage In Life Sciences, records will represent a BioChemEntity. Version: 0.1-DRAFT-2018_04_25'
+    from_schema: http://example.org/example
+    is_a: Dataset
+    slots:
+    - type
+    - isBasisFor
+    - seeAlso
+    class_uri: bioschemas:DataRecord
+  Dataset:
+    name: Dataset
+    from_schema: http://example.org/example
+    class_uri: schema1:Dataset

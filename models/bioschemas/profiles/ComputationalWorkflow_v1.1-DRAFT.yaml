@@ -1,0 +1,42 @@
+name: ComputationalWorkflow_v1.1-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemasdrafts:
+    prefix_prefix: bioschemasdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemasdrafts/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+default_prefix: example
+default_range: string
+slots:
+  applicationSubCategory:
+    name: applicationSubCategory
+    comments:
+    - 'Subcategory of the application. "A URL to the subcategory of ComputationalWorkflow.
+      Note that the applicationCategory is implicitly Workflow. Example: "applicationCategory":
+      "http://edamontology.org/topic_3948"'
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:applicationSubCategory
+    range: URL
+  featureList:
+    name: featureList
+    comments:
+    - 'Features or modules provided by this application (and possibly required by
+      other applications). Functionality provided by the ComputatiionalWorkflow. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:featureList
+    range: Text
+classes:
+  ComputationalWorkflow:
+    name: ComputationalWorkflow
+    from_schema: http://example.org/example
+    slots:
+    - applicationSubCategory
+    - featureList
+    class_uri: bioschemastypes:ComputationalWorkflow

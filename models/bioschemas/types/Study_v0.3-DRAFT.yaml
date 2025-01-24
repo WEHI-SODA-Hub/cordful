@@ -1,0 +1,109 @@
+name: Study_v0.3-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+default_prefix: example
+default_range: string
+slots:
+  startDate:
+    name: startDate
+    comments:
+    - 'The start date and time of the item (in ISO 8601 date format). '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:startDate
+    range: DateTime
+  studyDomain:
+    name: studyDomain
+    comments:
+    - 'Define the domain of the study. For example, the domain could be astrophysics,
+      functional genomics or earth science. Those domains can also have an ontology
+      reference. For example, in the life sciences  we could have
+
+      Functional Genomics: http://edamontology.org/topic_0085
+
+      Protemics: http://edamontology.org/topic_0121'
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:studyDomain
+    range: URL
+  endDate:
+    name: endDate
+    comments:
+    - 'The end date and time of the item (in ISO 8601 date format). '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:endDate
+    range: DateTime
+  studyProcess:
+    name: studyProcess
+    comments:
+    - "A process performed as part of an experiment or wider study, i.e. intentionally\
+      \ designed.\nThese processes can have ontology URL attached to. For example,\
+      \ in the life sciences  we could have \nRNA-seq of coding RNA from single cells:\
+      \ http://www.ebi.ac.uk/efo/EFO_0005684\ncase control design: http://www.ebi.ac.uk/efo/EFO_0001427"
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:studyProcess
+    range: URL
+  relatedStudy:
+    name: relatedStudy
+    comments:
+    - 'A study that is related to this one. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:relatedStudy
+    range: Study
+  studySubject:
+    name: studySubject
+    comments:
+    - A subject of the study, i.e. one of the medical conditions, therapies, devices,
+      drugs, etc. investigated by the study.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:studySubject
+    range: BioChemEntity
+  studyLocation:
+    name: studyLocation
+    comments:
+    - The location in which the study is taking/took place.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:studyLocation
+    range: AdministrativeArea
+  additionalProperty:
+    name: additionalProperty
+    comments:
+    - 'A property-value pair representing an additional characteristics of the entitity,
+      e.g. a product feature or another characteristic for which there is no matching
+      property in schema.org. Note: Publishers should be aware that applications designed
+      to use specific schema.org properties (e.g. https://schema.org/width, https://schema.org/color,
+      https://schema.org/gtin13, ...) will typically expect such data to be provided
+      using those properties, rather than using the generic property/value mechanism. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:additionalProperty
+    range: PropertyValue
+classes:
+  Study:
+    name: Study
+    comments:
+    - ' This Study profile presents the markup when describing a Study Version: 0.3-DRAFT'
+    from_schema: http://example.org/example
+    is_a: CreativeWork
+    slots:
+    - startDate
+    - studyDomain
+    - endDate
+    - studyProcess
+    - relatedStudy
+    - studySubject
+    - studyLocation
+    - additionalProperty
+    class_uri: bioschemastypesdrafts:Study
+  CreativeWork:
+    name: CreativeWork
+    from_schema: http://example.org/example
+    class_uri: schema1:CreativeWork

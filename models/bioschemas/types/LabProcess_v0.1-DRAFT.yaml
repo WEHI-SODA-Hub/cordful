@@ -1,0 +1,57 @@
+name: LabProcess_v0.1-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+default_prefix: example
+default_range: string
+slots:
+  executesLabProtocol:
+    name: executesLabProtocol
+    comments:
+    - The lab protocol describes the experimental workflow and its parameters, which
+      is instantiated by this process.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:executesLabProtocol
+    range: LabProtocol
+  parameterValue:
+    name: parameterValue
+    comments:
+    - A parameter value of the experimental process, usually a key-value pair using
+      ontology terms.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:parameterValue
+    range: PropertyValue
+classes:
+  LabProcess:
+    name: LabProcess
+    comments:
+    - 'This is an initial draft of the new LabProcess type.
+
+
+      A LabProcess represents the specific application of a LabProtocol to some input
+      (biological material or data) to produce some output (biological material or
+      data).
+
+
+      This draft was prepared by Florian Wetzels and Lukas Weil, its specification
+      is still up for discussion.'
+    from_schema: http://example.org/example
+    is_a: Action
+    slots:
+    - executesLabProtocol
+    - parameterValue
+    class_uri: bioschemastypesdrafts:LabProcess
+  Action:
+    name: Action
+    from_schema: http://example.org/example
+    class_uri: schema1:Action

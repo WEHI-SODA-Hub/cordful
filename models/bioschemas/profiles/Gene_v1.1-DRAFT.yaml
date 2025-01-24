@@ -1,0 +1,41 @@
+name: Gene_v1.1-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemasdrafts:
+    prefix_prefix: bioschemasdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemasdrafts/
+default_prefix: example
+default_range: string
+slots:
+  hasStatus:
+    name: hasStatus
+    comments:
+    - One of pseudogene, dead, killed, live, predicted, suppressed.
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:hasStatus
+    range: Text
+  hasSequenceAnnotation:
+    name: hasSequenceAnnotation
+    comments:
+    - An annotation on the BioPolymerSequence associated with this BioChemEntity.
+      For genes, it can be used to link to gene sequence annotations such as variants
+      or so.
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdrafts:hasSequenceAnnotation
+    range: URL
+classes:
+  Gene:
+    name: Gene
+    from_schema: http://example.org/example
+    slots:
+    - hasStatus
+    - hasSequenceAnnotation
+    class_uri: schema1:Gene

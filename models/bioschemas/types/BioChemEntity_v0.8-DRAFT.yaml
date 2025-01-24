@@ -1,0 +1,40 @@
+name: BioChemEntity_v0.8-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  issue542:
+    prefix_prefix: issue542
+    prefix_reference: https://discovery.biothings.io/view/issue542/
+default_prefix: example
+default_range: string
+slots:
+  hasSequenceAnnotation:
+    name: hasSequenceAnnotation
+    comments:
+    - An annotation on the BioPolymerSequence associated with this BioChemEntity.
+    from_schema: http://example.org/example
+    slot_uri: issue542:hasSequenceAnnotation
+    range: SequenceAnnotation
+  hasBioPolymerSequence:
+    name: hasBioPolymerSequence
+    comments:
+    - A symbolic representation of a BioChemEnity. For example, a nucleotide sequence
+      of a Gene or an amino acid sequence of a Protein.
+    from_schema: http://example.org/example
+    slot_uri: issue542:hasBioPolymerSequence
+    range: Text
+classes:
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    slots:
+    - hasSequenceAnnotation
+    - hasBioPolymerSequence
+    class_uri: schema1:BioChemEntity

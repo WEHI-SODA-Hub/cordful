@@ -1,0 +1,67 @@
+name: TrainingMaterial_v0.2-DRAFT-2018_03_07
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  rdf:
+    prefix_prefix: rdf
+    prefix_reference: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  difficultyLevel:
+    name: difficultyLevel
+    comments:
+    - Difficulty level; level of experience required by users. Choose value from Controlled
+      Vocabulary column.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:difficultyLevel
+    range: Text
+  type:
+    name: type
+    comments:
+    - This is used by validation tools to indentify the profile used. You must use
+      the value specified in the Controlled Vocabulary column. This is used by validation
+      tools to indentify the profile used. You must use the value specified in the
+      Controlled Vocabulary column.
+    from_schema: http://example.org/example
+    slot_uri: rdf:type
+    range: URL
+  pid:
+    name: pid
+    comments:
+    - Permanent identifer, such as DOIs.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:pid
+    range: Text
+classes:
+  CreativeWork:
+    name: CreativeWork
+    from_schema: http://example.org/example
+    class_uri: schema1:CreativeWork
+  TrainingMaterial:
+    name: TrainingMaterial
+    comments:
+    - 'A specification for describing training materials in life sciences. The Life
+      Science Training Materials specification provides a way to describe bioscience
+      training material on the World Wide Web. It defines a set of metadata and vocabularies,
+      built on top of existing technologies and standards, that can be used to represent
+      events in Web pages and applications. The goal of the specification is to make
+      it easier to discover, exchange and integrate life science training material
+      information across the Internet. Version: 0.2-DRAFT-2018_03_07'
+    from_schema: http://example.org/example
+    is_a: CreativeWork
+    slots:
+    - difficultyLevel
+    - type
+    - pid
+    class_uri: bioschemas:TrainingMaterial

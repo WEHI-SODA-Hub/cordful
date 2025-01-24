@@ -1,0 +1,79 @@
+name: LabProtocol_v0.4-DRAFT-2020_07_23
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  protocolPurpose:
+    name: protocolPurpose
+    comments:
+    - 'BioSample used in the protocol. It could be a record in a Dataset describing
+      the sample or a physical object corresponding to the sample or a URL pointing
+      to the type of sample used. Controlled Vocabulary: NCBI Taxonomy, Uberon'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:protocolPurpose
+    range: Text
+  reagentUsed:
+    name: reagentUsed
+    comments:
+    - 'Reagents used in the protocol. ChEBI and PubChem entities can be used whenever
+      available. Commercial names are also acceptable. Controlled Vocabulary: ChEBI,
+      PubChem'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:reagentUsed
+    range: URL
+  labEquipmentUsed:
+    name: labEquipmentUsed
+    comments:
+    - 'A laboratory equipment used by a person to follow one or more steps described
+      in this LabProtocol. Controlled Vocabulary: BAO, EFO, ERO, OBI'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:labEquipmentUsed
+    range: URL
+  bioSampleUsed:
+    name: bioSampleUsed
+    comments:
+    - 'BioSample used in the protocol. It could be a record in a Dataset describing
+      the sample or a physical object corresponding to the sample or a URL pointing
+      to the type of sample used. Controlled Vocabulary: NCBI Taxonomy, Uberon'
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:bioSampleUsed
+    range: URL
+  softwareUsed:
+    name: softwareUsed
+    comments:
+    - Software or tool used as part of the lab protocol to complete a part of it.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:softwareUsed
+    range: URL
+  totalTime:
+    name: totalTime
+    comments:
+    - The total time required to perform instructions or a direction (including time
+      to prepare the supplies), in ISO 8601 duration format.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:totalTime
+    range: Duration
+classes:
+  LabProtocol:
+    name: LabProtocol
+    from_schema: http://example.org/example
+    slots:
+    - protocolPurpose
+    - reagentUsed
+    - labEquipmentUsed
+    - bioSampleUsed
+    - softwareUsed
+    - totalTime
+    class_uri: bioschemastypesdrafts:LabProtocol

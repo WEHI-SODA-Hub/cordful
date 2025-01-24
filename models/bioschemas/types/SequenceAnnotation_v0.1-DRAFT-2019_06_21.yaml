@@ -1,0 +1,74 @@
+name: SequenceAnnotation_v0.1-DRAFT-2019_06_21
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+default_prefix: example
+default_range: string
+slots:
+  sequenceLocation:
+    name: sequenceLocation
+    comments:
+    - A range/position location where this annotation or BioChemEntity is located
+      reagrding another BioChemEntity, for instance a BioChemStructure in a Protein.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:sequenceLocation
+    range: SequenceRange
+  sequenceOrientation:
+    name: sequenceOrientation
+    comments:
+    - One of 1, 0 or -1.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:sequenceOrientation
+    range: Integer
+  sequenceValue:
+    name: sequenceValue
+    comments:
+    - value of the sequence
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:sequenceValue
+    range: URL
+  valueReference:
+    name: valueReference
+    comments:
+    - A pointer to a secondary value that provides additional information on the original
+      value, e.g. a reference temperature.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:valueReference
+    range: URL
+  creationMethod:
+    name: creationMethod
+    comments:
+    - Method used to create or obtain this annotation or BioChemEntity; please use
+      PropertyValue if you want to include any evidence.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:creationMethod
+    range: URL
+classes:
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: bioschemastypes:BioChemEntity
+  SequenceAnnotation:
+    name: SequenceAnnotation
+    comments:
+    - 'Used to provide metadata about Sequence Annotations. The sequence can be an
+      amino acid (protein) or nucleic acid (Gene, DNA, RNA). Version: 0.1-DRAFT-2019_06_21'
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    slots:
+    - sequenceLocation
+    - sequenceOrientation
+    - sequenceValue
+    - valueReference
+    - creationMethod
+    class_uri: bioschemastypesdrafts:SequenceAnnotation

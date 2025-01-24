@@ -1,0 +1,80 @@
+name: Taxon_v0.4-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+default_prefix: example
+default_range: string
+slots:
+  scientificName:
+    name: scientificName
+    comments:
+    - A TaxonName representing the currently valid (zoological) or accepted (botanical)
+      name for that taxon.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:scientificName
+    range: URL
+  alternateScientificName:
+    name: alternateScientificName
+    comments:
+    - A TaxonName representing a scientific name, with authorship and date information
+      if known, of a synonym of the currently valid (zoological) or accepted (botanical)
+      name.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:alternateScientificName
+    range: URL
+  childTaxon:
+    name: childTaxon
+    comments:
+    - 'Closest child taxa of the taxon in question.
+
+      Inverse property: parentTaxon Direct, most proximate lower-rank child taxa'
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:childTaxon
+    range: URL
+  parentTaxon:
+    name: parentTaxon
+    comments:
+    - 'Closest parent taxon of the taxon in question.
+
+      Inverse property: childTaxon Direct, most proximate higher-rank parent taxon'
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:parentTaxon
+    range: URL
+  taxonRank:
+    name: taxonRank
+    comments:
+    - 'The taxonomic rank of this taxon given preferably as a URI from a controlled
+      vocabulary (e.g. the ranks from TDWG TaxonRank ontology or equivalent Wikidata
+      URIs) '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:taxonRank
+    range: URL
+classes:
+  Taxon:
+    name: Taxon
+    comments:
+    - 'A set of organisms asserted to represent a natural cohesive biological unit.
+      Version: 0.4-DRAFT-2019_06_24'
+    from_schema: http://example.org/example
+    is_a: Thing
+    slots:
+    - scientificName
+    - alternateScientificName
+    - childTaxon
+    - parentTaxon
+    - taxonRank
+    class_uri: bioschemastypesdrafts:Taxon
+  Thing:
+    name: Thing
+    from_schema: http://example.org/example
+    class_uri: schema1:Thing

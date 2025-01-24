@@ -1,0 +1,29 @@
+name: ComputationalWorkflow_v0.2-DRAFT-2019_11_29
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemastemp:
+    prefix_prefix: bioschemastemp
+    prefix_reference: https://discovery.biothings.io/view/bioschemastemp/
+default_prefix: example
+default_range: string
+classes:
+  ComputationalWorkflow:
+    name: ComputationalWorkflow
+    comments:
+    - 'A workflow consists of an orchestrated and repeatable pattern of activity enabled
+      by the systematic organization of resources into processes that transform materials,
+      provide services, or process information. It can be depicted as a sequence of
+      operations, the work of a person or group, the work of an organization of staff,
+      or one or more simple or complex mechanisms. (source Wikipedia.org) Version:
+      0.2-DRAFT-2019_11_29'
+    from_schema: http://example.org/example
+    is_a: ComputationalWorkflow
+    class_uri: bioschemastemp:ComputationalWorkflow

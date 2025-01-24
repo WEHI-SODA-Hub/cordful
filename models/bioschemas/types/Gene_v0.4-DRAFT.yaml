@@ -1,0 +1,63 @@
+name: Gene_v0.4-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+default_prefix: example
+default_range: string
+slots:
+  hasStatus:
+    name: hasStatus
+    comments:
+    - 'Schema:  One of pseudogene, dead, killed, live, predicted, suppressed.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:hasStatus
+    range: Text
+  encodesBioChemEntity:
+    name: encodesBioChemEntity
+    comments:
+    - 'Another BioChemEntity encoded by this one. Inverse property: isEncodedByBioChemEntity.'
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:encodesBioChemEntity
+    range: BioChemEntity
+  alternativeOf:
+    name: alternativeOf
+    comments:
+    - Another gene which is a variation of this one.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:alternativeOf
+    range: Gene
+  expressedIn:
+    name: expressedIn
+    comments:
+    - Tissue, organ, biological sample, etc in which activity of this gene has been
+      observed experimentally. For example brain, digestive system.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:expressedIn
+    range: DefinedTerm
+classes:
+  BioChemEntity:
+    name: BioChemEntity
+    from_schema: http://example.org/example
+    class_uri: bioschemastypesdrafts:BioChemEntity
+  Gene:
+    name: Gene
+    comments:
+    - 'A discrete unit of inheritance which affects one or more biological traits
+      (Source: https://en.wikipedia.org/wiki/Gene). Examples include FOXP2 (Forkhead
+      box protein P2), SCARNA21 (small Cajal body-specific RNA 21), A- (agouti genotype).
+      Note, this version of the type has been added as a pending class in schema.org.'
+    from_schema: http://example.org/example
+    is_a: BioChemEntity
+    slots:
+    - hasStatus
+    - encodesBioChemEntity
+    - alternativeOf
+    - expressedIn
+    class_uri: bioschemastypesdrafts:Gene

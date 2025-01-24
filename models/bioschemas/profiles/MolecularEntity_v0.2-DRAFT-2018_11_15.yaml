@@ -1,0 +1,39 @@
+name: MolecularEntity_v0.2-DRAFT-2018_11_15
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypes:
+    prefix_prefix: bioschemastypes
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypes/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  biochemicalSimilarity:
+    name: biochemicalSimilarity
+    comments:
+    - A similar molecular entity, e.g., obtained by fingerprint similarity algorithms.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:biochemicalSimilarity
+    range: BioChemEntity
+  biochemicalInteraction:
+    name: biochemicalInteraction
+    comments:
+    - A BioChemEntity that is known to interact with the item.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:biochemicalInteraction
+    range: BioChemEntity
+classes:
+  MolecularEntity:
+    name: MolecularEntity
+    from_schema: http://example.org/example
+    slots:
+    - biochemicalSimilarity
+    - biochemicalInteraction
+    class_uri: bioschemastypes:MolecularEntity

@@ -1,0 +1,32 @@
+name: Course_v0.5-DRAFT-2019_02_25
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  skillLevel:
+    name: skillLevel
+    comments:
+    - The students expected level of ability in the topic being taught. Skill levels
+      are ‘beginner’, ‘intermediate’ or ‘advanced’.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:skillLevel
+    range: DefinedTerm
+classes:
+  Course:
+    name: Course
+    from_schema: http://example.org/example
+    slots:
+    - skillLevel
+    class_uri: schema1:Course

@@ -1,0 +1,362 @@
+name: BioSample_v0.2-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+default_prefix: example
+default_range: string
+slots:
+  elevation:
+    name: elevation
+    comments:
+    - 'The altitude from which the sample was originally collected. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:elevation
+    range: GeoCoordinates
+  keywords:
+    name: keywords
+    comments:
+    - Terms that capture the main subjects e.g. cancer, plant biology.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:keywords
+    range: Text
+  sampleQuantity:
+    name: sampleQuantity
+    comments:
+    - A numeric value for a measurement of the size  of a sample.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:sampleQuantity
+    range: QuantitativeValue
+  sampleState:
+    name: sampleState
+    comments:
+    - Specify the composition and state of the sample, indicating which form it exisits
+      in, e.g. gas, liquid, solid.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:sampleState
+    range: Text
+  sampleStorageTemperature:
+    name: sampleStorageTemperature
+    comments:
+    - Storage condition of the sample.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:sampleStorageTemperature
+    range: QualitativeValue
+  locationOfOrigin:
+    name: locationOfOrigin
+    comments:
+    - The location from which the sample was originally collected.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:locationOfOrigin
+    range: GeoCoordinates
+  ethics:
+    name: ethics
+    comments:
+    - Indicate which ethics policies are associated with the sample.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:ethics
+    range: Text
+  tissue:
+    name: tissue
+    comments:
+    - Indicate the tissue from which the sample was collected.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:tissue
+    range: AnatomicalStructure
+  anatomicalSystem:
+    name: anatomicalSystem
+    comments:
+    - An anatomical system is a group of anatomical structures that work together
+      to perform a certain task. Can include circulatory, digestive, endocrine, immune
+      and other systems
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:anatomicalSystem
+    range: AnatomicalSystem
+  dateModified:
+    name: dateModified
+    comments:
+    - Date sample record was last updated.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:dateModified
+    range: DateTime
+  developmentalStage:
+    name: developmentalStage
+    comments:
+    - A temporal subdivision of a developmental process, indicating the age or stage
+      of the object when the sample was created.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:developmentalStage
+    range: Text
+  contributor:
+    name: contributor
+    comments:
+    - Person or organization that contributes to the work.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:contributor
+    range: Organization
+  datePublished:
+    name: datePublished
+    comments:
+    - The date when the  record of the sample will be made publicly available.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:datePublished
+    range: DateTime
+  latitude:
+    name: latitude
+    comments:
+    - 'The latitude from which the sample was originally collected. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:latitude
+    range: GeoCoordinates
+  accessConditions:
+    name: accessConditions
+    comments:
+    - Sample access statement outlining conditions/requirements need to be fulfilled
+      before access to the sample is granted.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:accessConditions
+    range: Text
+  studyID:
+    name: studyID
+    comments:
+    - Indicate the study ID.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:studyID
+    range: URL
+  sex:
+    name: sex
+    comments:
+    - The biological sex of the individual from which the sample was obtained.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:sex
+    range: Text
+  funding:
+    name: funding
+    comments:
+    - Provide funding information.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:funding
+    range: Grant
+  submitter:
+    name: submitter
+    comments:
+    - 'The person or organization that registers the sample. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:submitter
+    range: Organization
+  sampleAvailability:
+    name: sampleAvailability
+    comments:
+    - Indicate whether this resource is available for reuse.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:sampleAvailability
+    range: Boolean
+  processingDate:
+    name: processingDate
+    comments:
+    - The date the sample was processed or used in a method.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:processingDate
+    range: DateTime
+  sampleType:
+    name: sampleType
+    comments:
+    - Indicate the type of sample
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:sampleType
+    range: URL
+  depth:
+    name: depth
+    comments:
+    - 'The extent downward or inward from the surface from which the sample was originally
+      collected. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:depth
+    range: QuantitativeValue
+  contactPoint:
+    name: contactPoint
+    comments:
+    - 'Person or organization that can be contacted for more information or support. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:contactPoint
+    range: Organization
+  collectionMethod:
+    name: collectionMethod
+    comments:
+    - 'Provide information about the conditions and methods of acquisition of samples. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:collectionMethod
+    range: Text
+  instrument:
+    name: instrument
+    comments:
+    - Provide description of instruments and devices used.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:instrument
+    range: URL
+  isDescribedBy:
+    name: isDescribedBy
+    comments:
+    - List publications where the sample is mentioned or described.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:isDescribedBy
+    range: Article
+  organ:
+    name: organ
+    comments:
+    - Anatomical structure that performs a specific function or group of function.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:organ
+    range: AnatomicalStructure
+  relationshipType:
+    name: relationshipType
+    comments:
+    - Describe the relationship to other entities or organisms e.g. parent, sibling,
+      symbiont.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:relationshipType
+    range: Text
+  studyTitle:
+    name: studyTitle
+    comments:
+    - Title of the study the samples belong to
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:studyTitle
+    range: Text
+  alternateIdentifier:
+    name: alternateIdentifier
+    comments:
+    - 'An additional identifier for the same instance of the resource. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:alternateIdentifier
+    range: Text
+  sampleProcess:
+    name: sampleProcess
+    comments:
+    - The processing technique that was applied to the sample, methods used to prepare
+      the samples.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:sampleProcess
+    range: Text
+  dateCollected:
+    name: dateCollected
+    comments:
+    - The date on which the sample was collected.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:dateCollected
+    range: DateTime
+  project:
+    name: project
+    comments:
+    - Information on the project.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:project
+    range: ResearchProject
+  relatedItem:
+    name: relatedItem
+    comments:
+    - Describe related items including other resources related to the samples.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:relatedItem
+    range: URL
+  scientificName:
+    name: scientificName
+    comments:
+    - The full scientific name (order, family, subfamily,  genus,specificEpithet).
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:scientificName
+    range: Text
+  longitude:
+    name: longitude
+    comments:
+    - 'The longitude from which the sample was originally collected. '
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:longitude
+    range: GeoCoordinates
+  maintainer:
+    name: maintainer
+    comments:
+    - The Person or Organization who is responsible for the Sample.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:maintainer
+    range: Organization
+  experimentalPurpose:
+    name: experimentalPurpose
+    comments:
+    - Describe the planned or executed experimental procedures involving the samples.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:experimentalPurpose
+    range: Text
+  environmentalSystem:
+    name: environmentalSystem
+    comments:
+    - A category or description of the habitat that describes elements of an ecosystem
+      where the sample was collected.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:environmentalSystem
+    range: Text
+classes:
+  BioSample:
+    name: BioSample
+    comments:
+    - 'A biological material entity that is representative of a whole.\nComments:
+      Typically samples are intended to be representative of the whole or aspects
+      thereof. Examples of samples include biomedical samples (blood, urine) and plant
+      specimens held at herbaria.\n\nVersion: 0.2 \ncreated by Nick Juty, Sara El-Gebali,
+      Leyla Jael Castro, Helena Schnitzer, Alban Gaignard, Ginger Tsueng, Rita Monteiro
+      and Joana Pauperio. Note, the property `funding` was originally added as `grant`,
+      but was changed to for consistency with schema.org.'
+    from_schema: http://example.org/example
+    is_a: Sample
+    slots:
+    - elevation
+    - keywords
+    - sampleQuantity
+    - sampleState
+    - sampleStorageTemperature
+    - locationOfOrigin
+    - ethics
+    - tissue
+    - anatomicalSystem
+    - dateModified
+    - developmentalStage
+    - contributor
+    - datePublished
+    - latitude
+    - accessConditions
+    - studyID
+    - sex
+    - funding
+    - submitter
+    - sampleAvailability
+    - processingDate
+    - sampleType
+    - depth
+    - contactPoint
+    - collectionMethod
+    - instrument
+    - isDescribedBy
+    - organ
+    - relationshipType
+    - studyTitle
+    - alternateIdentifier
+    - sampleProcess
+    - dateCollected
+    - project
+    - relatedItem
+    - scientificName
+    - longitude
+    - maintainer
+    - experimentalPurpose
+    - environmentalSystem
+    class_uri: bioschemastypesdrafts:BioSample
+  Sample:
+    name: Sample
+    from_schema: http://example.org/example
+    class_uri: bioschemastypesdrafts:Sample

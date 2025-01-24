@@ -1,0 +1,37 @@
+name: Course_v0.1-DRAFT-2018_04_25
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  rdf1:
+    prefix_prefix: rdf1
+    prefix_reference: https://www.w3.org/1999/02/22-rdf-syntax-ns#
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  type:
+    name: type
+    comments:
+    - This is used by validation tools to indentify the profile used. You must use
+      the value specified in the Controlled Vocabulary column. This is used by validation
+      tools to indentify the profile used. You must use the value specified in the
+      Controlled Vocabulary column.
+    from_schema: http://example.org/example
+    slot_uri: rdf1:type
+    range: URL
+classes:
+  Course:
+    name: Course
+    from_schema: http://example.org/example
+    slots:
+    - type
+    class_uri: schema1:Course

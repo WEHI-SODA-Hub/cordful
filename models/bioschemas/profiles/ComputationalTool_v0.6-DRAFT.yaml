@@ -1,0 +1,75 @@
+name: ComputationalTool_v0.6-DRAFT
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemas:
+    prefix_prefix: bioschemas
+    prefix_reference: https://discovery.biothings.io/view/bioschemas/
+default_prefix: example
+default_range: string
+slots:
+  programmingLanguage:
+    name: programmingLanguage
+    comments:
+    - The computer programming language.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:programmingLanguage
+    range: Text
+  codeRepository:
+    name: codeRepository
+    comments:
+    - Link to the repository where the un-compiled, human readable code and related
+      code is located (SVN, github, CodePlex).
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:codeRepository
+    range: Text
+  output:
+    name: output
+    comments:
+    - Specification of a produced output.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:output
+    range: FormalParameter
+  input:
+    name: input
+    comments:
+    - Specification of a consumed input.
+    from_schema: http://example.org/example
+    slot_uri: bioschemas:input
+    range: FormalParameter
+classes:
+  SoftwareApplication:
+    name: SoftwareApplication
+    from_schema: http://example.org/example
+    class_uri: schema1:SoftwareApplication
+  ComputationalTool:
+    name: ComputationalTool
+    comments:
+    - 'Bioschemas specification for describing a SoftwareApplication in the Life Sciences
+      The Life Science Tools specification provides a way to describe bioscience tools
+      and software on the World Wide Web. It defines a set of metadata and vocabularies,
+      built on top of existing technologies and standards, that can be used to represent
+      such tools in Web pages and applications. The goal of the specification is to
+      make it easier to discover, exchange and integrate information about life science
+      tools across the Internet. <h3>Summary of Changes</h3> <p>Changes since the
+      0.5-DRAFT of the tools profile:</p> <ul> <li>provided consumption use cases</li><li>renamed
+      profile to ComputationalTool</li><li>replaced the expected type of citation
+      to URL</li><li>renamed edam:has_input to input with a FormalParameter as expected
+      type</li><li>replaced serviceOutput property by output, with a FormalParameter
+      as expected type</li><li>removed type SoftwareSourceCode</li><li>minor typos
+      have been fixed</li> </ul> Version: 0.6-DRAFT'
+    from_schema: http://example.org/example
+    is_a: SoftwareApplication
+    slots:
+    - programmingLanguage
+    - codeRepository
+    - output
+    - input
+    class_uri: bioschemas:ComputationalTool

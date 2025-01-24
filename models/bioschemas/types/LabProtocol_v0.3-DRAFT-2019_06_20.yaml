@@ -1,0 +1,128 @@
+name: LabProtocol_v0.3-DRAFT-2019_06_20
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemastypesdrafts:
+    prefix_prefix: bioschemastypesdrafts
+    prefix_reference: https://discovery.biothings.io/view/bioschemastypesdrafts/
+default_prefix: example
+default_range: string
+slots:
+  protocolOutcome:
+    name: protocolOutcome
+    comments:
+    - Outcome or expected result by a protocol execution.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:protocolOutcome
+    range: CreativeWork
+  sampleUsed:
+    name: sampleUsed
+    comments:
+    - Sample used in the protocol. It could be a record in a Dataset describing the
+      sample or a physical object corresponding to the sample or a URL pointing to
+      the type of sample used.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:sampleUsed
+    range: BioSample
+  executionTime:
+    name: executionTime
+    comments:
+    - The time it takes to actually carry out the protocol in ISO 8601 date format.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:executionTime
+    range: Duration
+  reagent:
+    name: reagent
+    comments:
+    - Reagent used in the protocol. It can be a record in a Dataset describing the
+      reagent or a BioChemEntity corresponding to the reagent or a URL pointing to
+      the type of reagent used. ChEBI and PubChem entities can be used whenever available.
+      Commercial names are also acceptable (URL if possible).
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:reagent
+    range: URL
+  labEquipment:
+    name: labEquipment
+    comments:
+    - For LabProtocols it would be a laboratory equipment use by a person to follow
+      one or more steps described in this LabProtocol.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:labEquipment
+    range: URL
+  software:
+    name: software
+    comments:
+    - Software or tool used as part of the lab protocol to complete a part of it.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:software
+    range: SoftwareApplication
+  purpose:
+    name: purpose
+    comments:
+    - A goal towards an action is taken. Can be concrete or abstract.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:purpose
+    range: Thing
+  protocolAdvantage:
+    name: protocolAdvantage
+    comments:
+    - Situations where the Protocol has been successfully employed.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:protocolAdvantage
+    range: CreativeWork
+  protocolLimitation:
+    name: protocolLimitation
+    comments:
+    - Situations where the Protocol would be unreliable or otherwise unsuccessful.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:protocolLimitation
+    range: CreativeWork
+  step:
+    name: step
+    comments:
+    - A single step item (as HowToStep, text, document, video, etc.) or a HowToSection.
+      Supersedes steps.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:step
+    range: Text
+  protocolApplication:
+    name: protocolApplication
+    comments:
+    - Applications of the protocol list the full diversity of the applications of
+      the method and support if is possible to extend the range of applications of
+      the protocol. e.g. northern blot assays, sequencing, etc.
+    from_schema: http://example.org/example
+    slot_uri: bioschemastypesdrafts:protocolApplication
+    range: CreativeWork
+classes:
+  CreativeWork:
+    name: CreativeWork
+    from_schema: http://example.org/example
+    class_uri: schema1:CreativeWork
+  LabProtocol:
+    name: LabProtocol
+    comments:
+    - An experimental protocol is a sequence of tasks and operations executed to perform
+      experimental research in biological and biomedical areas. Version 0.3-DRAFT-2019_06_20
+    from_schema: http://example.org/example
+    is_a: CreativeWork
+    slots:
+    - protocolOutcome
+    - sampleUsed
+    - executionTime
+    - reagent
+    - labEquipment
+    - software
+    - purpose
+    - protocolAdvantage
+    - protocolLimitation
+    - step
+    - protocolApplication
+    class_uri: bioschemastypesdrafts:LabProtocol

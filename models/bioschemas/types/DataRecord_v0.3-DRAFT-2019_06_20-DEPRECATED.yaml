@@ -1,0 +1,47 @@
+name: DataRecord_v0.3-DRAFT-2019_06_20-DEPRECATED
+id: http://example.org/example
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  schema1:
+    prefix_prefix: schema1
+    prefix_reference: http://schema.org/
+  bioschemasdeprecated:
+    prefix_prefix: bioschemasdeprecated
+    prefix_reference: https://discovery.biothings.io/view/bioschemasdeprecated/
+default_prefix: example
+default_range: string
+slots:
+  includedInDataset:
+    name: includedInDataset
+    comments:
+    - A Dataset which contains this DataRecord.
+    from_schema: http://example.org/example
+    slot_uri: bioschemasdeprecated:includedInDataset
+    range: Dataset
+classes:
+  DataRecord:
+    name: DataRecord
+    deprecated: 'True'
+    comments:
+    - 'A DataRecord is a part of a Dataset. Not all datasets naturally fall into parts,
+      and some kinds of datasets (eg. relational and tabular) can be mapped into different
+      senses of "data record". Although data records can themselves be viewed as datasets,
+      for simplicity we do not declare this explicitly; if this perspective is needed
+      it can be added using multiple typing. Version: 0.3-DRAFT-2019_06_20 (2019-06-20).
+      Note this is type has been DEPRECATED.
+
+
+      '
+    from_schema: http://example.org/example
+    is_a: CreativeWork
+    slots:
+    - includedInDataset
+    class_uri: bioschemasdeprecated:DataRecord
+  CreativeWork:
+    name: CreativeWork
+    from_schema: http://example.org/example
+    class_uri: schema1:CreativeWork
